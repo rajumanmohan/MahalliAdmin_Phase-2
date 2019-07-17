@@ -9,26 +9,42 @@ import { TabsComponent } from './tabs.component';
 import { CarouselsComponent } from './carousels.component';
 import { CollapsesComponent } from './collapses.component';
 import { PaginationsComponent } from './paginations.component';
-import {PopoversComponent} from './popovers.component';
-import {ProgressComponent} from './progress.component';
-import {TooltipsComponent} from './tooltips.component';
-
+import { PopoversComponent } from './popovers.component';
+import { ProgressComponent } from './progress.component';
+import { TooltipsComponent } from './tooltips.component';
+import { AddbannersComponent } from './addbanners.component';
+import { AddsubbannerComponent } from './addsubbanner.component';
+import { AddsubsubcatComponent } from './addsubsubcat.component';
 const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Base'
+      title: 'Category'
     },
     children: [
       {
         path: '',
-        redirectTo: 'cards'
+        redirectTo: 'categories'
       },
       {
-        path: 'cards',
+        path: 'categories',
         component: CardsComponent,
         data: {
-          title: 'Cards'
+          title: 'categories'
+        }
+      },
+      {
+        path: 'addbanners',
+        component: AddbannersComponent,
+        data: {
+          title: 'add banners'
+        }
+      },
+      {
+        path: 'addsubcatbanners',
+        component: AddsubbannerComponent,
+        data: {
+          title: 'add banners'
         }
       },
       {
@@ -60,17 +76,24 @@ const routes: Routes = [
         }
       },
       {
-        path: 'carousels',
+        path: 'subcategories',
         component: CarouselsComponent,
         data: {
-          title: 'Carousels'
+          title: 'Sub category'
         }
       },
       {
-        path: 'collapses',
+        path: 'subsubcategories',
         component: CollapsesComponent,
         data: {
-          title: 'Collapses'
+          title: 'Sub Sub category'
+        }
+      },
+      {
+        path: 'addsubsubcategories',
+        component: AddsubsubcatComponent,
+        data: {
+          title: 'Add Sub Sub category'
         }
       },
       {
@@ -109,4 +132,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BaseRoutingModule {}
+export class BaseRoutingModule { }

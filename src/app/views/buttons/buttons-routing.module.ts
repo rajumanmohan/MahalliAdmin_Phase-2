@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ButtonsComponent } from './buttons.component';
 import { DropdownsComponent } from './dropdowns.component';
 import { BrandButtonsComponent } from './brand-buttons.component';
-
+import { AddmainbannerComponent } from './addmainbanner.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +21,13 @@ const routes: Routes = [
         component: ButtonsComponent,
         data: {
           title: 'Buttons'
+        }
+      },
+      {
+        path: 'addmainbanner',
+        component: AddmainbannerComponent,
+        data: {
+          title: 'banner'
         }
       },
       {
@@ -45,4 +52,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ButtonsRoutingModule {}
+export class ButtonsRoutingModule { }

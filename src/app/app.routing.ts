@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-
+import { AllusersComponent } from './views/allusers/allusers.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
@@ -20,6 +20,13 @@ export const routes: Routes = [
     component: P404Component,
     data: {
       title: 'Page 404'
+    }
+  },
+  {
+    path: 'allusers',
+    component: AllusersComponent,
+    data: {
+      title: 'Allusers'
     }
   },
   {
@@ -51,7 +58,7 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'base',
+        path: 'Category',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
       },
       {
@@ -81,6 +88,10 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
+      },
+      {
+        path: 'allusers',
+        loadChildren: () => import('./views/allusers/allusers.module').then(m => m.AllusersModule)
       }
     ]
   },
@@ -88,7 +99,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

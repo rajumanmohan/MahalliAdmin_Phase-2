@@ -4,6 +4,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { WidgetsComponent } from './widgets.component';
 import { WidgetsRoutingModule } from './widgets-routing.module';
+import { AddproductComponent } from './addproduct.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { WidgetsRoutingModule } from './widgets-routing.module';
     ChartsModule,
     BsDropdownModule
   ],
-  declarations: [ WidgetsComponent ]
+  declarations: [WidgetsComponent, AddproductComponent]
 })
 export class WidgetsModule { }

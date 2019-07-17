@@ -1,6 +1,6 @@
-import {Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
-
+import { Router } from '@angular/router';
 @Component({
   templateUrl: 'carousels.component.html',
   providers: [
@@ -13,28 +13,12 @@ export class CarouselsComponent implements OnDestroy {
   slides: any[] = [];
   activeSlideIndex: number = 0;
   noWrapSlides: boolean = false;
-
-  constructor() {
-    for (let i = 0; i < 4; i++) {
-      this.addSlide();
-    }
+  constructor(public router: Router) { }
+  addbanner() {
+    this.router.navigate(['/Category/addsubcatbanners']);
   }
 
   ngOnDestroy(): void {
-    this.myInterval = 0;
-    this.noWrapSlides = true;
-    this.myInterval = false;
-  }
-
-  addSlide(): void {
-    this.slides.push({
-      image: `https://lorempixel.com/900/500/abstract/${this.slides.length % 8 + 1}/`
-    });
-  }
-
-  removeSlide(index?: number): void {
-    const toRemove = index ? index : this.activeSlideIndex;
-    this.slides.splice(toRemove, 1);
   }
 
 }

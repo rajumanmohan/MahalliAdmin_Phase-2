@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { getStyle } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-
+import { Router } from '@angular/router';
 @Component({
   templateUrl: 'widgets.component.html'
 })
 export class WidgetsComponent {
-
+  constructor(public router: Router) { }
+  addproduct() {
+    this.router.navigate(['/widgets/addproduct']);
+  }
   // lineChart1
   public lineChart1Data: Array<any> = [
     {

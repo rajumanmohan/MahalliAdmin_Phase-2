@@ -34,98 +34,120 @@ export const navItems: NavData[] = [
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
+
   },
+  // {
+  //   title: true,
+  //   name: 'Theme'
+  // },
+  // {
+  //   name: 'USERS',
+  //   url: '/theme/colors',
+  //   icon: 'icon-drop'
+  // },
+  // {
+  //   name: 'Typography',
+  //   url: '/theme/typography',
+  //   icon: 'icon-pencil'
+  // },
+  // {
+  //   title: true,
+  //   name: 'Components'
+  // },
   {
-    title: true,
-    name: 'Theme'
-  },
-  {
-    name: 'Colors',
-    url: '/theme/colors',
-    icon: 'icon-drop'
-  },
-  {
-    name: 'Typography',
-    url: '/theme/typography',
-    icon: 'icon-pencil'
-  },
-  {
-    title: true,
-    name: 'Components'
-  },
-  {
-    name: 'Base',
-    url: '/base',
+    name: 'Main Categories',
+    url: '/Category',
     icon: 'icon-puzzle',
     children: [
       {
-        name: 'Cards',
-        url: '/base/cards',
+        name: 'Categories',
+        url: '/Category/categories',
         icon: 'icon-puzzle'
       },
       {
-        name: 'Carousels',
-        url: '/base/carousels',
+        name: 'Sub Categories',
+        url: '/Category/subcategories',
         icon: 'icon-puzzle'
       },
       {
-        name: 'Collapses',
-        url: '/base/collapses',
+        name: 'Sub Sub Categories',
+        url: '/Category/subsubcategories',
         icon: 'icon-puzzle'
       },
-      {
-        name: 'Forms',
-        url: '/base/forms',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Pagination',
-        url: '/base/paginations',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Popovers',
-        url: '/base/popovers',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Progress',
-        url: '/base/progress',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Switches',
-        url: '/base/switches',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tables',
-        url: '/base/tables',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tabs',
-        url: '/base/tabs',
-        icon: 'icon-puzzle'
-      },
-      {
-        name: 'Tooltips',
-        url: '/base/tooltips',
-        icon: 'icon-puzzle'
-      }
+      // {
+      //   name: 'Cards',
+      //   url: '/base/cards',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Carousels',
+      //   url: '/base/carousels',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Collapses',
+      //   url: '/base/collapses',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Forms',
+      //   url: '/Category/forms',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Pagination',
+      //   url: '/base/paginations',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Popovers',
+      //   url: '/base/popovers',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Progress',
+      //   url: '/base/progress',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Switches',
+      //   url: '/base/switches',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Tables',
+      //   url: '/base/tables',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Tabs',
+      //   url: '/base/tabs',
+      //   icon: 'icon-puzzle'
+      // },
+      // {
+      //   name: 'Tooltips',
+      //   url: '/base/tooltips',
+      //   icon: 'icon-puzzle'
+      // }
     ]
   },
   {
-    name: 'Buttons',
+    name: 'Coupon Management',
+    url: '/charts',
+    icon: 'icon-pie-chart'
+  },
+  {
+    name: 'Products',
+    url: '/widgets',
+    icon: 'icon-calculator',
+  },
+  {
+    name: 'Banner Management',
     url: '/buttons',
     icon: 'icon-cursor',
     children: [
       {
-        name: 'Buttons',
+        name: 'Main Banner',
         url: '/buttons/buttons',
         icon: 'icon-cursor'
       },
@@ -141,11 +163,7 @@ export const navItems: NavData[] = [
       }
     ]
   },
-  {
-    name: 'Charts',
-    url: '/charts',
-    icon: 'icon-pie-chart'
-  },
+
   {
     name: 'Icons',
     url: '/icons',
@@ -203,72 +221,6 @@ export const navItems: NavData[] = [
       }
     ]
   },
-  {
-    name: 'Widgets',
-    url: '/widgets',
-    icon: 'icon-calculator',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
-  {
-    divider: true
-  },
-  {
-    title: true,
-    name: 'Extras',
-  },
-  {
-    name: 'Pages',
-    url: '/pages',
-    icon: 'icon-star',
-    children: [
-      {
-        name: 'Login',
-        url: '/login',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Register',
-        url: '/register',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Error 404',
-        url: '/404',
-        icon: 'icon-star'
-      },
-      {
-        name: 'Error 500',
-        url: '/500',
-        icon: 'icon-star'
-      }
-    ]
-  },
-  {
-    name: 'Disabled',
-    url: '/dashboard',
-    icon: 'icon-ban',
-    badge: {
-      variant: 'secondary',
-      text: 'NEW'
-    },
-    attributes: { disabled: true },
-  },
-  {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
-    class: 'mt-auto',
-    variant: 'success',
-    attributes: { target: '_blank', rel: 'noopener' }
-  },
-  {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
-    variant: 'danger',
-    attributes: { target: '_blank', rel: 'noopener' }
-  }
+
+
 ];

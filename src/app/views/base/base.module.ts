@@ -45,6 +45,9 @@ import { TooltipsComponent } from './tooltips.component';
 
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
+import { AddbannersComponent } from './addbanners.component';
+import { AddsubbannerComponent } from './addsubbanner.component';
+import { AddsubsubcatComponent } from './addsubsubcat.component';
 
 @NgModule({
   imports: [
@@ -71,7 +74,10 @@ import { BaseRoutingModule } from './base-routing.module';
     PaginationsComponent,
     PopoversComponent,
     ProgressComponent,
-    TooltipsComponent
+    TooltipsComponent,
+    AddbannersComponent,
+    AddsubbannerComponent,
+    AddsubsubcatComponent
   ]
 })
 export class BaseModule { }
