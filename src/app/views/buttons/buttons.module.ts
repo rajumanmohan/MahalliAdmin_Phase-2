@@ -12,6 +12,10 @@ import { DropdownsComponent } from './dropdowns.component';
 // Buttons Routing
 import { ButtonsRoutingModule } from './buttons-routing.module';
 import { AddmainbannerComponent } from './addmainbanner.component';
+import { AddfeaturebannerComponent } from './addfeaturebanner.component';
+import { AddecommercebannersComponent } from './addecommercebanners.component';
+import { BrandbannerComponent } from './brandbanner.component';
+import { AddbrandbannersComponent } from './addbrandbanners/addbrandbanners.component';
 
 // Angular
 
@@ -26,7 +30,11 @@ import { AddmainbannerComponent } from './addmainbanner.component';
     ButtonsComponent,
     DropdownsComponent,
     BrandButtonsComponent,
-    AddmainbannerComponent
+    AddmainbannerComponent,
+    AddfeaturebannerComponent,
+    AddecommercebannersComponent,
+    BrandbannerComponent,
+    AddbrandbannersComponent
   ]
 })
 export class ButtonsModule { }

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-addmainbanner',
-  templateUrl: './addmainbanner.component.html',
-  styleUrls: ['./addmainbanner.component.scss']
+  templateUrl: './addmainbanner.component.html'
 })
 export class AddmainbannerComponent implements OnInit {
-
-  constructor() { }
-
+  constructor(private router: Router) { }
+  backtobanner() {
+    this.router.navigate(['/buttons']);
+  }
   ngOnInit() {
   }
-
 }

@@ -1,5 +1,5 @@
-import {Component, OnDestroy} from '@angular/core';
-
+import { Component, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
   templateUrl: 'dropdowns.component.html',
   styleUrls: ['dropdowns.component.css']
@@ -17,9 +17,11 @@ export class DropdownsComponent implements OnDestroy {
     'but wait! A third!'
   ];
 
-  constructor() { }
-
-  ngOnDestroy () {
+  constructor(private router: Router) { }
+  addbanner() {
+    this.router.navigate(['/buttons/addfeaturedbuttons']);
+  }
+  ngOnDestroy() {
     this.status.isOpen = false;
   }
 
