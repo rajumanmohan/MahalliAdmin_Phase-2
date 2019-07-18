@@ -5,6 +5,10 @@ import { ButtonsComponent } from './buttons.component';
 import { DropdownsComponent } from './dropdowns.component';
 import { BrandButtonsComponent } from './brand-buttons.component';
 import { AddmainbannerComponent } from './addmainbanner.component';
+import { AddfeaturebannerComponent } from './addfeaturebanner.component';
+import { AddecommercebannersComponent } from './addecommercebanners.component';
+import { BrandbannerComponent } from './brandbanner.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -43,7 +47,28 @@ const routes: Routes = [
         data: {
           title: 'Brand buttons'
         }
-      }
+      },
+      {
+        path: 'addfeaturedbuttons',
+        component: AddfeaturebannerComponent,
+        data: {
+          title: 'Brand buttons'
+        }
+      },
+      {
+        path: 'addecommerce',
+        component: AddecommercebannersComponent,
+        data: {
+          title: 'Brand buttons'
+        }
+      },
+      {
+        path: 'brandbanner',
+        component: BrandbannerComponent,
+        data: {
+          title: 'Brand buttons'
+        }
+      },
     ]
   }
 ];

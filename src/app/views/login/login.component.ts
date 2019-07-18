@@ -32,17 +32,17 @@ adminLogin() {
   this.loginForm.value.role = "Admin"
       this.appService.adminlogin(this.loginForm.value).subscribe(resp => {
         // swal("test","","success")
-          // if (resp.json().status == 200) {
+          // if (resp.status == 200) {
           //     swal(resp.json().message, '', 'success');
           //     sessionStorage.setItem("role", resp.json().role);
           //     sessionStorage.setItem("profile", JSON.stringify(resp.json().row));
-          //     this.router.navigate(['/dashboard']);
+              this.router.navigate(['/dashboard']);
           //     // if (resp.json().role === "wholesaler") {
           //     //     sessionStorage.setItem("wholesalerId", resp.json().id);
           //     // }
           // }
-          // else if (resp.json().status == 400) {
-          //     swal(resp.json().message, '', 'error');
+          // else if (resp.status == 400) {
+              // swal(resp.json().message, '', 'error');
           //     this.router.navigate(['/'])
           // }
       })

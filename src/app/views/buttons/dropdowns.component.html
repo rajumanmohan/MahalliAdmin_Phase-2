@@ -1,214 +1,128 @@
 <div class="animated fadeIn">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Bootstrap Dropdowns
-          <div class="card-header-actions">
-            <a href="https://valor-software.com/ngx-bootstrap/#/dropdowns" target="_blank">
-              <small className="text-muted">docs</small>
-            </a>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown>
-            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-              Button dropdown <span class="caret"></span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small>trigger by <code>&lt;a&gt;</code></small>
-        </div>
-        <div class="card-body">
-      <span dropdown (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
-        <a href dropdownToggle (click)="false">Click me for a dropdown, yo!</a>
-          <ul *dropdownMenu class="dropdown-menu">
-            <li *ngFor="let choice of items">
-              <a class="dropdown-item" href="#">{{choice}}</a>
-            </li>
-          </ul>
-      </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small>split button</small>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown>
-            <button type="button" class="btn btn-danger">Action</button>
-            <button type="button" dropdownToggle class="btn btn-danger dropdown-toggle dropdown-toggle-split">
-              <span class="caret"></span>
-              <span class="sr-only">Split button!</span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else
-                here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small>manual triggers</small>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown [isOpen]="status.isOpen" (isOpenChange)="change($event)" placement="top">
-            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-              Button dropdown <span class="caret"></span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else
-                here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>
-            </ul>
-          </div>
-          <button type="button" class="btn btn-primary" (click)="toggleDropdown($event)">Toggle</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small>disabled menu</small>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown [isDisabled]="disabled">
-            <button dropdownToggle type="button" class="btn btn-primary dropdownToggle">
-              Button dropdown <span class="caret"></span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else
-                here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>
-            </ul>
-          </div>
-          <button type="button" class="btn btn-warning" (click)="disabled = !disabled">
-            Enable/Disable
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small>menu alignment</small>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown placement="bottom right">
-            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-              This menu is right-aligned <span class="caret"></span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small>dropup variation</small>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown [dropup]="isDropup">
-            <button id="button-dropup" dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-              Dropup <span class="caret"></span>
-            </button>
-            <ul id="dropdown-dropup" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-dropup">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else
-                here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="true" [(ngModel)]="isDropup"
-                     style="display: inline-block;">
-              {{ isDropup ? 'Is dropup' : 'Is dropdown' }}
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Dropdowns
-          <small> with <code>autoClose</code></small>
-        </div>
-        <div class="card-body">
-          <div class="btn-group" dropdown [autoClose]="autoClose">
-            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-              Button dropdown <span class="caret"></span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
-              </li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else
-                here</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+	<div class="row">
+
+		<div class="col-lg-12">
+			<div class="card pt-5 mt-5">
+				<div class="container">
+					<div class="row align-items-center mb-3">
+						<div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+							<button type="button" class="btn btn-block btn-secondary">Vendor Ecommerce</button>
+						</div>
+						<div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+							<button type="button" class="btn btn-block btn-warning">User Ecommerce</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<h1>Featured Banners</h1>
+						</div>
+						<div class="col-lg-6 text-right">
+							<button type="button" class="btn  btn-primary" (click)="addbanner()">Add Banner</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<input type="text" class="form-control" id="ccnumber" placeholder="Search">
+							</div>
+						</div>
+					</div>
+					<!--/.row-->
+				</div>
+
+				<div class="card-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>S No</th>
+								<th>Mobile Banner</th>
+								<th>Website Banner</th>
+								<th>Type</th>
+								<th>Target</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td>text Category</td>
+								<td>147</td>
+								<td>
+									<a><img src="assets/img/edit.png" class="edit"></a>
+									<a><img src="assets/img/delete.png" class="delete"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td>text Category</td>
+								<td>147</td>
+								<td>
+									<a><img src="assets/img/edit.png" class="edit"></a>
+									<a><img src="assets/img/delete.png" class="delete"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td>text Category</td>
+								<td>147</td>
+								<td>
+									<a><img src="assets/img/edit.png" class="edit"></a>
+									<a><img src="assets/img/delete.png" class="delete"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td>text Category</td>
+								<td>147</td>
+								<td>
+									<a><img src="assets/img/edit.png" class="edit"></a>
+									<a><img src="assets/img/delete.png" class="delete"></a>
+								</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+										src="assets/img/avatars/6.jpg"></td>
+								<td>text Category</td>
+								<td>147</td>
+								<td>
+									<a><img src="assets/img/edit.png" class="edit"></a>
+									<a><img src="assets/img/delete.png" class="delete"></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<ul class="pagination">
+						<li class="page-item"><a class="page-link" href="#">Prev</a></li>
+						<li class="page-item active">
+							<a class="page-link" href="#">1</a>
+						</li>
+						<li class="page-item"><a class="page-link" href="#">2</a></li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item"><a class="page-link" href="#">4</a></li>
+						<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

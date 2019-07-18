@@ -10,10 +10,17 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'dashboard',
+  //   pathMatch: 'full',
+  // },
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page'
+    }
   },
   {
     path: '404',
