@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
+import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-
+constructor(private appService:AppService){
+  
+}
   radioModel: string = 'Month';
 
   // lineChart1
@@ -241,7 +244,7 @@ export class DashboardComponent implements OnInit {
       mode: 'index',
       position: 'nearest',
       callbacks: {
-        labelColor: function(tooltipItem, chart) {
+        labelColor: function (tooltipItem, chart) {
           return { backgroundColor: chart.data.datasets[tooltipItem.datasetIndex].borderColor };
         }
       }
@@ -254,7 +257,7 @@ export class DashboardComponent implements OnInit {
           drawOnChartArea: false,
         },
         ticks: {
-          callback: function(value: any) {
+          callback: function (value: any) {
             return value.charAt(0);
           }
         }
@@ -378,6 +381,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAdminCount();
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
@@ -385,4 +389,23 @@ export class DashboardComponent implements OnInit {
       this.mainChartData3.push(65);
     }
   }
+  Count;
+  userCount;
+//   userorders: 16
+// users: 61
+// venderorders: 12
+// venders: 0
+// wholeseller: 11/
+  getAdminCount() {
+      this.appService.getAdminCount().subscribe(res => {
+          this.Count = res.data;
+          // this.userCount = res.json().data.users;
+      })
+  }
+  // getWholeProddsCunt(){
+  //     this.appService.getWholeProddsCunt().subscribe(res => {
+  //         this.wholeCount = res.json().data;
+  //         // this.userCount = res.json().data.users;
+  //     })  
+  // }
 }

@@ -20,6 +20,14 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+// services
+import { AppService } from './services/mahali/mahali-data.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CKEditorModule } from 'ng2-ckeditor';
+
+import swal from 'sweetalert';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -53,6 +61,10 @@ import { AllusersComponent } from './views/allusers/allusers.component';
     AppHeaderModule,
     AppSidebarModule,
     PerfectScrollbarModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    CKEditorModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule
@@ -64,12 +76,13 @@ import { AllusersComponent } from './views/allusers/allusers.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    AllusersComponent
+    AllusersComponent,
+
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  }, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
