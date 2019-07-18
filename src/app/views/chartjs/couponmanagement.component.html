@@ -43,13 +43,14 @@
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="company">Start Date</label>
-                            <input type="text" class="form-control" id="city">
+                            <!-- <input type="text" class="form-control" id="city"> -->
+                            <my-date-picker name="model" [options]="myDatePickerOptions"   [(ngModel)]="startDate" required></my-date-picker>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="company">End Date</label>
-                            <input type="text" class="form-control" id="city" placeholder="End Date">
+                            <my-date-picker name="model1" [options]="myDatePickerOptions"  required></my-date-picker>
                         </div>
                     </div>
 

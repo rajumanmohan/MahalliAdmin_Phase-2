@@ -1,3 +1,4 @@
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -10,11 +11,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // },
+  
   {
     path: '',
     component: LoginComponent,
@@ -22,6 +19,13 @@ export const routes: Routes = [
       title: 'Login Page'
     }
   },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   data: {
+  //     title: 'DashBoard'
+  //   }
+  // },
   {
     path: '404',
     component: P404Component,

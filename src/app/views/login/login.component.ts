@@ -29,13 +29,13 @@ adminLogin() {
   //     "email": this.email,
   //     "password": this.password,
   // }
-  this.loginForm.value.role = "Admin"
+  // this.loginForm.value.role = "Admin";
       this.appService.adminlogin(this.loginForm.value).subscribe(resp => {
         // swal("test","","success")
           // if (resp.status == 200) {
           //     swal(resp.json().message, '', 'success');
-          //     sessionStorage.setItem("role", resp.json().role);
-          //     sessionStorage.setItem("profile", JSON.stringify(resp.json().row));
+              sessionStorage.setItem("role", resp.role);
+              sessionStorage.setItem("profile", JSON.stringify(resp.row));
               this.router.navigate(['/dashboard']);
           //     // if (resp.json().role === "wholesaler") {
           //     //     sessionStorage.setItem("wholesalerId", resp.json().id);

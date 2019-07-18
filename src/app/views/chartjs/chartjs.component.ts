@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from './../../services/mahali/mahali-data.service';
+
 @Component({
   templateUrl: 'chartjs.component.html'
 })
-export class ChartJSComponent {
-  constructor(public router: Router) { }
+export class ChartJSComponent implements OnInit {
+  constructor(public router: Router,private appService: AppService) { }
+  coupons=[];
+  ngOnInit(){
+    this.getCoupons();
+  }
   addcoupon() {
     this.router.navigate(['/charts/addcoupon']);
   }
@@ -97,5 +103,13 @@ export class ChartJSComponent {
   public chartHovered(e: any): void {
     console.log(e);
   }
+  getCoupons() {
+    // this.spinnerService.show();
+    this.appService.getVouchers().subscribe(resp => {
+        // this.spinnerService.hide();
+        this.coupons = resp.data;
+        console.log(this.coupons);
 
+    })
+}
 }

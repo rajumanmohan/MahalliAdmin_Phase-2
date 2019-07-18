@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
+// import swal from 'sweetalert2';
+
 
 @Component({
     templateUrl: 'cards.component.html'
@@ -78,6 +80,8 @@ export class CardsComponent implements OnInit {
                 })
     }
     deleteCat(id) {
+        swal('hi',"","success");
+        return;
         // this.spinnerService.show();
         // swal("Do you want to delete?", "", "warning", {
         //     buttons: ["Cancel!", "Okay!"],

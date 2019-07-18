@@ -38,20 +38,20 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>text </td>
-                <td>texty</td>
-                <td>2</td>
-                <td>12</td>
-                <td>145</td>
-                <td>12</td>
+              <tr *ngFor="let coupons of coupons;let i=index">
+                <td>{{i+1}}</td>
+                <td>{{coupons.voucher_code}}</td>
+                <td>{{coupons.discount_type===1?'Percentage':'Flat' }}</td>
+                <td>{{coupons.discount_amount}}</td>
+                <td>{{coupons.discount_percentage}}</td>
+                <td>{{coupons.total_count}}</td>
+                <td>{{coupons.minimum_value}}</td>
                 <td>
                   <a><img src="assets/img/edit.png" class="edit"></a>
                   <a><img src="assets/img/delete.png" class="delete"></a>
                 </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td>2</td>
                 <td>text </td>
                 <td>texty</td>
@@ -102,10 +102,10 @@
                   <a><img src="assets/img/edit.png" class="edit"></a>
                   <a><img src="assets/img/delete.png" class="delete"></a>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
-          <ul class="pagination">
+          <!-- <ul class="pagination">
             <li class="page-item"><a class="page-link" href="#">Prev</a></li>
             <li class="page-item active">
               <a class="page-link" href="#">1</a>
@@ -114,7 +114,7 @@
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">4</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>

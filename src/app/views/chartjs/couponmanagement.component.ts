@@ -14,4 +14,7 @@ export class CouponmanagementComponent implements OnInit {
   backtocoupon() {
     this.router.navigate(['/charts']);
   }
+  test(){
+    alert('hi');
+  }
 }

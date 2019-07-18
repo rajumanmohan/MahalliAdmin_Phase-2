@@ -1,4 +1,4 @@
-import { Component, OnDestroy,OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
@@ -20,16 +20,77 @@ export class CarouselsComponent implements OnInit {
   EcomCats;
   type;
   category;
-  constructor(public router: Router,private appService:AppService) { }
+  constructor(public router: Router, private appService: AppService) { }
+  grocerySubCats;
+  ecomSubcats;
+  actionType;
+  subCategory = [];
   addbanner() {
     this.router.navigate(['/Category/addsubcatbanners']);
   }
 
   // ngOnDestroy(): void {
   // }
-  ngOnInit(){
-    // this.getGroceryCats();
+  ngOnInit() {
+    this.getSubCategory();
 
   }
-  
+  getSubCategory() {
+    this.grocerySubCats = true;
+    this.ecomSubcats = false;
+    this.actionType = "grocery";
+    // this.spinnerService.show();
+    this.appService.getSubCategery().subscribe(resp => {
+      // this.spinnerService.hide();
+      this.subCategory = resp.result;
+      if (resp.result.length === 0) {
+        swal("No data found, please add new one", '', 'error');
+      }
+    },
+      error => {
+        console.log(error, "error");
+      }
+    )
+  }
+  getEcomSubCategory() {
+    this.grocerySubCats = false;
+    this.ecomSubcats = true;
+    this.actionType = "ecom";
+    // this.spinnerService.show();
+    this.appService.getEcomSubcats().subscribe(resp => {
+      // this.spinnerService.hide();
+      this.subCategory = resp.result;
+      if (resp.result.length === 0) {
+        swal("No data found, please add new one", '', 'error');
+      }
+    },
+      error => {
+        console.log(error, "error");
+      }
+    )
+  }
+  deleteSubCat(id) {
+    // alert(id);
+    // this.spinnerService.show();
+    // swal("Do you want to delete?", "", "warning", {
+    //   buttons: ["Cancel!", "Okay!"],
+    // }).then((value) => {
+    //   if (value === true) {
+        var data = {
+          'id': id
+        }
+        this.appService.deleteSubCat(data).subscribe(resp => {
+          // this.spinnerService.hide();
+          swal("delete subCat successfully", '', 'success');
+          this.getSubCategory();
+        })
+      // } 
+    //   else {
+    //     return;
+    //   }
+    // });
+
+  }
+
+
 }

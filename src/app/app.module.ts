@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
+import { MyDatePickerModule } from 'mydatepicker';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -27,7 +28,7 @@ import { AppService } from './services/mahali/mahali-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CKEditorModule } from 'ng2-ckeditor';
 
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -65,6 +66,7 @@ import { AllusersComponent } from './views/allusers/allusers.component';
     FormsModule,
     HttpClientModule,
     CKEditorModule,
+    MyDatePickerModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule
