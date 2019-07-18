@@ -8,12 +8,14 @@ import { AddmainbannerComponent } from './addmainbanner.component';
 import { AddfeaturebannerComponent } from './addfeaturebanner.component';
 import { AddecommercebannersComponent } from './addecommercebanners.component';
 import { BrandbannerComponent } from './brandbanner.component';
-
+import { AddbrandbannersComponent } from './addbrandbanners.component';
+import { SinglebannerComponent } from './singlebanner.component';
+import { AddsinglebannerComponent } from './addsinglebanner.component';
 const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Buttons'
+      title: 'Main Banners'
     },
     children: [
       {
@@ -24,7 +26,7 @@ const routes: Routes = [
         path: 'buttons',
         component: ButtonsComponent,
         data: {
-          title: 'Buttons'
+          title: 'Main Banners'
         }
       },
       {
@@ -52,21 +54,42 @@ const routes: Routes = [
         path: 'addfeaturedbuttons',
         component: AddfeaturebannerComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Featured Banner'
         }
       },
       {
         path: 'addecommerce',
         component: AddecommercebannersComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Ecommerce Banner'
         }
       },
       {
         path: 'brandbanner',
         component: BrandbannerComponent,
         data: {
-          title: 'Brand buttons'
+          title: 'Brand Banner'
+        }
+      },
+      {
+        path: 'addbrnadbanner',
+        component: AddbrandbannersComponent,
+        data: {
+          title: 'Add Brand banner'
+        }
+      },
+      {
+        path: 'singlebanner',
+        component: SinglebannerComponent,
+        data: {
+          title: 'Single Banner'
+        }
+      },
+      {
+        path: 'addsinglebanner',
+        component: AddsinglebannerComponent,
+        data: {
+          title: 'Add SingleBanner'
         }
       },
     ]

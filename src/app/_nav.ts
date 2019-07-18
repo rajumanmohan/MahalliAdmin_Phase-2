@@ -144,93 +144,201 @@ export const navItems: NavData[] = [
   {
     name: 'Banner Management',
     url: '/buttons',
-    icon: 'icon-cursor',
+    icon: 'icon-picture',
     children: [
       {
         name: 'Main Banner',
         url: '/buttons/buttons',
-        icon: 'icon-cursor'
+        icon: 'icon-picture '
       },
       {
         name: 'Feature Brands ',
         url: '/buttons/dropdowns',
-        icon: 'icon-cursor'
+        icon: 'icon-picture '
       },
       {
         name: 'Ecommerce Single ',
         url: '/buttons/brand-buttons',
-        icon: 'icon-cursor'
+        icon: 'icon-picture '
       },
       {
         name: 'Brand Categories',
         url: '/buttons/brandbanner',
-        icon: 'icon-cursor'
+        icon: 'icon-picture '
       },
       {
         name: 'Grocery Single Banner',
-        url: '/buttons/addmainbanner',
-        icon: 'icon-cursor'
+        url: '/buttons/singlebanner',
+        icon: 'icon-picture '
       }
     ]
   },
 
-    // {
-    //   name: 'Icons',
-    //   url: '/icons',
-    //   icon: 'icon-star',
-    //   children: [
-    //     {
-    //       name: 'CoreUI Icons',
-    //       url: '/icons/coreui-icons',
-    //       icon: 'icon-star',
-    //       badge: {
-    //         variant: 'success',
-    //         text: 'NEW'
-    //       }
-    //     },
-    //     {
-    //       name: 'Flags',
-    //       url: '/icons/flags',
-    //       icon: 'icon-star'
-    //     },
-    //     {
-    //       name: 'Font Awesome',
-    //       url: '/icons/font-awesome',
-    //       icon: 'icon-star',
-    //       badge: {
-    //         variant: 'secondary',
-    //         text: '4.7'
-    //       }
-    //     },
-    //     {
-    //       name: 'Simple Line Icons',
-    //       url: '/icons/simple-line-icons',
-    //       icon: 'icon-star'
-    //     }
-    //   ]
-    // },
-    // {
-    //   name: 'Notifications',
-    //   url: '/notifications',
-    //   icon: 'icon-bell',
-    //   children: [
-    //     {
-    //       name: 'Alerts',
-    //       url: '/notifications/alerts',
-    //       icon: 'icon-bell'
-    //     },
-    //     {
-    //       name: 'Badges',
-    //       url: '/notifications/badges',
-    //       icon: 'icon-bell'
-    //     },
-    //     {
-    //       name: 'Modals',
-    //       url: '/notifications/modals',
-    //       icon: 'icon-bell'
-    //     }
-    //   ]
-    // },
+  // {
+  //   name: 'Icons',
+  //   url: '/icons',
+  //   icon: 'icon-star',
+  //   children: [
+  //     {
+  //       name: 'CoreUI Icons',
+  //       url: '/icons/coreui-icons',
+  //       icon: 'icon-star',
+  //       badge: {
+  //         variant: 'success',
+  //         text: 'NEW'
+  //       }
+  //     },
+  //     {
+  //       name: 'Flags',
+  //       url: '/icons/flags',
+  //       icon: 'icon-star'
+  //     },
+  //     {
+  //       name: 'Font Awesome',
+  //       url: '/icons/font-awesome',
+  //       icon: 'icon-star',
+  //       badge: {
+  //         variant: 'secondary',
+  //         text: '4.7'
+  //       }
+  //     },
+  //     {
+  //       name: 'Simple Line Icons',
+  //       url: '/icons/simple-line-icons',
+  //       icon: 'icon-star'
+  //     }
+  //   ]
+  // },
+  // {
+  //   name: 'Notifications',
+  //   url: '/notifications',
+  //   icon: 'icon-bell',
+  //   children: [
+  //     {
+  //       name: 'Alerts',
+  //       url: '/notifications/alerts',
+  //       icon: 'icon-bell'
+  //     },
+  //     {
+  //       name: 'Badges',
+  //       url: '/notifications/badges',
+  //       icon: 'icon-bell'
+  //     },
+  //     {
+  //       name: 'Modals',
+  //       url: '/notifications/modals',
+  //       icon: 'icon-bell'
+  //     }
+  //   ]
+  // },
+  {
+    name: 'User Management',
+    url: '/userslist',
+    icon: 'icon-user',
+    children: [
+      {
+        name: 'Users',
+        url: '/userslist',
+        icon: 'icon-user',
+      },
+      {
+        name: 'Users Orders',
+        url: '/userslist/userorders',
+        icon: 'fa fa-cart-plus ',
+      }
+    ]
+  },
 
+  {
+    name: 'Wholeseller ',
+    url: '/wholeseller',
+    icon: 'icon-user'
+  },
+  {
+    name: 'Vendors',
+    url: '',
+    icon: 'icon-user',
+    children: [
+      {
+        name: 'Vendors List',
+        url: ' ',
+        icon: 'icon-user',
+      },
+      {
+        name: 'Products for Approval',
+        url: '',
+        icon: 'fa fa-cart-plus ',
+      },
+      {
+        name: 'Vendor Orders',
+        url: '',
+        icon: 'fa fa-cart-plus ',
+      },
+    ]
+  },
 
+  {
+    name: 'Suggested Products',
+    url: ' ',
+    icon: 'fa fa-cart-plus ',
+  },
+  {
+    name: 'Content ',
+    url: '',
+    icon: 'fa fa-file-text-o',
+    children: [
+      {
+        name: 'About Mahali',
+        url: ' ',
+        icon: 'fa fa-file-text-o',
+      },
+      {
+        name: 'Terms & Conditions',
+        url: '',
+        icon: 'fa fa-file-text-o',
+      },
+      {
+        name: 'Privacy Policy',
+        url: '',
+        icon: 'fa fa-file-text-o',
+      },
+      {
+        name: 'Top Sellers',
+        url: '',
+        icon: 'fa fa-file-text-o',
+      },
+      {
+        name: 'Our Blogs',
+        url: '',
+        icon: 'fa fa-file-text-o',
+      },
+      {
+        name: 'News Teller',
+        url: '',
+        icon: 'fa fa-file-text-o',
+      },
+    ]
+  },
+  {
+    name: 'Commision ',
+    url: '',
+    icon: 'fa fa-money',
+    children: [
+      {
+        name: 'Vendor',
+        url: ' ',
+        icon: 'fa fa-money',
+      },
+      {
+        name: 'Whole Seller',
+        url: '',
+        icon: 'fa fa-money',
+      }
+    ]
+  },
+  {
+    name: 'Staff',
+    url: '',
+    icon: 'icon-user',
+  }
 ];

@@ -1,50 +1,115 @@
-<div class="app-body">
-    <main class="main d-flex align-items-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 mx-auto">
-            <div class="card-group">
-              <div class="card p-4">
-                <div class="card-body">
-                  <form>
-                    <h1>Login</h1>
-                    <p class="text-muted">Sign In to your account</p>
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="icon-user"></i></span>
-                      </div>
-                      <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
-                    </div>
-                    <div class="input-group mb-4">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="icon-lock"></i></span>
-                      </div>
-                      <input type="password" class="form-control" placeholder="Password" autocomplete="current-password" required>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">
-                        <button type="button" class="btn btn-primary px-4">Login</button>
-                      </div>
-                      <div class="col-6 text-right">
-                        <button type="button" class="btn btn-link px-0">Forgot password?</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-                <div class="card-body text-center">
-                  <div>
-                    <h2>Sign up</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <button type="button" class="btn btn-primary active mt-3">Register Now!</button>
-                  </div>
-                </div>
+<div class="animated fadeIn">
+
+  <div class="row">
+
+    <div class="col-lg-12">
+      <div class="card pt-5 mt-5">
+        <div class="container">
+          <div class="row align-items-center mb-3">
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button type="button" class="btn btn-block btn-warning">User Grocery</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <h1>Single Banners</h1>
+            </div>
+            <div class="col-lg-6 text-right">
+              <button type="button" class="btn  btn-primary" (click)="addsinglebanner()">Add Banner</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
               </div>
             </div>
           </div>
+          <!--/.row-->
+        </div>
+
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>S No</th>
+                <th>Mobile Banner</th>
+                <th>Website Banner</th>
+                <th>Type</th>
+                <th>Target</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td>text Category</td>
+                <td>147</td>
+                <td>
+                  <a><img src="assets/img/edit.png" class="edit"></a>
+                  <a><img src="assets/img/delete.png" class="delete"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td>text Category</td>
+                <td>147</td>
+                <td>
+                  <a><img src="assets/img/edit.png" class="edit"></a>
+                  <a><img src="assets/img/delete.png" class="delete"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td>text Category</td>
+                <td>147</td>
+                <td>
+                  <a><img src="assets/img/edit.png" class="edit"></a>
+                  <a><img src="assets/img/delete.png" class="delete"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td>text Category</td>
+                <td>147</td>
+                <td>
+                  <a><img src="assets/img/edit.png" class="edit"></a>
+                  <a><img src="assets/img/delete.png" class="delete"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
+                <td>text Category</td>
+                <td>147</td>
+                <td>
+                  <a><img src="assets/img/edit.png" class="edit"></a>
+                  <a><img src="assets/img/delete.png" class="delete"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
         </div>
       </div>
-    </main>
+    </div>
   </div>
-  
+</div>

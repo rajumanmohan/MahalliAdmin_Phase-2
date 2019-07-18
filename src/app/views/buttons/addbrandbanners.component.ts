@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-addbrandbanners',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddbrandbannersComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  backtobrnadbanner() {
+    this.router.navigate(['/buttons/brandbanner']);
+  }
   ngOnInit() {
   }
 

@@ -15,7 +15,9 @@ import { AddmainbannerComponent } from './addmainbanner.component';
 import { AddfeaturebannerComponent } from './addfeaturebanner.component';
 import { AddecommercebannersComponent } from './addecommercebanners.component';
 import { BrandbannerComponent } from './brandbanner.component';
-import { AddbrandbannersComponent } from './addbrandbanners/addbrandbanners.component';
+import { AddbrandbannersComponent } from './addbrandbanners.component';
+import { SinglebannerComponent } from './singlebanner.component';
+import { AddsinglebannerComponent } from './addsinglebanner.component';
 
 // Angular
 
@@ -34,7 +36,9 @@ import { AddbrandbannersComponent } from './addbrandbanners/addbrandbanners.comp
     AddfeaturebannerComponent,
     AddecommercebannersComponent,
     BrandbannerComponent,
-    AddbrandbannersComponent
+    AddbrandbannersComponent,
+    SinglebannerComponent,
+    AddsinglebannerComponent
   ]
 })
 export class ButtonsModule { }

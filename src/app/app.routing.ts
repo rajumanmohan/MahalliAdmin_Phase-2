@@ -23,13 +23,6 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'allusers',
-    component: AllusersComponent,
-    data: {
-      title: 'Allusers'
-    }
-  },
-  {
     path: '500',
     component: P500Component,
     data: {
@@ -88,6 +81,14 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
+      },
+      {
+        path: 'userslist',
+        loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path: 'wholeseller',
+        loadChildren: () => import('./views/wholeseller/wholeseller.module').then(m => m.WholesellerModule)
       },
       {
         path: 'allusers',
