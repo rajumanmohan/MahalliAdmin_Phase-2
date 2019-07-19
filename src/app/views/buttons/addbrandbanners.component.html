@@ -11,10 +11,27 @@
                     <form>
 
                     </form>
-                    <div class="form-group">
-                        <label for="company">Title</label>
-                        <input type="text" class="form-control" id="city" placeholder="Category Name">
-                    </div>
+                    <select class="form-control border-primary" id="sel1"
+                    (change)="bannerPosition($event.target.value)">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <option value="" disabled>Select banner type</option>
+                    <option *ngFor="let ban of BannersData" [value]="ban"
+                        [selected]="ban==BannerType1">
+                        {{ban}}
+                    </option>
+                    <!-- <option value="Main Banners">Main Banners
+                    </option>
+                    <option value="Branded banners">Branded banners</option>
+                    <option value="Featured banners">Featured banners</option>
+                    <option value="Best Deals">Best Deals</option>
+                    <option value="Best Discounts">Best Discounts</option>
+                    <option value="Best Appliances">Best Appliances</option>
+                    <option value="Best Discount Appliances">Best Discount Appliances
+                    </option>
+                    <option value="Popular Brands">Popular Brands</option>
+                    <option value="Feature brands">Feature brands</option>
+                    <option value="Dummy Banner">Dummy Banner</option> -->
+                </select>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="custom-control custom-checkbox ">

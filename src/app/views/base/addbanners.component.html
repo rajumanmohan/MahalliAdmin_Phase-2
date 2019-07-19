@@ -13,7 +13,8 @@
                     </form>
                     <div class="form-group">
                         <label for="company">Category name</label>
-                        <input type="text" class="form-control" id="city" placeholder="Category Name" [(ngModel)]="name">
+                        <input type="text" class="form-control" id="city" placeholder="Category Name"
+                            [(ngModel)]="name">
                     </div>
                     <div class="form-group row">
                         <!-- <ckeditor class="form-control cke-editor" >
@@ -25,7 +26,7 @@
                         <label class="col-md-3 col-form-label" for="file-input">Category Image</label>
                         <div class="col-md-3">
                             <input type="file" id="file-input" name="file-input" accept="image/*"
-                            (change)="changeListener($event)" [(ngModel)]="catImg" name="catImg">
+                                (change)="changeListener($event)" [(ngModel)]="catImg" name="catImg">
                         </div>
                         <div *ngIf="image">
                             <img src="{{image}}" alt="" width="100" height="100"
@@ -34,8 +35,7 @@
 
                     </div>
                     <div class="form-group">
-                        <img src="{{catImg}}" alt="" width="100" height="100"
-                            style="border: solid 1px;margin-top: 2%;">
+                        <img src="{{catImg}}" alt="" width="100" height="100" style="border: solid 1px;margin-top: 2%;">
                     </div>
                     <div class="form-group">
                         <label for="company">Description</label>

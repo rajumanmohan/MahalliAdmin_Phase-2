@@ -256,22 +256,22 @@ export const navItems: NavData[] = [
   },
   {
     name: 'Vendors',
-    url: '',
+    url: '/vendorslist',
     icon: 'icon-user',
     children: [
       {
         name: 'Vendors List',
-        url: ' ',
+        url: '/vendorslist',
         icon: 'icon-user',
       },
       {
         name: 'Products for Approval',
-        url: '',
+        url: '/vendorslist/vendorproducts',
         icon: 'fa fa-cart-plus ',
       },
       {
         name: 'Vendor Orders',
-        url: '',
+        url: '/vendorslist/vendororders',
         icon: 'fa fa-cart-plus ',
       },
     ]
@@ -279,66 +279,66 @@ export const navItems: NavData[] = [
 
   {
     name: 'Suggested Products',
-    url: ' ',
+    url: '/suggestedproducts',
     icon: 'fa fa-cart-plus ',
   },
   {
     name: 'Content ',
-    url: '',
+    url: '/content',
     icon: 'fa fa-file-text-o',
     children: [
       {
         name: 'About Mahali',
-        url: ' ',
+        url: '/content',
         icon: 'fa fa-file-text-o',
       },
       {
         name: 'Terms & Conditions',
-        url: '',
+        url: '/content/termsandconditions',
         icon: 'fa fa-file-text-o',
       },
       {
         name: 'Privacy Policy',
-        url: '',
+        url: '/content/privacypolicy',
         icon: 'fa fa-file-text-o',
       },
       {
         name: 'Top Sellers',
-        url: '',
+        url: '/content/topseller',
         icon: 'fa fa-file-text-o',
       },
       {
         name: 'Our Blogs',
-        url: '',
+        url: '/content/ourblogs',
         icon: 'fa fa-file-text-o',
       },
       {
         name: 'News Teller',
-        url: '',
+        url: '/content/newsteller',
         icon: 'fa fa-file-text-o',
       },
     ]
   },
   {
     name: 'Commision ',
-    url: '',
+    url: '/commission',
     icon: 'fa fa-money',
     children: [
       {
         name: 'Vendor',
-        url: ' ',
+        url: '/commission/vendor',
         icon: 'fa fa-money',
       },
       {
         name: 'Whole Seller',
-        url: '',
+        url: '/commission/wholeseller',
         icon: 'fa fa-money',
       }
     ]
   },
   {
     name: 'Staff',
-    url: '',
+    url: '/staff',
     icon: 'icon-user',
   }
 ];
