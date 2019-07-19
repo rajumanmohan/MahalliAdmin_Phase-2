@@ -1,0 +1,146 @@
+<div class="animated fadeIn">
+  <!--/.row-->
+
+
+  <div class="card-group mb-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="h1 text-muted text-right mb-4">
+          <i class="icon-people"></i>
+        </div>
+        <div class="h4 mb-0">8700</div>
+        <small class="text-muted text-uppercase font-weight-bold">Users</small>
+        <div class="progress progress-xs mt-3 mb-0">
+          <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="h1 text-muted text-right mb-4">
+          <i class="icon-people"></i>
+        </div>
+        <div class="h4 mb-0">385</div>
+        <small class="text-muted text-uppercase font-weight-bold">Vendors</small>
+        <div class="progress progress-xs mt-3 mb-0">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="h1 text-muted text-right mb-4">
+          <i class="icon-people"></i>
+
+        </div>
+        <div class="h4 mb-0">1238</div>
+        <small class="text-muted text-uppercase font-weight-bold">Whole Sellers</small>
+        <div class="progress progress-xs mt-3 mb-0">
+          <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="h1 text-muted text-right mb-4">
+          <i class="icon-basket-loaded"></i>
+        </div>
+        <div class="h4 mb-0">285</div>
+        <small class="text-muted text-uppercase font-weight-bold">User Orders</small>
+        <div class="progress progress-xs mt-3 mb-0">
+          <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="h1 text-muted text-right mb-4">
+          <i class="icon-basket-loaded"></i>
+        </div>
+        <div class="h4 mb-0">632</div>
+        <small class="text-muted text-uppercase font-weight-bold">Vendor Orders</small>
+        <div class="progress progress-xs mt-3 mb-0">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-5">
+          <h4 class="card-title mb-0">Orders</h4>
+          <div class="small text-muted">July 2019</div>
+        </div>
+        <!--/.col-->
+        <div class="col-sm-7 d-none d-md-block">
+          <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+          <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
+            <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Day" id="option1">Day</label>
+            <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Month"
+              id="option2">Month</label>
+            <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Year" id="option3">Year</label>
+          </div>
+        </div>
+        <!--/.col-->
+      </div>
+      <!--/.row-->
+      <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+        <canvas baseChart class="chart" [datasets]="mainChartData" [labels]="mainChartLabels"
+          [options]="mainChartOptions" [colors]="mainChartColours" [legend]="mainChartLegend"
+          [chartType]="mainChartType"></canvas>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row text-center">
+        <div class="col-sm-12 col-md mb-sm-2 mb-0">
+          <div class="text-muted">User Orders</div>
+          <strong>403 Orders (40%)</strong>
+          <div class="progress progress-xs mt-2">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40"
+              aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md mb-sm-2 mb-0">
+          <div class="text-muted">Vendor Orders</div>
+          <strong>245 Orders (20%)</strong>
+          <div class="progress progress-xs mt-2">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+              aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/.row-->
+</div>
+
+
+
+
+<style>
+  .brand-card-header {
+    height: 10rem !important;
+    display: block;
+    text-align: center;
+  }
+
+  .overall-users h1 {
+    color: #ffffff;
+  }
+
+  .overall-users img {
+    margin-bottom: 6px;
+    margin-right: 12px;
+    width: 31px;
+    padding-top: 12%;
+  }
+</style>

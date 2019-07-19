@@ -1,0 +1,259 @@
+<div class="animated fadeIn">
+
+  <div class="row">
+
+    <div class="col-lg-12">
+      <div class="card pt-5 mt-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <h1>Total Coupons </h1>
+            </div>
+            <div class="col-lg-6 text-right">
+              <button type="button" class="btn  btn-primary" (click)="addcoupon()">Add Coupons</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>S No</th>
+                <th>Coupon Code</th>
+                <th>Discount Type</th>
+                <th>Amount</th>
+                <th>Percentage</th>
+                <th>Total Count</th>
+                <th>Up To</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>text </td>
+                <td>texty</td>
+                <td>2</td>
+                <td>12</td>
+                <td>145</td>
+                <td>12</td>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>text </td>
+                <td>texty</td>
+                <td>2</td>
+                <td>12</td>
+                <td>145</td>
+                <td>12</td>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>text </td>
+                <td>texty</td>
+                <td>2</td>
+                <td>12</td>
+                <td>145</td>
+                <td>12</td>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>text </td>
+                <td>texty</td>
+                <td>2</td>
+                <td>12</td>
+                <td>145</td>
+                <td>12</td>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>text </td>
+                <td>texty</td>
+                <td>2</td>
+                <td>12</td>
+                <td>145</td>
+                <td>12</td>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="animated fadeIn">
+  <div class="card-columns cols-2">
+    <div class="card">
+      <div class="card-header">
+        Line Chart
+        <div class="card-header-actions">
+          <a href="http://www.chartjs.org">
+            <small class="text-muted">docs</small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColours"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Bar Chart
+        <div class="card-header-actions">
+          <a href="http://www.chartjs.org">
+            <small class="text-muted">docs</small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Doughnut Chart
+        <div class="card-header-actions">
+          <a href="http://www.chartjs.org">
+            <small class="text-muted">docs</small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Radar Chart
+        <div class="card-header-actions">
+          <a href="http://www.chartjs.org">
+            <small class="text-muted">docs</small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [datasets]="radarChartData"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Pie Chart
+        <div class="card-header-actions">
+          <a href="http://www.chartjs.org">
+            <small class="text-muted">docs</small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Polar Area Chart
+        <div class="card-header-actions">
+          <a href="http://www.chartjs.org">
+            <small class="text-muted">docs</small>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+          [data]="polarAreaChartData"
+          [labels]="polarAreaChartLabels"
+          [legend]="polarAreaLegend"
+          [chartType]="polarAreaChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
