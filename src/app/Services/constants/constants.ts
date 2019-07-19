@@ -85,7 +85,7 @@ export const AppSettings = {
     // getVendorById: base_url + 'vendors/',
     updateVendorById: base_url + 'wholesalers/updatewholeseller',
     getUserOrdByVenId: base_url + "place_order/getvendoruserorders",
-    orderDetByVenId: base_url + "place_order/order_userproducts",
+    orderDetByVenId: base_url + "place_order/userorder_products",
     getbannerById: base_url + "banners/getbanner",
     updateBanner: base_url + "banners/updatebanners",
     insertAdminProd: base_url + "products/adminaddproduct",
@@ -105,9 +105,9 @@ export const AppSettings = {
     getSubsubEcom: base_url + "sub_categories/subsubdata/alldata",
     delSubsub: base_url + "sub_categories/deletesubsubcatagories",
     updateSubsub: base_url + "sub_categories/updatesubsubcatagires",
-    prodCat:base_url+"products/getadminproductsbycat",
-    prodSub:base_url+"products/getadminproductsbysubcat",
-    prodSubsub:base_url+"products/getadminproductsbysubsubcat"
+    prodCat: base_url + "products/getadminproductsbycat",
+    prodSub: base_url + "products/getadminproductsbysubcat",
+    prodSubsub: base_url + "products/getadminproductsbysubsubcat"
     // deleteVendorById: 'http://192.168.0.116:9000/vendors/',
     // getOrdersUrl: base_url + 'oders',
     // getOffersUrl: base_url + 'voucher',

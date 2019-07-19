@@ -7,10 +7,10 @@
 				<div class="container">
 					<div class="row align-items-center mb-3">
 						<div class="col-3 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-block btn-secondary">Vendor Ecommerce</button>
+							<button type="button" class="btn btn-block btn-secondary" (click)="getvendorE()">Vendor Ecommerce</button>
 						</div>
 						<div class="col-3 mb-3 mb-xl-0">
-							<button type="button" class="btn btn-block btn-warning">User Ecommerce</button>
+							<button type="button" class="btn btn-block btn-warning" (click)="getUserE()">User Ecommerce</button>
 						</div>
 					</div>
 					<div class="row">
@@ -18,7 +18,7 @@
 							<h1>Featured Banners</h1>
 						</div>
 						<div class="col-lg-6 text-right">
-							<button type="button" class="btn  btn-primary" (click)="addbanner()">Add Banner</button>
+							<button type="button" class="btn  btn-primary" (click)="addBanner()">Add Banner</button>
 						</div>
 					</div>
 					<div class="row">
@@ -44,21 +44,20 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-										src="assets/img/avatars/6.jpg"></td>
-								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-										src="assets/img/avatars/6.jpg"></td>
-								<td>text Category</td>
-								<td>147</td>
-								<td class="edit-buttons">
-										<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-										<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-												aria-hidden="true"></i></a>
+							<tr *ngFor="let data of mainBannerData;let i=index">
+									<td>{{i+1}}</td>
+									<td>
+									  <img [src]="data.mobile_banner" alt="data.image" /></td>
+									<td>
+									  <img [src]="data.website_banner" alt="prod.image" /></td>
+									<td>{{data.type}}</td>
+									<td>{{data.target}}</td>
+									<td class="edit-buttons">
+									  <a> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+									  <a (click)="deleteBanner(data.image_id)"> <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
 									</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>2</td>
 								<td><img alt="admin@bootstrapmaster.com" class="img-avatar"
 										src="assets/img/avatars/6.jpg"></td>
@@ -67,10 +66,10 @@
 								<td>text Category</td>
 								<td>147</td>
 								<td class="edit-buttons">
-										<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-										<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-												aria-hidden="true"></i></a>
-									</td>
+									<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+									<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+											aria-hidden="true"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>3</td>
@@ -81,10 +80,10 @@
 								<td>text Category</td>
 								<td>147</td>
 								<td class="edit-buttons">
-										<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-										<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-												aria-hidden="true"></i></a>
-									</td>
+									<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+									<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+											aria-hidden="true"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>4</td>
@@ -95,10 +94,10 @@
 								<td>text Category</td>
 								<td>147</td>
 								<td class="edit-buttons">
-										<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-										<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-												aria-hidden="true"></i></a>
-									</td>
+									<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+									<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+											aria-hidden="true"></i></a>
+								</td>
 							</tr>
 							<tr>
 								<td>5</td>
@@ -109,11 +108,11 @@
 								<td>text Category</td>
 								<td>147</td>
 								<td class="edit-buttons">
-										<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-										<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-												aria-hidden="true"></i></a>
-									</td>
-							</tr>
+									<a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+									<a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+											aria-hidden="true"></i></a>
+								</td>
+							</tr> -->
 						</tbody>
 					</table>
 					<ul class="pagination">

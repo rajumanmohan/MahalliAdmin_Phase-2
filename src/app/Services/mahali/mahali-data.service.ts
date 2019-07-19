@@ -488,12 +488,12 @@ export class AppService {
         // this.vendor_id = sessionStorage.userId;
         return this.http.get(AppSettings.getUserOrdByVenId + "/" + venId, { headers: headers });
     }
-    orderDetByVenId(ordId, venId) {
+    orderDetByVenId(ordId) {
           var headers: HttpHeaders = new HttpHeaders;
         headers = headers.append('Accept', 'application/json, text/plain, */*');
         headers = headers.append('Content-Type', 'application/json; charset=utf-8');
         // this.vendor_id = sessionStorage.userId;
-        return this.http.get(AppSettings.orderDetByVenId + "/" + ordId + "/" + venId, { headers: headers });
+        return this.http.get(AppSettings.orderDetByVenId + "/" + ordId , { headers: headers });
     }
     getbannerById(banId, imgId) {
           var headers: HttpHeaders = new HttpHeaders;

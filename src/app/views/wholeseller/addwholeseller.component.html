@@ -15,84 +15,93 @@
                         <div class="form-group col-sm-3">
 
                             <label for="city">First Name</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter First Name">
+                            <input type="text" class="form-control" id="city" placeholder="Enter First Name" [(ngModel)]="first_name"
+                            name="first_name">
 
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label for="city">Last Name</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Last Name">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Last Name" [(ngModel)]="last_name"
+                            name="last_name">
                         </div>
 
 
                         <div class="form-group col-sm-3">
                             <label for="city">Mobile Number</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Mobile Number">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Mobile Number" [(ngModel)]="mobile" name="mobile">
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label for="city">Email</label>
-                            <input type="email" class="form-control" id="city" placeholder="Enter email">
+                            <input type="email" class="form-control" id="city" placeholder="Enter email" [(ngModel)]="email"
+                            name="email">
                         </div>
                         <div class="form-group col-sm-3">
 
                             <label for="city">Password</label>
-                            <input type="password" class="form-control" id="city" placeholder="Enter Password">
+                            <input type="password" class="form-control" id="city" placeholder="Enter Password" [(ngModel)]="password"
+                            name="password">
 
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label for="city">Business Name</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Business Name">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Business Name" [(ngModel)]="bussiness_name"
+                            name="business_name" >
                         </div>
 
 
                         <div class="form-group col-sm-3">
                             <label for="city">Business House Number</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Business House Number">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Business House Number" [(ngModel)]="bussiness_houseno" name="business_houseno">
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label for="city">Business Address</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Business Address">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Business Address"  [(ngModel)]="bussiness_address" name="business_address">
                         </div>
                         <div class="form-group col-sm-3">
 
                             <label for="city">Business Country</label>
-                            <input type="password" class="form-control" id="city" placeholder="Enter Business Country">
+                            <input type="password" class="form-control" id="city" placeholder="Enter Business Country"  [(ngModel)]="bussiness_country" name="business_country" >
 
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label for="city">Business Area</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Business Area">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Business Area" [(ngModel)]="bussiness_area"
+                            name="bussiness_area">
                         </div>
 
 
                         <div class="form-group col-sm-3">
                             <label for="city">Business City</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Business City">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Business City" [(ngModel)]="bussiness_city"
+                            name="bussiness_city">
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label for="city">Business Pincode</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Business Pincode">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Business Pincode" [(ngModel)]="bussiness_pincode" name="bussiness_pincode" >
                         </div>
                         <div class="form-group col-sm-3">
                             <label for="city">Commission</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Commission">
+                            <input type="text" class="form-control" id="city" placeholder="Enter Commission" [(ngModel)]="commission_to_admin" name="commission_to_admin">
                         </div>
                     </div>
                     <div class="row mb-3   ">
                         <div class="col-md-12">
-                            <label class="col-form-label" for="file-input">Category Image</label>
-
-                            <input type="file" id="file-input" name="file-input">
+                            <label class="col-form-label" for="file-input">Wholesaler Images</label>
+ 
+                            <input type="file" id="file-input" name="file-input" multiple
+                            (change)="detectFiles($event)">
+                            Please choose 4 images
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button class="btn btn-success">Add Wholeseller</button>
+                            <button class="btn btn-success" (click)="addWholeSeller()">Add Wholeseller</button>
                         </div>
                     </div>
                 </div>

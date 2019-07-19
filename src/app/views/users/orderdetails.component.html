@@ -61,17 +61,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>test product</td>
-                                <td>test name </td>
-                                <td>test Size</td>
-                                <td>test color</td>
-                                <td>test Quantity</td>
-                                <td>test Price</td>
-                                <td>test Total</td>
+                            <tr *ngFor="let orddata of ordData;let i=index">
+                                <td>{{i+1}}</td>
+                                <td><img alt="cat.image_url" class="img-avatar"
+                                        [src]="orddata.sku_row[0].sku_images[0].sku_image"></td>
+                                <td>{{orddata.product_name}} </td>
+                                <td>{{orddata?.sku_row[0]?.size}}</td>
+                                <td>{{orddata?.sku_row[0]?.color}}</td>
+                                <td>{{orddata?.quantity}}</td>
+                                <td>BD {{orddata.sku_row[0]?.selling_price}}</td>
+                                <td>BD {{orddata.sku_row[0]?.selling_price * orddata?.quantity}}</td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>2</td>
                                 <td>test product</td>
                                 <td>test name </td>
@@ -80,37 +81,54 @@
                                 <td>test Quantity</td>
                                 <td>test Price</td>
                                 <td>test Total</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <div class="row mb-4">
                         <div class="col-sm-4">
                             <h6 class="mb-3">Shipping Address:</h6>
-                            <div><strong>BootstrapMaster.com</strong></div>
-                            <div>Konopnickiej 42</div>
-                            <div>43-190 Mikolow, Poland</div>
-                            <div>Email: lukasz@bootstrapmaster.com</div>
-                            <div>Phone: +48 123 456 789</div>
+                            <div><strong>{{orderAdd?.address_type}}</strong></div>
+                            <div>{{orderAdd?.house_no}}</div>
+                            <div>{{orderAdd?.landmark}}</div>
+                            <div>{{orderAdd?.city}},{{orderAdd?.state}}</div>
+                            <div> {{orderAdd?.pin_code}}</div>
                         </div>
                         <div class="col-lg-4 offset-lg-4 col-sm-5 offset-sm-2">
                             <table class="table table-clear">
                                 <tbody>
+                                        <!-- Coupon_Discount: 9
+                                        Delivery_charge: 0
+                                        Final_amount: 81
+                                        billing_amount: 90
+                                        delivery_address_id: 368
+                                        delivery_date_time: "18-07-2019 05:25 PM"
+                                        delivery_slot_id: 1
+                                        item_type: "grocery"
+                                        order_id: 516
+                                        order_status: "placed"
+                                        ordered_on: "2019-07-18T08:55:52.000Z"
+                                        payment_status: ""
+                                        payment_type: 3
+                                        status: ""
+                                        user_id: 77
+                                        vendor_id: 0
+                                        wholesaler_i -->
                                     <tr>
                                         <td class="left"><strong>
                                                 Payable Amount</strong></td>
-                                        <td class="right">$8.497,00</td>
+                                        <td class="right">{{orderDet.billing_amount}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left"><strong>Delivery Charges</strong></td>
-                                        <td class="right">$1,699,40</td>
+                                        <td class="left"><strong>Delivery Charges(+)</strong></td>
+                                        <td class="right">{{orderDet.Delivery_charge}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="left"><strong>Sub Total</strong></td>
-                                        <td class="right">$679,76</td>
+                                        <td class="left"><strong>Coupon Discount(-)</strong></td>
+                                        <td class="right">{{orderDet.Coupon_Discount}}</td>
                                     </tr>
                                     <tr>
                                         <td class="left"><strong>Total</strong></td>
-                                        <td class="right"><strong>$7.477,36</strong></td>
+                                        <td class="right"><strong>{{orderDet.Final_amount}}</strong></td>
                                     </tr>
                                 </tbody>
                             </table>

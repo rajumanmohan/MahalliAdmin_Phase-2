@@ -1,130 +1,144 @@
 <div class="animated fadeIn">
-
-    <div class="row">
-
-        <div class="col-lg-12">
-            <div class="card pt-5 mt-5">
-                <div class="container">
-                    <div class="row align-items-center mb-3">
-                        <div class="col-3 mb-3 mb-xl-0">
-                            <button type="button" class="btn btn-block btn-warning">User Grocery</button>
-                        </div>
+        <div class="row mt-5">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Add Brand Banners</strong>
+                        <small>Form</small>
+                        <button (click)="backtofeature()" class="btn  btn-primary text-right float-right ">Back</button>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h1>Brand Banners</h1>
+                    <div class="card-body">
+                        <form>
+    
+                        </form>
+                        <!-- <div class="form-group">
+                            <label for="company">Title</label>
+                            <input type="text" class="form-control" id="city" placeholder="Category Name">
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox ">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">Website Banner</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-control custom-checkbox col-md-6">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck12">
+                                    <label class="custom-control-label" for="customCheck12">Mobile Banner</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-6 text-right">
-                            <button type="button" class="btn  btn-primary" (click)="addbrandbanner()">Add Banner</button>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label for="city">Name</label>
+                                <input type="text" class="form-control" id="city" placeholder="Banner Name" [(ngModel)]="name" name="name">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="postal-code">Select Type </label>
+                                <!-- <select class="form-control" placeholder="Enter Title">
+                                    <option selected>Select Type</option>
+                                    <option>Categories</option>
+                                    <option>Sub Categories</option>
+                                </select> -->
+                                <select class="form-control border-primary" id="sel1" name="type" [(ngModel)]="type"
+                                    (change)="onChange($event.target.value,i)">
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <option value="" disabled selected hidden>
+                                        Select
+                                        Type
+                                    </option>
+                                    <option value="Categories">Categories
+                                    </option>
+                                    <option value="Subcategories">Subcategories
+                                    </option>
+                                    <!-- <option value="Product">Product</option> -->
+                                    <!-- <option value="sku">sku</option>
+                                                                                <option value="Brand">Brand</option> -->
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" *ngIf="category">
+                                    <label for="firstname">Category :</label>
+                                    <div class="form-group">
+                                        <select required class="form-control border-primary" id="exampleSelectPrimary"
+                                            name="categoryName" (change)="changeCat($event.target.value,i,'cat')">
+                                            <option value="" disabled selected hidden>
+                                                Select
+                                                Category
+                                            </option>
+                                            <option *ngFor="let cat of categorydata" value="{{cat.id}}">
+                                                {{cat.category_name}}</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div>
+                                                <label>{{target}} </label>
+                                            </div> -->
+                                </div>
+                                <div class="form-group" *ngIf="subcategory">
+                                    <label for="firstname">Sub Category :</label>
+                                    <div class="form-group">
+                                        <select class="form-control border-primary" id="exampleSelectPrimary"
+                                            [(ngModel)]="subCatName" name="subCatName"
+                                            (change)="changeCat($event.target.value,i,'subcat')">
+                                            <option value="" disabled selected hidden>
+                                                Select
+                                                Sub Category</option>
+                                            <option *ngFor="let subCat of subCategoryName" value="{{subCat.id}}">
+                                                {{subCat.sub_category_name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <!-- <label>{{target}} </label> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                    
+                               </div> -->
+    
+                        </div>
+                        <!--/.row-->
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label" for="file-input">Wesite Banner</label>
+                            <div class="col-md-3">
+                                <input type="file" id="file-input" name="file-input" (change)="changeListener1($event,i)"
+                                [(ngModel)]="webImg" name="webImg">
+                                <!-- <div class="form-group">
+                                        <label for="exampleInputEmail1">Mobile
+                                            Banner</label>
+                                        <input class="form-control" type="file"
+                                            accept="image/*"
+                                            (change)="changeListener($event,i)"
+                                            [(ngModel)]="mobImg" name="mobImg">
+                                        <div *ngIf="image">
+                                            <img src="{{image}}" alt="" width="100"
+                                                height="100"
+                                                style="border: solid 1px;margin-top: 2%;">
+                                        </div>
+                                        <div class="form-group">
+                                            <img src="{{mobImg}}" alt="" width="100"
+                                                height="100"
+                                                style="border: solid 1px;margin-top: 2%;">
+                                        </div>
+                                    </div> -->
+                            </div>
+                            <label class="col-md-3 col-form-label" for="file-input">Mobile Banner</label>
+                            <div class="col-md-3">
+                                <input type="file" id="file-input" name="file-input" (change)="changeListener($event,i)"
+                                [(ngModel)]="mobImg" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-success" (click)="addbanner()">Add Category</button>
                             </div>
                         </div>
                     </div>
-                    <!--/.row-->
-                </div>
-
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>S No</th>
-                                <th>Mobile Banner</th>
-                                <th>Website Banner</th>
-                                <th>Type</th>
-                                <th>Target</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td>147</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td>147</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td>147</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td>147</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td>147</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>

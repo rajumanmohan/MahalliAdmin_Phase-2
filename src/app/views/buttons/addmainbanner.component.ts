@@ -16,6 +16,20 @@ export class AddmainbannerComponent implements OnInit {
       // this.bannerId = params.bannerId,
       //     this.mainId = params.imgId
       this.bType = params.bType;
+      if (this.bType === 'vendorG') {
+        // this.BannersData = ["Main Banners"]
+        this.banner_type = 0;
+    } else if (this.bType === 'vendorE') {
+        this.banner_type = 1;
+        // this.BannersData = ["Main Banners", "Feature brands", "Dummy Banner"]
+    } else if (this.bType === 'userG') {
+        this.banner_type = 2;
+        // this.BannersData = ["Main Banners", "Brand Categories", "UserGrocery Dummy Banner"]
+    } else {
+        this.banner_type = 3;
+        // this.BannersData = ["Main Banners", "Feature brands", "Dummy Banner"]
+
+    }
   })
 }
   type;
@@ -171,7 +185,7 @@ export class AddmainbannerComponent implements OnInit {
         website_bannerimage: this.website_bannerimage,
         target: this.target,
         catNames: this.catNames,
-        banner_type: this.bType
+        banner_type: this.banner_type
 
     });
     console.log(this.mobile_banner);
