@@ -1,0 +1,116 @@
+<div class="animated fadeIn">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="card pt-5 mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1>Suggested Products </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.row-->
+                </div>
+
+                <div class="card-body products-list">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S No</th>
+                                <th>Category Name</th>
+                                <th>Product Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>text Category</td>
+                                <td>text name</td>
+                                <td><a (click)="active()"> <button type="button"
+                                            class="btn btn-block btn-outline-success active "
+                                            aria-pressed="true">Active</button></a></td>
+                                <td class="edit-buttons">
+                                    <a (click)="editorder()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>text Category</td>
+                                <td>text name</td>
+                                <td><a (click)="active()"> <button type="button"
+                                            class="btn btn-block btn-outline-success active"
+                                            aria-pressed="true">Active</button></a></td>
+                                <td class="edit-buttons">
+                                    <a (click)="editorder()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>text Category</td>
+                                <td>text name</td>
+                                <td><a (click)="active()"> <button type="button"
+                                            class="btn btn-block btn-outline-success active"
+                                            aria-pressed="true">Active</button></a></td>
+                                <td class="edit-buttons">
+                                    <a (click)="editorder()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>text Category</td>
+                                <td>text name</td>
+                                <td><a (click)="active()"> <button type="button"
+                                            class="btn btn-block btn-outline-success active"
+                                            aria-pressed="true">Active</button></a></td>
+                                <td class="edit-buttons">
+                                    <a (click)="editorder()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>text Category</td>
+                                <td>text name</td>
+                                <td><a (click)="active()"> <button type="button"
+                                            class="btn btn-block btn-outline-success active"
+                                            aria-pressed="true">Active</button></a></td>
+                                <td class="edit-buttons">
+                                    <a (click)="editorder()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .products-list button {
+        width: 125px !important;
+    }
+</style>

@@ -41,6 +41,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { AllusersComponent } from './views/allusers/allusers.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   imports: [
@@ -64,7 +65,8 @@ import { AllusersComponent } from './views/allusers/allusers.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    AllusersComponent
+    AllusersComponent,
+    ProfileComponent
   ],
   providers: [{
     provide: LocationStrategy,

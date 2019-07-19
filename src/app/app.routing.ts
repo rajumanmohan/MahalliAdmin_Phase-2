@@ -8,6 +8,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
       title: 'Page 404'
     }
   },
+
   {
     path: '500',
     component: P500Component,
@@ -91,12 +93,36 @@ export const routes: Routes = [
         loadChildren: () => import('./views/wholeseller/wholeseller.module').then(m => m.WholesellerModule)
       },
       {
+        path: 'vendorslist',
+        loadChildren: () => import('./views/vendors/vendors.module').then(m => m.VendorsModule)
+      },
+      {
+        path: 'suggestedproducts',
+        loadChildren: () => import('./views/suggestedproducts/suggestedproducts.module').then(m => m.SuggestedproductsModule)
+      },
+      {
+        path: 'content',
+        loadChildren: () => import('./views/content/content.module').then(m => m.ContentModule)
+      },
+      {
+        path: 'commission',
+        loadChildren: () => import('./views/commission/commission.module').then(m => m.CommissionModule)
+      },
+      {
+        path: 'staff',
+        loadChildren: () => import('./views/staff/staff.module').then(m => m.StaffModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./views/adminprofile/adminprofile.module').then(m => m.AdminprofileModule)
+      },
+      {
         path: 'allusers',
         loadChildren: () => import('./views/allusers/allusers.module').then(m => m.AllusersModule)
       }
     ]
   },
-  { path: '**', component: P404Component }
+  { path: '**', component: P404Component },
 ];
 
 @NgModule({
