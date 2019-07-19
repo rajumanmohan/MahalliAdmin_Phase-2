@@ -124,7 +124,7 @@ export const routes: Routes = [
   },
   { path: '**', component: P404Component },
 ];
-
+``
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
