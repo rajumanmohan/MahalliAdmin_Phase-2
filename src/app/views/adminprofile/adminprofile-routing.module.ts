@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WholesellerComponent } from './wholeseller.component';
+import { AdminprofileComponent } from './adminprofile.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: WholesellerComponent,
+        component: AdminprofileComponent,
         data: {
-            title: 'Whole seller'
+            title: 'Profile'
         }
-    }
+    },
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
+
     exports: [RouterModule]
 })
-export class WholeSellerRoutingModule { }
+export class AdminProfileRoutingModule { }
