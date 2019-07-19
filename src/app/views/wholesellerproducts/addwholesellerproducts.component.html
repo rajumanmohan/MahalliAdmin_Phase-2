@@ -1,0 +1,176 @@
+<div class="animated fadeIn">
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Add Wholeseller Product</strong>
+                    <small>Form</small>
+                    <button (click)="backtowholeseller()" class="btn  btn-primary text-right float-right ">Back</button>
+                </div>
+                <div class="card-body">
+                    <form>
+
+                    </form>
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+
+                            <label for="city">Category</label>
+                            <select class="form-control">
+                                <option selected>Select Category</option>
+                                <option>text Category1</option>
+                                <option>text Category2</option>
+                                <option>text Category3</option>
+                                <option>text Category4</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="city">Sub Category</label>
+                            <select class="form-control">
+                                <option selected>Select Sub Category</option>
+                                <option>text Sub Category1</option>
+                                <option>text Sub Category2</option>
+                                <option>text Sub Category3</option>
+                                <option>text Sub Category4</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-sm-3">
+                            <label for="city">Product Name</label>
+                            <input type="text" class="form-control" id="city" placeholder="EnterProduct Name">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="city">Brand Name</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter Brand Name">
+                        </div>
+                        <div class="form-group col-sm-3">
+
+                            <label for="city">Product Type</label>
+                            <select class="form-control">
+                                <option selected>Select Type</option>
+                                <option>text type1</option>
+                                <option>text type2</option>
+                                <option>text type3</option>
+                                <option>text type4</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="city">Contry</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter Country">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-success" (click)="addsku()">Add SKU</button>
+                        </div>
+                    </div>
+                    <div class="row sku-details" *ngIf="showSkuDetails">
+                        <div class="col-md-12">
+                            <div class="row mt-3">
+                                <div class="form-group col-sm-3">
+
+                                    <label for="city">Size</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter Size">
+
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label for="city">Units</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter Units">
+
+                                </div>
+
+
+                                <div class="form-group col-sm-3">
+                                    <label for="city">Quantity</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter Quantity">
+                                </div>
+
+                                <div class="form-group col-sm-3">
+                                    <label for="city">Actual Price</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter Actual Price">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="city">Selling Price</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter Selling Price">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="city">Discount Price</label>
+                                    <input type="text" class="form-control" id="city"
+                                        placeholder="Enter Discount Price">
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label for="city">Stock</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter Stock">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="c" for="file-input">Sku Image</label>
+                                    <input type="file" id="file-input" name="file-input">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="form-group col-sm-4">
+
+                                    <label for="textarea-input">Product Details</label>
+                                    <textarea id="textarea-input" name="textarea-input" rows="3" class="form-control"
+                                        placeholder="Product Details.."></textarea>
+
+                                </div>
+
+                                <div class="form-group col-sm-4">
+                                    <label for="textarea-input">Specifications</label>
+                                    <textarea id="textarea-input" name="textarea-input" rows="3" class="form-control"
+                                        placeholder="Specifications.."></textarea>
+
+                                </div>
+
+
+                                <div class="form-group col-sm-4">
+                                    <label for="textarea-input">Terms & Conditions</label>
+                                    <textarea id="textarea-input" name="textarea-input" rows="3" class="form-control"
+                                        placeholder="Terms & Conditions.."></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>FAQ :</h5>
+                                </div>
+
+                                <div class="form-group col-sm-4">
+                                    <label for="textarea-input">Question</label>
+                                    <textarea id="textarea-input" name="textarea-input" rows="3" class="form-control"
+                                        placeholder="Question.."></textarea>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="textarea-input">Answer</label>
+                                    <textarea id="textarea-input" name="textarea-input" rows="3" class="form-control"
+                                        placeholder="Answer.."></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-success" (click)="deletesku()">Delete SKU</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .sku-details {
+        border: 2px solid #f8a94a;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding-bottom: 2%;
+    }
+</style>
