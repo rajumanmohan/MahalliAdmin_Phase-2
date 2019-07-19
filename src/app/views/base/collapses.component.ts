@@ -39,12 +39,12 @@ export class CollapsesComponent  implements OnInit{
     this.ecomSubcats = false;
     this.actionType = "grocery";
     // this.spinnerService.show();
-    this.appService.getSubsub().subscribe(resp => {
+    this.appService.getSubsub().subscribe((resp:any) => {
       // this.spinnerService.hide();
       this.SubsubCategory = resp.result;
       console.log(this.SubsubCategory);
       if (resp.result.length === 0) {
-        swal("No data found, please add new one", '', 'error');
+        // swal("No data found, please add new one", '', 'error');
       }
     },
       error => {
@@ -57,11 +57,11 @@ export class CollapsesComponent  implements OnInit{
     this.ecomSubcats = true;
     this.actionType = "ecom";
     // this.spinnerService.show();
-    this.appService.getSubsubEcom().subscribe(resp => {
+    this.appService.getSubsubEcom().subscribe((resp:any) => {
       // this.spinnerService.hide();
       this.SubsubCategory = resp.result;
       if (resp.result.length === 0) {
-        swal("No data found, please add new one", '', 'error');
+        // swal("No data found, please add new one", '', 'error');
       }
     },
       error => {
@@ -78,7 +78,7 @@ export class CollapsesComponent  implements OnInit{
     //   if (value === true) {
         this.appService.delSubsub(id).subscribe(resp => {
           // this.spinnerService.hide();
-          swal("delete subCat successfully", '', 'success');
+          // swal("delete subCat successfully", '', 'success');
           this.getSubsub();
         })
     //   } else {

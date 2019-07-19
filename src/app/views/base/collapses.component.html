@@ -6,10 +6,10 @@
       <div class="card pt-5 mt-5">
         <div class="container">
           <div class="row align-items-center mb-3">
-            <div class=" col-3 col-xl mb-3 mb-xl-0">
+            <div class=" col-3  mb-3 mb-xl-0">
               <button type="button" class="btn btn-block btn-primary" (click)="getSubsub()"> Grocery</button>
             </div>
-            <div class=" col-3 col-md-2 col-xl mb-3 mb-xl-0"  (click)="getEcomSubCategory()">
+            <div class=" col-3 col-md-3  mb-3 mb-xl-0"  (click)="getEcomSubCategory()">
               <button type="button" class="btn btn-block btn-secondary"> Ecommerce</button>
             </div>
           </div>
@@ -53,8 +53,11 @@
                 <td><img alt="admin@bootstrapmaster.com" class="img-avatar" [src]="subCat.image"></td>
                 <td [innerHTML]="subCat.description"></td>
                 <td>
-                  <a><img src="assets/img/edit.png" class="edit"></a>
-                  <a><img src="assets/img/delete.png" class="delete" (click)="deleteSubCat(subCat.id) "></a>
+                  <a (click)="orderdetails()"><i class="fa fa-pencil-square-o fa-lg "></i></a>
+                  <a >
+                      <i class="fa fa-trash fa-lg"
+                      aria-hidden="true" (click)="deleteSubCat(subCat.id) "></i>
+                    </a>
                 </td>
               </tr>
               <!-- <tr>
@@ -64,9 +67,10 @@
                 <td>text sub sub Category</td>
                 <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
                 <td>text lorm ipsum</td>
-                <td>
-                  <a><img src="assets/img/edit.png" class="edit"></a>
-                  <a><img src="assets/img/delete.png" class="delete"></a>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
                 </td>
               </tr>
               <tr>
@@ -76,9 +80,10 @@
                 <td>text sub sub Category</td>
                 <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
                 <td>text lorm ipsum</td>
-                <td>
-                  <a><img src="assets/img/edit.png" class="edit"></a>
-                  <a><img src="assets/img/delete.png" class="delete"></a>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
                 </td>
               </tr>
               <tr>
@@ -88,9 +93,10 @@
                 <td>text sub sub Category</td>
                 <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
                 <td>text lorm ipsum</td>
-                <td>
-                  <a><img src="assets/img/edit.png" class="edit"></a>
-                  <a><img src="assets/img/delete.png" class="delete"></a>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
                 </td>
               </tr>
               <tr>
@@ -100,9 +106,10 @@
                 <td>text sub sub Category</td>
                 <td><img alt="admin@bootstrapmaster.com" class="img-avatar" src="assets/img/avatars/6.jpg"></td>
                 <td>text lorm ipsum</td>
-                <td>
-                  <a><img src="assets/img/edit.png" class="edit"></a>
-                  <a><img src="assets/img/delete.png" class="delete"></a>
+                <td class="edit-buttons">
+                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                            aria-hidden="true"></i></a>
                 </td>
               </tr> -->
             </tbody>

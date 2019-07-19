@@ -30,7 +30,7 @@ adminLogin() {
   //     "password": this.password,
   // }
   // this.loginForm.value.role = "Admin";
-      this.appService.adminlogin(this.loginForm.value).subscribe(resp => {
+      this.appService.adminlogin(this.loginForm.value).subscribe((resp:any) => {
         // swal("test","","success")
           // if (resp.status == 200) {
           //     swal(resp.json().message, '', 'success');

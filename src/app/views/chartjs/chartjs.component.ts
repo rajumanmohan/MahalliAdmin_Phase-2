@@ -105,7 +105,7 @@ export class ChartJSComponent implements OnInit {
   }
   getCoupons() {
     // this.spinnerService.show();
-    this.appService.getVouchers().subscribe(resp => {
+    this.appService.getVouchers().subscribe((resp:any) => {
         // this.spinnerService.hide();
         this.coupons = resp.data;
         console.log(this.coupons);

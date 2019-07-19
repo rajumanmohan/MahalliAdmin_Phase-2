@@ -397,8 +397,8 @@ constructor(private appService:AppService){
 // venders: 0
 // wholeseller: 11/
   getAdminCount() {
-      this.appService.getAdminCount().subscribe(res => {
-          this.Count = res.data;
+      this.appService.getAdminCount().subscribe((resp:any) => {
+          this.Count = resp.data;
           // this.userCount = res.json().data.users;
       })
   }

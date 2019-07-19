@@ -35,7 +35,7 @@ export class AddbannersComponent implements OnInit {
       // "wholesaler_id": sessionStorage.wholesalerId
     }
     this.appService.addCat(data)
-      .subscribe(resp => {
+      .subscribe((resp:any) => {
         if (resp.message === 'Success') {
           this.data = resp.result;
           // this.spinnerService.hide();
@@ -43,8 +43,8 @@ export class AddbannersComponent implements OnInit {
           this.router.navigate(['/Category/categories']);
 
         }
-        else if (resp.json().status === 400) {
-          swal(resp.json().err_field, '', 'error');
+        else if (resp.status === 400) {
+          // swal(resp.json().err_field, '', 'error');
         }
       },
         error => {

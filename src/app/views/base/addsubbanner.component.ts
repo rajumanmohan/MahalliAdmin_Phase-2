@@ -29,7 +29,7 @@ export class AddsubbannerComponent implements OnInit {
     }
     // this.spinnerService.show();
     this.appService.getGroceryCat(Data)
-        .subscribe(resp => {
+        .subscribe((resp:any) => {
             if (resp.status === 200) {
                 // this.name = ""
                 this.category = resp.categories;
@@ -52,10 +52,10 @@ getEcomCat() {
     }
     // this.spinnerService.show();
     this.appService.getEcomCat(Data)
-        .subscribe(resp => {
-            if (resp.json().status === 200) {
+        .subscribe((resp:any) => {
+            if (resp.status === 200) {
                 // this.name = ""
-                this.category = resp.json().categories;
+                this.category = resp.categories;
                 // this.spinnerService.hide();
             }
             else {
@@ -78,7 +78,7 @@ insertSubCat() {
     }
     this.appService.insertSubCat(data).subscribe(resp => {
         // this.spinnerService.hide();
-        swal("add subCategory successfully", '', 'success');
+        // swal("add subCategory successfully", '', 'success');
         this.router.navigate(['/subcategory']);
     })
 }
@@ -110,22 +110,22 @@ image;
     deleteSubCat(id) {
       // alert(id);
       // this.spinnerService.show();
-      swal("Do you want to delete?", "", "warning", {
-          buttons: ["Cancel!", "Okay!"],
-      }).then((value) => {
-          if (value === true) {
+      // swal("Do you want to delete?", "", "warning", {
+      //     buttons: ["Cancel!", "Okay!"],
+      // }).then((value) => {
+          // if (value === true) {
               var data = {
                   'id': id
               }
               this.appService.deleteSubCat(data).subscribe(resp => {
                   // this.spinnerService.hide();
-                  swal("delete subCat successfully", '', 'success');
+                  // swal("delete subCat successfully", '', 'success');
                   // this.getSubCategory();
               })
-          } else {
-              return;
-          }
-      });
+      //     } else {
+      //         return;
+      //     }
+      // });
 
   }
 

@@ -34,7 +34,7 @@ export class AddsubsubcatComponent implements OnInit {
       "area": ""
     }
     this.appService.getGroceryCat(Data)
-      .subscribe(resp => {
+      .subscribe((resp:any) => {
         if (resp.status === 200) {
           // this.name = ""
           this.category = resp.categories;
@@ -58,7 +58,7 @@ export class AddsubsubcatComponent implements OnInit {
     }
     // this.spinnerService.show();
     this.appService.getEcomCat(Data)
-      .subscribe(resp => {
+      .subscribe((resp:any) => {
         if (resp.status === 200) {
           // this.name = ""
           this.category = resp.categories;
@@ -125,7 +125,7 @@ export class AddsubsubcatComponent implements OnInit {
     }
     this.appService.addSubsub(data).subscribe(resp => {
       // this.spinnerService.hide();
-      swal(resp.message, '', 'success');
+      // swal(resp.message, '', 'success');
       this.router.navigate(['/subsubcat']);
     })
   }
@@ -142,7 +142,7 @@ export class AddsubsubcatComponent implements OnInit {
     }
     this.appService.updateSubsub(data).subscribe(resp => {
       // this.spinnerService.hide();
-      swal(resp.message, '', 'success');
+      // swal(resp.message, '', 'success');
       this.router.navigate(['/subsubcat']);
     })
   }

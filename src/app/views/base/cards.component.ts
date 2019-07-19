@@ -35,7 +35,7 @@ export class CardsComponent implements OnInit {
         // this.typeVal = 0;
         // this.spinnerService.show();
         this.appService.getGroceryCat(Data)
-            .subscribe(resp => {
+            .subscribe((resp:any) => {
 
                 if (resp.status == 200) {
                     // this.name = ""
@@ -64,7 +64,7 @@ export class CardsComponent implements OnInit {
         // this.typeVal = 1;
         // this.spinnerService.show();
         this.appService.getEcomCat(Data)
-            .subscribe(resp => {
+            .subscribe((resp:any) => {
                 if (resp.status === 200) {
                     // this.name = ""
                     this.category = resp.categories;
@@ -80,8 +80,8 @@ export class CardsComponent implements OnInit {
                 })
     }
     deleteCat(id) {
-        swal('hi',"","success");
-        return;
+        // swal('hi',"","success");
+        // return;
         // this.spinnerService.show();
         // swal("Do you want to delete?", "", "warning", {
         //     buttons: ["Cancel!", "Okay!"],

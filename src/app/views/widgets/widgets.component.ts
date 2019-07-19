@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { getStyle } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { Router } from '@angular/router';
@@ -7,12 +7,12 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 @Component({
   templateUrl: 'widgets.component.html'
 })
-export class WidgetsComponent implements OnInit{
-  constructor(public router: Router,private appService: AppService) { }
+export class WidgetsComponent implements OnInit {
+  constructor(public router: Router, private appService: AppService) { }
   showGroceryProds;
   wholeType;
-  ngOnInit(){
-  this.getGroceryProds();  
+  ngOnInit() {
+    this.getGroceryProds();
   }
   addproduct() {
     this.router.navigate(['/widgets/addproduct']);
@@ -398,67 +398,67 @@ export class WidgetsComponent implements OnInit{
   ];
   public lineChart5Legend = false;
   public lineChart5Type = 'line';
-  showEcomProds=false;
+  showEcomProds = false;
   role;
   product;
   getGroceryProds() {
     this.showGroceryProds = true;
     this.showEcomProds = false;
     // if (this.role === "Admin") {
-        // this.showWholeProds = false;
-        // this.spinnerService.show();
-        // this.pagination = [];
-        this.appService.getGroceryProds()
-            .subscribe(resp => {
-                // this.spinnerService.hide();
-                this.product = resp.products;
-                // console.log()
-                for (var i = 0; i < this.product.length; i++) {
-                    // for (var j = 0; j < this.product[i]..length; j++) {
-                    // for (var k = 0; k < this.product[i].sku[j].sku_images.length; k++) {
-                    this.product[i].skuImg = this.product[i].sku_images[0].sku_image;
+    // this.showWholeProds = false;
+    // this.spinnerService.show();
+    // this.pagination = [];
+    this.appService.getGroceryProds()
+      .subscribe((resp: any) => {
+        // this.spinnerService.hide();
+        this.product = resp.products;
+        // console.log()
+        for (var i = 0; i < this.product.length; i++) {
+          // for (var j = 0; j < this.product[i]..length; j++) {
+          // for (var k = 0; k < this.product[i].sku[j].sku_images.length; k++) {
+          this.product[i].skuImg = this.product[i].sku_images[0].sku_image;
 
-                    // }
-                    // }
-                }
-
-            })
-
-        error => {
-            console.log(error, "error");
+          // }
+          // }
         }
+
+      })
+
+    error => {
+      console.log(error, "error");
+    }
     // } else {
-     
 
-}
-getEcomProds() {
-  this.showGroceryProds = false;
-  this.showEcomProds = true;
-  this.wholeType = "ecommerce";
-  // this.showWholeProds = false;
-  // if (this.role === "Admin") {
-      // this.spinnerService.show();
-      // this.pagination = [];
-      this.appService.getEcomProds()
-          .subscribe(resp => {
-              // this.spinnerService.hide();
-              this.product = resp.products;
-              // console.log()
-              for (var i = 0; i < this.product.length; i++) {
-                  // for (var j = 0; j < this.product[i].sku_row.length; j++) {
-                  // for (var k = 0; k < this.product[i].sku[j].sku_images.length; k++) {
-                  this.product[i].skuImg = this.product[i].sku_images[0].sku_image;
 
-                  // }
-              }
-              // }
+  }
+  getEcomProds() {
+    this.showGroceryProds = false;
+    this.showEcomProds = true;
+    this.wholeType = "ecommerce";
+    // this.showWholeProds = false;
+    // if (this.role === "Admin") {
+    // this.spinnerService.show();
+    // this.pagination = [];
+    this.appService.getEcomProds()
+      .subscribe((resp: any) => {
+        // this.spinnerService.hide();
+        this.product = resp.products;
+        // console.log()
+        for (var i = 0; i < this.product.length; i++) {
+          // for (var j = 0; j < this.product[i].sku_row.length; j++) {
+          // for (var k = 0; k < this.product[i].sku[j].sku_images.length; k++) {
+          this.product[i].skuImg = this.product[i].sku_images[0].sku_image;
 
-          })
+          // }
+        }
+        // }
 
-      error => {
-          console.log(error, "error");
-      }
-  // } 
-  
-}
+      })
+
+    error => {
+      console.log(error, "error");
+    }
+    // } 
+
+  }
 }

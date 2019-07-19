@@ -9,7 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
   <div>
   <router-outlet></router-outlet>,
  <div>
- <sampleEditor></sampleEditor>
+ 
 
  </div>
 

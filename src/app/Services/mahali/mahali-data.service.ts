@@ -130,7 +130,9 @@ export class AppService {
         return this.http.post(AppSettings.addWholeSellerUrl, params, { headers: headers })
     }
     getWholeSeller() {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.get(AppSettings.getWholeSellerUrl, { headers: headers });
     }
     updateWholeSeller(params) {
@@ -146,15 +148,21 @@ export class AppService {
         return this.http.post(AppSettings.deleteWholeSellerUrl, params, { headers: headers })
     }
     getUsersList() {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.get(AppSettings.getUsersUrl, { headers: headers });
     }
     getVendorsList() {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.get(AppSettings.getVendorsUrl, { headers: headers });
     }
     getBanners(type) {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.get(AppSettings.getBannerUrl + "/" + type, { headers: headers });
     }
     addbanners(params) {
@@ -194,7 +202,9 @@ export class AppService {
         return this.http.post(AppSettings.updateFooter, params, { headers: headers })
     }
     getVouchers() {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.get(AppSettings.getVouchers, { headers: headers });
     }
     addVoucher(params) {
@@ -368,11 +378,16 @@ export class AppService {
         return this.http.get(AppSettings.getCatEcomcount, { headers: headers });
     }
     getGroceryCat(params) {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.post(AppSettings.getGroceryCats, params, { headers: headers });
     }
     getEcomCat(params) {
-        const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        // const headers = new Headers({ 'Content-Type': "application/x-www-form-urlencoded" });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', "application/x-www-form-urlencoded");
         return this.http.get(AppSettings.getEcomCats, { headers: headers });
     }
     getWholesellerProdsByGro(wholeId) {
@@ -507,10 +522,9 @@ export class AppService {
         return this.http.post(AppSettings.getAdminProds, params, { headers: headers })
     }
     forgotPassword(params) {
-        const headers = new Headers({
-            'Content-Type': "application/JSON",
-            // 'x-access-token': (sessionStorage.token),
-        });
+        var headers: HttpHeaders = new HttpHeaders;
+        headers = headers.append('Accept', 'application/json, text/plain, */*');
+        headers = headers.append('Content-Type', 'application/json; charset=utf-8');
         return this.http.post(AppSettings.forgotPw, params, { headers: headers });
     }
     otpVerify(params) {

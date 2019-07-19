@@ -40,28 +40,28 @@ export class CarouselsComponent implements OnInit {
     this.ecomSubcats = false;
     this.actionType = "grocery";
     // this.spinnerService.show();
-    this.appService.getSubCategery().subscribe(resp => {
+    this.appService.getSubCategery().subscribe((resp:any) => {
       // this.spinnerService.hide();
       this.subCategory = resp.result;
-      if (resp.result.length === 0) {
-        swal("No data found, please add new one", '', 'error');
-      }
-    },
-      error => {
-        console.log(error, "error");
-      }
-    )
+      // if (resp.result.length === 0) {
+      //   swal("No data found, please add new one", '', 'error');
+      })
+    // },
+    //   error => {
+    //     console.log(error, "error");
+    //   }
+    // )
   }
   getEcomSubCategory() {
     this.grocerySubCats = false;
     this.ecomSubcats = true;
     this.actionType = "ecom";
     // this.spinnerService.show();
-    this.appService.getEcomSubcats().subscribe(resp => {
+    this.appService.getEcomSubcats().subscribe((resp:any) => {
       // this.spinnerService.hide();
       this.subCategory = resp.result;
       if (resp.result.length === 0) {
-        swal("No data found, please add new one", '', 'error');
+        // swal("No data found, please add new one", '', 'error');
       }
     },
       error => {
@@ -81,7 +81,7 @@ export class CarouselsComponent implements OnInit {
         }
         this.appService.deleteSubCat(data).subscribe(resp => {
           // this.spinnerService.hide();
-          swal("delete subCat successfully", '', 'success');
+          // swal("delete subCat successfully", '', 'success');
           this.getSubCategory();
         })
       // } 
