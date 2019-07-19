@@ -341,4 +341,10 @@ export const navItems: NavData[] = [
     url: '/staff',
     icon: 'icon-user',
   }
+  ,
+  {
+    name: 'Wholeseller Products',
+    url: '/wholesellerproducts',
+    icon: 'icon-user',
+  }
 ];
