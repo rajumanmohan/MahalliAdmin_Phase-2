@@ -11,20 +11,21 @@
                     </form>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="company">Title</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter Title">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="title"
+                                placeholder="Enter Title">
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="textarea-input">Description</label>
-                            <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control"
-                                placeholder="Description.."></textarea>
+                            <label>Description</label>
+                            <textarea name="description" rows="9" class="form-control" placeholder="Description.."
+                                ></textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button class="btn btn-success">Update</button>
+                            <button class="btn btn-success" (click)="updateabout()"> Update </button>
                         </div>
                     </div>
                 </div>
