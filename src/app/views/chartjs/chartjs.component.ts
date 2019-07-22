@@ -1,12 +1,13 @@
 import { Component ,OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
+import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: 'chartjs.component.html'
 })
 export class ChartJSComponent implements OnInit {
-  constructor(public router: Router,private appService: AppService) { }
+  constructor(public router: Router,private appService: AppService,private route: ActivatedRoute) { }
   coupons=[];
   ngOnInit(){
     this.getCoupons();
@@ -111,5 +112,24 @@ export class ChartJSComponent implements OnInit {
         console.log(this.coupons);
 
     })
+}
+deleteVoucher(id) {
+  // this.spinnerService.show();
+  // swal("Do you want to delete?", "", "warning", {
+  //     buttons: ["Cancel!", "Okay!"],
+  // }).then((value) => {
+
+  //     if (value === true) {
+          this.appService.deleteVoucher(id).subscribe(response => {
+              // this.spinnerService.hide();
+              // swal("Deleted successfully", '', 'success');
+              this.getCoupons();
+          }, error => {
+
+          })
+      // } else {
+      //     return;
+      // }
+  // });
 }
 }

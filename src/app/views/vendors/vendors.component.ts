@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
   selector: 'app-vendors',
@@ -9,11 +10,17 @@ import { Router } from '@angular/router';
 export class VendorsComponent implements OnInit {
 
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,private appService:AppService) { }
   vendorproducts() {
     this.router.navigate(['/vendorslist/vendorproducts']);
   }
+  vendors=[];
   ngOnInit() {
+    this.getVendors();
   }
-
+  getVendors() {
+    this.appService.getVendorsList().subscribe((resp:any) => {
+        this.vendors = resp.data;
+    })
+}
 }

@@ -33,12 +33,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>test name</td>
-                                <td>test name </td>
-                                <td>8554785125</td>
-                                <td>rest@gmail.com</td>
+                            <tr *ngFor="let item of vendors;let i=index">
+                                <td>{{i+1}}</td>
+                                 <td>{{item.first_name}} </td>
+                                <td>{{item.last_name}}</td>
+                                <td>{{item.mobile_number}} </td>
+                                <td>{{item.email}}</td>
                                 <td><a (click)="vendorproducts()"> <button type="button"
                                             class="btn btn-block btn-outline-success active"
                                             aria-pressed="true">View</button></a></td>
@@ -48,7 +48,7 @@
                                             aria-hidden="true"></i></a>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>2</td>
                                 <td>test name</td>
                                 <td>test name </td>
@@ -107,7 +107,7 @@
                                     <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
                                             aria-hidden="true"></i></a>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     <ul class="pagination">

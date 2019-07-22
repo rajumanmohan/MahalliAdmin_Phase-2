@@ -6,13 +6,15 @@ import { ChartJSRoutingModule } from './chartjs-routing.module';
 import { CouponmanagementComponent } from './couponmanagement.component';
 import { CommonModule } from '@angular/common';
 import { MyDatePickerModule } from 'mydatepicker';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     ChartJSRoutingModule,
     ChartsModule,
     CommonModule,
-    MyDatePickerModule
+    MyDatePickerModule,
+    FormsModule
   ],
   declarations: [ ChartJSComponent, CouponmanagementComponent ]
 })

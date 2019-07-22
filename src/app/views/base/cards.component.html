@@ -7,12 +7,14 @@
                 <div class="container">
                     <div class="row align-items-center mb-3">
                         <div class=" col-3 mb-3 mb-xl-0">
-                          <button type="button" class="btn btn-block btn-primary" (click)="getGroceryCats()"> Grocery</button>
+                            <button type="button" class="btn btn-block btn-primary" (click)="getGroceryCats()">
+                                Grocery</button>
                         </div>
                         <div class="col-3 col-md-3  mb-3 mb-xl-0">
-                          <button type="button" class="btn btn-block btn-secondary" (click)="getEcomCats()"> Ecommerce</button>
+                            <button type="button" class="btn btn-block btn-secondary" (click)="getEcomCats()">
+                                Ecommerce</button>
                         </div>
-                      </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <h1>Category</h1>
@@ -45,13 +47,12 @@
                             <tr *ngFor="let cat of category;let i=index;">
                                 <td>{{i+1}}</td>
                                 <td>{{cat.category_name}}</td>
-                                <td><img alt="cat.image_url" class="img-avatar"
-                                        [src]="cat.image_url"></td>
-                               
-                                <td>
+                                <td><img alt="cat.image_url" class="img-avatar" [src]="cat.image_url"></td>
+
+                                <td class="edit-buttons">
                                     <a><i (click)="orderdetails()" class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a><i class="fa fa-trash fa-lg"
-                                        aria-hidden="true" (click)="deleteCat(cat.id) "></i></a>
+                                    <a><i class="fa fa-trash fa-lg" aria-hidden="true"
+                                            (click)="deleteCat(cat.id) "></i></a>
                                 </td>
                             </tr>
                             <!-- <tr>

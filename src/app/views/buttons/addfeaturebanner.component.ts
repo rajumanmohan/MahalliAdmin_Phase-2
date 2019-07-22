@@ -1,10 +1,10 @@
 // import { Component, OnInit } from '@angular/core';
 // import { Router, NavigationEnd } from '@angular/router';
 
-@Component({
-  selector: 'app-addfeaturebanner',
-  templateUrl: './addfeaturebanner.component.html'
-})
+// @Component({
+//   selector: 'app-addfeaturebanner',
+//   templateUrl: './addfeaturebanner.component.html'
+// })
 // export class AddfeaturebannerComponent implements OnInit {
 
 //   constructor(private router: Router) { }
@@ -20,8 +20,8 @@ import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 
 // import { Router, NavigationEnd } from '@angular/router';
 @Component({
-  selector: 'app-addmainbanner',
-  templateUrl: './addmainbanner.component.html'
+  selector: 'app-addfeaturebanner',
+  templateUrl: './addfeaturebanner.component.html'
 })
 
 export class AddfeaturebannerComponent implements OnInit {

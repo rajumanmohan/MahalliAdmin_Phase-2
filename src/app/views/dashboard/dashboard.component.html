@@ -3,8 +3,8 @@
 
 
   <div class="card-group mb-4">
-    <div class="card">
-      <div class="card-body">
+    <div class="card" *ngIf="role=='Admin'">
+      <div class="card-body" routerLink="/userslist">
         <div class="h1 text-muted text-right mb-4">
           <i class="icon-people"></i>
         </div>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-body">
+      <div class="card-body" routerLink="/vendorslist">
         <div class="h1 text-muted text-right mb-4">
           <i class="icon-people"></i>
         </div>
@@ -29,8 +29,8 @@
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-body">
+    <div class="card" *ngIf="role=='Admin'">
+      <div class="card-body" routerLink="/wholeseller">
         <div class="h1 text-muted text-right mb-4">
           <i class="icon-people"></i>
 
@@ -43,8 +43,8 @@
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-body">
+    <div class="card" *ngIf="role=='Admin'">
+      <div class="card-body" routerLink="/userslist/userorders">
         <div class="h1 text-muted text-right mb-4">
           <i class="icon-basket-loaded"></i>
         </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-body">
+      <div class="card-body" routerLink="/vendorslist/vendororders">
         <div class="h1 text-muted text-right mb-4">
           <i class="icon-basket-loaded"></i>
         </div>

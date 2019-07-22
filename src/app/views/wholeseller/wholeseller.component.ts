@@ -10,8 +10,8 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 export class WholesellerComponent implements OnInit {
 
 
-  constructor(public router: Router,private appService: AppService) { }
-  wholeSellers=[]
+  constructor(public router: Router, private appService: AppService) { }
+  wholeSellers = []
   addwholeseller() {
     this.router.navigate(['/wholeseller/addwholeseller']);
   }
@@ -20,10 +20,10 @@ export class WholesellerComponent implements OnInit {
   }
 
   getWholeSeller() {
-    this.appService.getWholeSeller().subscribe((resp:any) => {
-        this.wholeSellers = resp.data;
+    this.appService.getWholeSeller().subscribe((resp: any) => {
+      this.wholeSellers = resp.data;
     })
-}
+  }
 
 
   ngOnInit() {

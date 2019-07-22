@@ -13,7 +13,7 @@
           </div>
           <div class="row">
             <div class="col-lg-6">
-              <h1>Sub Category </h1>
+              <h1>Products </h1>
             </div>
             <div class="col-lg-6 text-right">
               <button type="button" class="btn  btn-primary" (click)="addproduct()">Add Product</button>
@@ -42,8 +42,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let prod of product">
-                <td>1</td>
+              <tr *ngFor="let prod of product;let i=index">
+                <td>{{i+1}}</td>
                 <td>{{prod.category_name}}</td>
                 <td>{{prod.sub_category_name}}</td>
                 <td>{{prod.product_name}}</td>
@@ -52,8 +52,7 @@
                   <!-- <a><img src="assets/img/edit.png" class="edit"></a>
                   <a><img src="assets/img/delete.png" class="delete"></a> -->
                   <a><i class="fa fa-pencil-square-o fa-lg "></i></a>
-                  <a><i class="fa fa-trash fa-lg"
-                    aria-hidden="true"></i></a>
+                  <a><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
                 </td>
               </tr>
               <!-- <tr>
@@ -114,8 +113,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let prod of product">
-                <td>1</td>
+              <tr *ngFor="let prod of product;let i=index;">
+                <td>{{i+1}}</td>
                 <td>{{prod.category_name}}</td>
                 <td>{{prod.sub_category_name}}</td>
                 <td>{{prod.product_name}}</td>
@@ -124,8 +123,7 @@
                   <!-- <a><img src="assets/img/edit.png" class="edit"></a>
                   <a><img src="assets/img/delete.png" class="delete"></a> -->
                   <a><i class="fa fa-pencil-square-o fa-lg "></i></a>
-                  <a><i class="fa fa-trash fa-lg"
-                    aria-hidden="true"></i></a>
+                  <a (click)="deleteProductAdmin(prod.id) "><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
                 </td>
               </tr>
               <!-- <tr>

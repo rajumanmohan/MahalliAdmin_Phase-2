@@ -40,16 +40,16 @@ export class AddwholesellerComponent implements OnInit {
   ifsc_code;
   getLocation(getCallFun) {
       // let _self = this;
-      var geocoder = new google.maps.Geocoder();
-      var address = this.bussiness_area;
-      geocoder.geocode({ 'address': address }, function (results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-              this.currLat = results[0].geometry.location.lat();
-              // this.latitude = currLat;
-              this.currLng = results[0].geometry.location.lng();
-              getCallFun(this.currLat, this.currLng)
-          }
-      })
+      // var geocoder = new google.maps.Geocoder();
+      // var address = this.bussiness_area;
+      // geocoder.geocode({ 'address': address }, function (results, status) {
+      //     if (status == google.maps.GeocoderStatus.OK) {
+      //         this.currLat = results[0].geometry.location.lat();
+      //         // this.latitude = currLat;
+      //         this.currLng = results[0].geometry.location.lng();
+      //         getCallFun(this.currLat, this.currLng)
+      //     }
+      // })
   }
   addWholeSeller() {
       let _self = this;

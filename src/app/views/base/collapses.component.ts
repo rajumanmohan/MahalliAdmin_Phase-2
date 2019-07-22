@@ -1,5 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import { Router, NavigationEnd,NavigationExtras } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
 // import { Router, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
 
@@ -7,17 +7,23 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 @Component({
   templateUrl: 'collapses.component.html'
 })
-export class CollapsesComponent  implements OnInit{
-  constructor(public router: Router,private appService: AppService) { }
+export class CollapsesComponent implements OnInit {
+  constructor(public router: Router, private appService: AppService) { }
   actionType;
   grocerySubCats;
   ecomSubcats;
-  SubsubCategory=[];
-  ngOnInit(){
+  SubsubCategory = [];
+  ngOnInit() {
     this.getSubsub();
   }
   addbanner() {
-    this.router.navigate(['/Category/addsubsubcategories']);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+
+        'actionType': this.actionType
+      }
+      }
+    this.router.navigate(['/Category/addsubsubcategories'],navigationExtras);
   }
   newsubsubCat(id, maincat, subcat, maincatId, action, img, des, sscID) {
     let navigationExtras: NavigationExtras = {
@@ -39,7 +45,7 @@ export class CollapsesComponent  implements OnInit{
     this.ecomSubcats = false;
     this.actionType = "grocery";
     // this.spinnerService.show();
-    this.appService.getSubsub().subscribe((resp:any) => {
+    this.appService.getSubsub().subscribe((resp: any) => {
       // this.spinnerService.hide();
       this.SubsubCategory = resp.result;
       console.log(this.SubsubCategory);
@@ -57,7 +63,7 @@ export class CollapsesComponent  implements OnInit{
     this.ecomSubcats = true;
     this.actionType = "ecom";
     // this.spinnerService.show();
-    this.appService.getSubsubEcom().subscribe((resp:any) => {
+    this.appService.getSubsubEcom().subscribe((resp: any) => {
       // this.spinnerService.hide();
       this.SubsubCategory = resp.result;
       if (resp.result.length === 0) {
@@ -76,11 +82,11 @@ export class CollapsesComponent  implements OnInit{
     //   buttons: ["Cancel!", "Okay!"],
     // }).then((value) => {
     //   if (value === true) {
-        this.appService.delSubsub(id).subscribe(resp => {
-          // this.spinnerService.hide();
-          // swal("delete subCat successfully", '', 'success');
-          this.getSubsub();
-        })
+    this.appService.delSubsub(id).subscribe(resp => {
+      // this.spinnerService.hide();
+      // swal("delete subCat successfully", '', 'success');
+      this.getSubsub();
+    })
     //   } else {
     //     return;
     //   }
@@ -104,5 +110,5 @@ export class CollapsesComponent  implements OnInit{
     }
     this.router.navigate(['/newsubsub'], navigationExtras);
   }
-  
+
 }

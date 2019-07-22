@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { AppService } from './../../services/mahali/mahali-data.service';
@@ -7,11 +9,12 @@ import { AppService } from './../../services/mahali/mahali-data.service';
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-constructor(private appService:AppService){
-  
-}
-  radioModel: string = 'Month';
+  constructor(private appService: AppService,public router: Router) {
+   
 
+  }
+  radioModel: string = 'Month';
+  wholeCount = []
   // lineChart1
   public lineChart1Data: Array<any> = [
     {
@@ -379,28 +382,38 @@ constructor(private appService:AppService){
   public random(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-
+  role;
   ngOnInit(): void {
+    this.role = localStorage.role;
     this.getAdminCount();
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
+      if (localStorage.role == 'wholesaler') {
+        this.getWholeProddsCunt();
+      }
     }
   }
   Count;
   userCount;
-//   userorders: 16
-// users: 61
-// venderorders: 12
-// venders: 0
-// wholeseller: 11/
+  //   userorders: 16
+  // users: 61
+  // venderorders: 12
+  // venders: 0
+  // wholeseller: 11/
   getAdminCount() {
-      this.appService.getAdminCount().subscribe((resp:any) => {
-          this.Count = resp.data;
-          // this.userCount = res.json().data.users;
-      })
+    this.appService.getAdminCount().subscribe((resp: any) => {
+      this.Count = resp.data;
+      // this.userCount = res.json().data.users;
+    })
+  }
+  getWholeProddsCunt() {
+    this.appService.getWholeProddsCunt().subscribe((res: any) => {
+      this.wholeCount = res.data;
+      // this.userCount = res.json().data.users;
+    })
   }
   // getWholeProddsCunt(){
   //     this.appService.getWholeProddsCunt().subscribe(res => {

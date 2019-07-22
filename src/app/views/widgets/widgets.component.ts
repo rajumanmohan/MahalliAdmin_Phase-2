@@ -3,6 +3,7 @@ import { getStyle } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
+import { NavigationEnd, NavigationExtras } from '@angular/router';
 
 @Component({
   templateUrl: 'widgets.component.html'
@@ -15,7 +16,17 @@ export class WidgetsComponent implements OnInit {
     this.getGroceryProds();
   }
   addproduct() {
-    this.router.navigate(['/widgets/addproduct']);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          // 'name': name,
+          // 'id': id,
+          // 'pic': pic,
+          // 'des': des,
+          // 'type': this.type,
+          'wholeType': this.wholeType
+      }
+  }
+    this.router.navigate(['/widgets/addproduct'],navigationExtras);
   }
   // lineChart1
   public lineChart1Data: Array<any> = [
@@ -404,6 +415,7 @@ export class WidgetsComponent implements OnInit {
   getGroceryProds() {
     this.showGroceryProds = true;
     this.showEcomProds = false;
+    this.wholeType = "grocery";
     // if (this.role === "Admin") {
     // this.showWholeProds = false;
     // this.spinnerService.show();
@@ -461,4 +473,33 @@ export class WidgetsComponent implements OnInit {
     // } 
 
   }
+  deleteProductAdmin(id) {
+    // swal("Do you want to delete?", "", "warning", {
+    //     buttons: ["Cancel!", "Okay!"],
+    // }).then((value) => {
+    //     if (value === true) {
+    //         // var data = {
+    //         //     'id': id
+    //         // }
+            this.appService.deleteAdminProdUrl(id)
+                .subscribe((resp:any) => {
+                    if (resp.status === 200) {
+                        // swal('product delete successfully', '', 'success');
+                        this.wholeType == "ecommerce" ? this.getEcomProds() : this.getGroceryProds();
+                        // this.getGroceryProds();
+                    }
+                    else {
+                        // swal(resp.json().message, '', 'error');
+                    }
+                },
+                    error => {
+                        console.log(error, "error");
+                    })
+        // } else {
+        //     return;
+        // }
+    // });
+
+
+}
 }

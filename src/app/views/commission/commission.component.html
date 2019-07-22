@@ -60,45 +60,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>test name</td>
-                                <td>1124.00 </td>
-                                <td>13%</td>
-                                <td>241.00</td>
-
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>test name</td>
-                                <td>1124.00 </td>
-                                <td>13%</td>
-                                <td>241.00</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>test name</td>
-                                <td>1124.00 </td>
-                                <td>13%</td>
-                                <td>241.00</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>test name</td>
-                                <td>1124.00 </td>
-                                <td>13%</td>
-                                <td>241.00</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>test name</td>
-                                <td>1124.00 </td>
-                                <td>13%</td>
-                                <td>241.00</td>
+                            <tr *ngFor="let data of commisionData ;let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{data.first_name}}</td>
+                                <td>{{data.final_amount}}
+                                </td>
+                                <td>{{data.commission_to_admin}}%
+                                </td>
+                                <td>{{data.amount_to_clint}}</td>
                             </tr>
                         </tbody>
                     </table>
-                    <ul class="pagination">
+                    <!-- <ul class="pagination">
                         <li class="page-item"><a class="page-link" href="#">Prev</a></li>
                         <li class="page-item active">
                             <a class="page-link" href="#">1</a>
@@ -107,7 +80,7 @@
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>
                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>

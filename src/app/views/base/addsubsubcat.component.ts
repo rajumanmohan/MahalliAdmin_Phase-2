@@ -1,18 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
-
+import { Router } from '@angular/router';
+// import { AppService } from './../../services/mahali/mahali-data.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-addsubsubcat',
   templateUrl: './addsubsubcat.component.html',
   styleUrls: ['./addsubsubcat.component.scss']
 })
 export class AddsubsubcatComponent implements OnInit {
-
-  constructor(public router: Router,private appService: AppService) { }
+  actionType;
+  constructor(public router: Router, private appService: AppService, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      // this.catname = params.name
+      // this.id = params.id
+      // this.pic = params.pic
+      // this.des = params.des
+      // this.type = params.type,
+      this.actionType = params.actionType
+    });
+  }
   image;
-  category=[];
-  subData=[];
+  category = [];
+  subData = [];
   mainCatId;
   subCat;
   strImage;
@@ -24,7 +35,12 @@ export class AddsubsubcatComponent implements OnInit {
     this.router.navigate(['/Category/subsubcategories']);
   }
   ngOnInit() {
-    this.getCat();
+    if (this.actionType == 'grocery') {
+      this.getCat();
+    } else {
+      this.getEcomCat();
+    }
+    // this.getCat();
   }
   getCat() {
     // this.spinnerService.show();
@@ -34,7 +50,7 @@ export class AddsubsubcatComponent implements OnInit {
       "area": ""
     }
     this.appService.getGroceryCat(Data)
-      .subscribe((resp:any) => {
+      .subscribe((resp: any) => {
         if (resp.status === 200) {
           // this.name = ""
           this.category = resp.categories;
@@ -58,7 +74,7 @@ export class AddsubsubcatComponent implements OnInit {
     }
     // this.spinnerService.show();
     this.appService.getEcomCat(Data)
-      .subscribe((resp:any) => {
+      .subscribe((resp: any) => {
         if (resp.status === 200) {
           // this.name = ""
           this.category = resp.categories;
@@ -121,7 +137,7 @@ export class AddsubsubcatComponent implements OnInit {
       "type": this.action == 'grocery' ? 0 : 1,
       "subsubcat_name": this.subsubCa,
 
-      // "wholesaler_id": sessionStorage.wholesalerId
+      // "wholesaler_id": localStorage.wholesalerId
     }
     this.appService.addSubsub(data).subscribe(resp => {
       // this.spinnerService.hide();

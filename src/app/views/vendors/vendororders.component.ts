@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
@@ -8,21 +8,33 @@ import { AppService } from './../../services/mahali/mahali-data.service';
   styleUrls: ['./vendororders.component.scss']
 })
 export class VendorordersComponent implements OnInit {
-  constructor(public router: Router,private appService: AppService) { }
+  constructor(public router: Router, private appService: AppService,) { }
 
   orderdetails() {
     this.router.navigate(['/vendorslist/vendorordersdetails']);
   }
-  orders=[];
+  orders = [];
+  type;
   ngOnInit() {
     this.getAllVendorOrders();
   }
   getAllVendorOrders() {
-    this.appService.getAllVendorOrds().subscribe((res:any) => {
-        this.orders = res.Orders;
+    this.appService.getAllVendorOrds().subscribe((res: any) => {
+      this.orders = res.Orders;
     }, error => {
 
     })
+  }
+  orderDetails(orderId) {
+    // this.type = type;
+    let navigationExtras: NavigationExtras = {
+        queryParams: {
+            orderId: orderId,
+            // type: this.type,
+            // wholeId: this.wholeId
+        }
+    }
+    this.router.navigate(['vendorslist/vendorordersdetails'], navigationExtras)
 }
 
 }

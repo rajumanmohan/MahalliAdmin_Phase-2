@@ -9,7 +9,7 @@
             <div class=" col-3  mb-3 mb-xl-0">
               <button type="button" class="btn btn-block btn-primary" (click)="getSubsub()"> Grocery</button>
             </div>
-            <div class=" col-3 col-md-3  mb-3 mb-xl-0"  (click)="getEcomSubCategory()">
+            <div class=" col-3 col-md-3  mb-3 mb-xl-0" (click)="getEcomSubCategory()">
               <button type="button" class="btn btn-block btn-secondary"> Ecommerce</button>
             </div>
           </div>
@@ -45,19 +45,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr  *ngFor="let subCat of SubsubCategory">
+              <tr *ngFor="let subCat of SubsubCategory">
                 <td>1</td>
                 <td>{{subCat.category_name}}</td>
                 <td>{{subCat.sub_category_name}}</td>
                 <td>{{subCat.subsubcat_name}}</td>
                 <td><img alt="admin@bootstrapmaster.com" class="img-avatar" [src]="subCat.image"></td>
                 <td [innerHTML]="subCat.description"></td>
-                <td>
+                <td class="edit-buttons">
                   <a (click)="orderdetails()"><i class="fa fa-pencil-square-o fa-lg "></i></a>
-                  <a >
-                      <i class="fa fa-trash fa-lg"
-                      aria-hidden="true" (click)="deleteSubCat(subCat.id) "></i>
-                    </a>
+                  <a>
+                    <i class="fa fa-trash fa-lg" aria-hidden="true" (click)="deleteSubCat(subCat.id) "></i>
+                  </a>
                 </td>
               </tr>
               <!-- <tr>

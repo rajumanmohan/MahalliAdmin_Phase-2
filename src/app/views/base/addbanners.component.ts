@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-addbanners',
@@ -9,7 +10,16 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 })
 export class AddbannersComponent implements OnInit {
 
-  constructor(public router: Router, private appService: AppService) { }
+  constructor(public router: Router, private appService: AppService, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      // this.catname = params.name
+      // this.id = params.id
+      // this.pic = params.pic
+      // this.des = params.des
+      // this.type = params.type,
+      this.typeVal = params.typeVal
+    });
+  }
   image;
   strImage;
   textarea;
@@ -32,10 +42,10 @@ export class AddbannersComponent implements OnInit {
       'description': this.textarea,
       'type': this.typeVal,
       "show_in_user": this.showCat
-      // "wholesaler_id": sessionStorage.wholesalerId
+      // "wholesaler_id": localStorage.wholesalerId
     }
     this.appService.addCat(data)
-      .subscribe((resp:any) => {
+      .subscribe((resp: any) => {
         if (resp.message === 'Success') {
           this.data = resp.result;
           // this.spinnerService.hide();
@@ -53,7 +63,7 @@ export class AddbannersComponent implements OnInit {
   }
   changeListener($event): void {
     this.readThis($event.target);
-}
+  }
   readThis(inputValue: any): void {
     var file: File = inputValue.files[0];
     var myReader: FileReader = new FileReader();

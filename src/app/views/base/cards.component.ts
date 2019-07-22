@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
 // import swal from 'sweetalert';
 // import swal from 'sweetalert2';
+
 
 
 @Component({
@@ -16,11 +17,22 @@ export class CardsComponent implements OnInit {
     EcomCats;
     type;
     category;
+    typeVal;
     ngOnInit() {
         this.getGroceryCats();
     }
     addbanner() {
-        this.router.navigate(['/Category/addbanners']);
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                // 'name': name,
+                // 'id': id,
+                // 'pic': pic,
+                // 'des': des,
+                // 'type': this.type,
+                'typeVal': this.typeVal
+            }
+        }
+        this.router.navigate(['/Category/addbanners'], navigationExtras);
     }
     getGroceryCats() {
         let Data = {
@@ -32,10 +44,10 @@ export class CardsComponent implements OnInit {
         this.title = "Grocery Categories";
         this.EcomCats = false;
         this.type = "grocery";
-        // this.typeVal = 0;
+        this.typeVal = 0;
         // this.spinnerService.show();
         this.appService.getGroceryCat(Data)
-            .subscribe((resp:any) => {
+            .subscribe((resp: any) => {
 
                 if (resp.status == 200) {
                     // this.name = ""
@@ -61,10 +73,10 @@ export class CardsComponent implements OnInit {
         this.title = "Ecommerce Categories"
         this.EcomCats = true;
         this.type = "ecommers";
-        // this.typeVal = 1;
+        this.typeVal = 1;
         // this.spinnerService.show();
         this.appService.getEcomCat(Data)
-            .subscribe((resp:any) => {
+            .subscribe((resp: any) => {
                 if (resp.status === 200) {
                     // this.name = ""
                     this.category = resp.categories;
@@ -88,22 +100,22 @@ export class CardsComponent implements OnInit {
         // }).then((value) => {
 
         //     if (value === true) {
-                var data = {
-                    'id': id
-                }
-                this.appService.deleteCat(data)
-                    .subscribe(resp => {
-                        // this.spinnerService.hide();
-                        // swal("Deleted successfully", '', 'success');
-                        this.getGroceryCats();
-                    }),
-                    error => {
-                        console.log(error, "error");
-                    }
-            } 
-            // else {
-            //     return;
-            // }
-        // });
+        var data = {
+            'id': id
+        }
+        this.appService.deleteCat(data)
+            .subscribe(resp => {
+                // this.spinnerService.hide();
+                // swal("Deleted successfully", '', 'success');
+                this.getGroceryCats();
+            }),
+            error => {
+                console.log(error, "error");
+            }
+    }
+    // else {
+    //     return;
+    // }
+    // });
     // }
 }

@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AdminprofileComponent implements OnInit {
 
   constructor() { }
-
+  profile;
   ngOnInit() {
+    this.profile = JSON.parse(localStorage.getItem("profile"));
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
   selector: 'app-commission',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommissionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
+    this.vendorcomission();
   }
-
+  commisionData;
+  vendorcomission() {
+    this.appService.getVendorCommision().subscribe((res: any) => {
+      this.commisionData = res.data;
+      console.log(this.commisionData)
+    })
+  }
 }

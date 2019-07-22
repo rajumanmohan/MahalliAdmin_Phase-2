@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './../../services/mahali/mahali-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-addproduct',
@@ -11,7 +12,23 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 export class AddproductComponent implements OnInit {
 
 
-    constructor(private router: Router, private fb: FormBuilder, private appService: AppService) { }
+    constructor(private router: Router, private fb: FormBuilder, private appService: AppService,private route: ActivatedRoute) { 
+        this.route.queryParams.subscribe(params => {
+            // this.action = params.prodId;
+            // this.pageValue = params.page;
+            // this.wholeId = params.wholeId;
+            this.wholeType = params.wholeType;
+            // this.edit = params.edit;
+            // if (this.edit == 'true') {
+            //     this.showAddProductsFields = true;
+            //     this.showAddProducts = false;
+            // } else {
+            //     this.showAddProductsFields = false;
+            //     this.showAddProducts = true;
+            // }
+
+        });
+    }
     addProductFrom: FormGroup;
     form: FormGroup;
     wholeType;
@@ -40,14 +57,14 @@ export class AddproductComponent implements OnInit {
             description: ['', Validators.required],
             images: ['', [Validators.required]]
         })
-        this.getCat('grocery');
-        this.wholeType = "grocery";
+        this.getCat();
+    
     }
     backtoproduct() {
         this.router.navigate(['/widgets']);
     }
-    getCat(grocery) {
-        this.wholeType = grocery;
+    getCat() {
+        // this.wholeType = grocery;
         let Data = {
             "country": "",
             "pin_code": "",
@@ -128,7 +145,7 @@ export class AddproductComponent implements OnInit {
         this.appService.insertAdminProd(this.addProductFrom.value).subscribe((res: any) => {
             if (res.json().status === 200) {
                 // swal(res.json().message, "", "success");
-                this.router.navigate(['/prducts']);
+                this.router.navigate(['/widgets']);
 
             } else {
                 // swal(res.json().message, "", "error");

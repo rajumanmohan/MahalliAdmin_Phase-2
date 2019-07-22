@@ -185,8 +185,8 @@ export class AddmainbannerComponent implements OnInit {
         website_bannerimage: this.website_bannerimage,
         target: this.target,
         catNames: this.catNames,
-        banner_type: this.banner_type
-
+        banner_type: this.banner_type,
+        title:'Main Banners'
     });
     console.log(this.mobile_banner);
     console.log(this.website_banner);

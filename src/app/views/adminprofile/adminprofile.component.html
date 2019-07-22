@@ -9,27 +9,27 @@
                             <tr>
                                 <td class="left"><strong>
                                         Name</strong></td>
-                                <td class="right">Mahali</td>
+                                <td class="right">{{profile.first_name}}</td>
                             </tr>
                             <tr>
                                 <td class="left"><strong>Role</strong></td>
-                                <td class="right">Admin</td>
+                                <td class="right">{{profile.role}}</td>
                             </tr>
                             <tr>
                                 <td class="left"><strong>Email</strong></td>
-                                <td class="right">test@gmail.com</td>
+                                <td class="right">{{profile.email}}</td>
                             </tr>
                             <tr>
                                 <td class="left"><strong>Mobile  Number</strong></td>
-                                <td class="right">98554711263</td>
+                                <td class="right">{{profile.mobile_number}}</td>
                             </tr>
                             <tr>
                                 <td class="left"><strong>Address</strong></td>
-                                <td class="right">test address </td>
+                                <td class="right">{{profile.bussiness_address || "-"}},{{profile.bussiness_area}}<br />{{profile.bussiness_city}}-{{profile.bussiness_country}}-{{profile.bussiness_pincode}}</td>
                             </tr>
                             <tr>
                                 <td class="left"><strong>Business Name</strong></td>
-                                <td class="right">test Name</td>
+                                <td class="right">{{profile.bussiness_name || "-"}}</td>
                             </tr>
                         </tbody>
                     </table>

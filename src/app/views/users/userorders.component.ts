@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute, NavigationExtras  } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 })
 export class UserordersComponent implements OnInit {
 
-  constructor(public router: Router,private appService: AppService) { }
-  userOrds=[];
+  constructor(public router: Router, private appService: AppService) { }
+  userOrds = [];
   type;
   wholeId;
   // orderdetails() {
@@ -20,23 +20,23 @@ export class UserordersComponent implements OnInit {
     this.getUserOrds();
   }
   getUserOrds() {
-    this.appService.getUserOrders().subscribe((res:any) => {
-        this.userOrds = res.order;
+    this.appService.getUserOrders().subscribe((res: any) => {
+      this.userOrds = res.order;
     })
-}
-orderDetails(orderId, type) {
-  this.type = type;
-  let navigationExtras: NavigationExtras = {
-      queryParams: {
-          orderId: orderId,
-          type: this.type,
-          wholeId: this.wholeId
-      }
   }
-  // this.router.navigate(['/userslist/orderdetails']);
-  //   this.router.navigate(['/userslist/orderdetails']);
-    this.router.navigate(['/userslist/orderdetails'],navigationExtras);
+  orderDetails(orderId, type) {
+    this.type = type;
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        orderId: orderId,
+        type: this.type,
+        wholeId: this.wholeId
+      }
+    }
+    // this.router.navigate(['/userslist/orderdetails']);
+    //   this.router.navigate(['/userslist/orderdetails']);
+    this.router.navigate(['/userslist/orderdetails'], navigationExtras);
 
-  // this.router.navigate(['/orderDetails'], navigationExtras)
-}
+    // this.router.navigate(['/orderDetails'], navigationExtras)
+  }
 }

@@ -5,11 +5,12 @@ import { WholeSellerRoutingModule } from './wholeseller-routing.module';
 import { AddwholesellerComponent } from './addwholeseller.component';
 import { WholesellerproductsComponent } from './wholesellerproducts.component';
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [WholesellerComponent, AddwholesellerComponent, WholesellerproductsComponent],
   imports: [
-    CommonModule, WholeSellerRoutingModule
+    CommonModule, WholeSellerRoutingModule,FormsModule
   ]
 })
 export class WholesellerModule { }

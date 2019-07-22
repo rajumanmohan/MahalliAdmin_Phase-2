@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
   selector: 'app-wholeseller',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WholesellerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
+    this.wholecomission();
   }
-
+  commisionData;
+  wholecomission() {
+    this.appService.getWholeCommision().subscribe((res: any) => {
+      this.commisionData = res.data;
+    })
+  }
 }
