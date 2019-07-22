@@ -6,9 +6,10 @@ import { AddwholesellerComponent } from './addwholeseller.component';
 import { WholesellerproductsComponent } from './wholesellerproducts.component';
 
 import { FormsModule } from '@angular/forms';
+import { ImageapprovalComponent } from './imageapproval.component';
 
 @NgModule({
-  declarations: [WholesellerComponent, AddwholesellerComponent, WholesellerproductsComponent],
+  declarations: [WholesellerComponent, AddwholesellerComponent, WholesellerproductsComponent, ImageapprovalComponent],
   imports: [
     CommonModule, WholeSellerRoutingModule,FormsModule
   ]

@@ -132,6 +132,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/wholesellerproducts/wholesellerproducts.module').then(m => m.WholesellerproductsModule)
       },
       {
+        path: 'vendorproducts',
+        loadChildren: () => import('./views/vendorproducts/vendorproducts.module').then(m => m.VendorproductsModule)
+      },
+      {
         path: 'allusers',
         loadChildren: () => import('./views/allusers/allusers.module').then(m => m.AllusersModule)
       }
