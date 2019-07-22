@@ -10,17 +10,20 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 export class VendorsComponent implements OnInit {
 
 
-  constructor(public router: Router,private appService:AppService) { }
+  constructor(public router: Router, private appService: AppService) { }
   vendorproducts() {
     this.router.navigate(['/vendorslist/vendorproducts']);
   }
-  vendors=[];
+  editdetails() {
+    this.router.navigate(['/vendorslist/editvendors']);
+  }
+  vendors = [];
   ngOnInit() {
     this.getVendors();
   }
   getVendors() {
-    this.appService.getVendorsList().subscribe((resp:any) => {
-        this.vendors = resp.data;
+    this.appService.getVendorsList().subscribe((resp: any) => {
+      this.vendors = resp.data;
     })
-}
+  }
 }
