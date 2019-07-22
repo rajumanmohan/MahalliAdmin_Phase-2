@@ -1,113 +1,117 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
-import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-wholesellerproducts',
-  templateUrl: './wholesellerproducts.component.html',
-  styleUrls: ['./wholesellerproducts.component.scss']
+    selector: 'app-wholesellerproducts',
+    templateUrl: './wholesellerproducts.component.html',
+    styleUrls: ['./wholesellerproducts.component.scss']
 })
 export class WholesellerproductsComponent implements OnInit {
-salerId;
+    salerId;
     showGroceryProds;
     showEcomProds;
-  constructor( private appService: AppService,private route: ActivatedRoute) { 
-    this.route.queryParams.subscribe(params => {
-        this.salerId = params.salerproductId
-      });
-  }
-  product;
-  sellerProId;
-  ngOnInit() {
-      this.getGroceryProds();
-  }
-//   getGroceryProds() {
-//     // this.spinnerService.show();
-    
-//     // let goodResponse = [];
-//     // this.pagination = [];
-//     // this.product = [];
-//     this.appService.getWholesellerProdsByGro(this.sellerProId)
-//         .subscribe((resp:any) => {
-//             // this.spinnerService.hide();
-//             if (resp.status === 200) {
-//                 this.product = resp.products;
-//             } else if (resp.status === 400) {
-//                 // this.noRecords = true;
-//             }
-
-//             // this.paginationValues = resp.json().data.pagination;
-//             // this.totalCount = resp.json().data.pagination.totalCount;
-//             // this.pages = Math.ceil(this.totalCount / 10);
-//             // console.log(this.pages);
-//             // for (var i = 0; i < this.pages; i++) {
-//             //     this.pagination.push(i);
-//             // }
-//         })
-
-//     error => {
-//         console.log(error, "error");
-//     }
-// }
-getEcomProds() {
-    // this.spinnerService.show();
-    this.showGroceryProds = false;
-    this.showEcomProds = true;
-    // let goodResponse = [];
-    // this.pagination = [];
-    // this.product = [];
-    this.appService.getWholesellerProdsByEcom(this.salerId)
-        .subscribe((resp:any) => {
-            // this.spinnerService.hide();
-            if (resp.status === 200) {
-                this.product = resp.products;
-            } else if (resp.status === 400) {
-                // this.noRecords1 = true;
-            }
-
-            // this.paginationValues = resp.json().data.pagination;
-            // this.totalCount = resp.json().data.pagination.totalCount;
-            // this.pages = Math.ceil(this.totalCount / 10);
-            // console.log(this.pages);
-            // for (var i = 0; i < this.pages; i++) {
-            //     this.pagination.push(i);
-            // }
-        })
-
-    error => {
-        console.log(error, "error");
+    constructor(private appService: AppService, private route: ActivatedRoute,public router: Router) {
+        this.route.queryParams.subscribe(params => {
+            this.salerId = params.salerproductId
+        });
     }
-}
-getGroceryProds() {
-    // this.spinnerService.show();
-    this.showGroceryProds = true;
-    this.showEcomProds = false;
-    // let goodResponse = [];
-    // this.pagination = [];
-    this.product = [];
-    this.appService.getWholesellerProdsByGro(this.salerId)
-        .subscribe((resp:any) => {
-            // this.spinnerService.hide();
-            if (resp.status === 200) {
-                this.product = resp.products;
-            } else if (resp.status === 400) {
-                // this.noRecords = true;
-            }
-
-            // this.paginationValues = resp.json().data.pagination;
-            // this.totalCount = resp.json().data.pagination.totalCount;
-            // this.pages = Math.ceil(this.totalCount / 10);
-            // console.log(this.pages);
-            // for (var i = 0; i < this.pages; i++) {
-            //     this.pagination.push(i);
-            // }
-        })
-
-    error => {
-        console.log(error, "error");
+    product;
+    sellerProId;
+    ngOnInit() {
+        this.getGroceryProds();
     }
-}
-showStatus;
+    //   getGroceryProds() {
+    //     // this.spinnerService.show();
+
+    //     // let goodResponse = [];
+    //     // this.pagination = [];
+    //     // this.product = [];
+    //     this.appService.getWholesellerProdsByGro(this.sellerProId)
+    //         .subscribe((resp:any) => {
+    //             // this.spinnerService.hide();
+    //             if (resp.status === 200) {
+    //                 this.product = resp.products;
+    //             } else if (resp.status === 400) {
+    //                 // this.noRecords = true;
+    //             }
+
+    //             // this.paginationValues = resp.json().data.pagination;
+    //             // this.totalCount = resp.json().data.pagination.totalCount;
+    //             // this.pages = Math.ceil(this.totalCount / 10);
+    //             // console.log(this.pages);
+    //             // for (var i = 0; i < this.pages; i++) {
+    //             //     this.pagination.push(i);
+    //             // }
+    //         })
+
+    //     error => {
+    //         console.log(error, "error");
+    //     }
+    // }
+    showimageapproval() {
+        this.router.navigate(['wholeseller/imageapproval']);
+    }
+
+    getEcomProds() {
+        // this.spinnerService.show();
+        this.showGroceryProds = false;
+        this.showEcomProds = true;
+        // let goodResponse = [];
+        // this.pagination = [];
+        // this.product = [];
+        this.appService.getWholesellerProdsByEcom(this.salerId)
+            .subscribe((resp: any) => {
+                // this.spinnerService.hide();
+                if (resp.status === 200) {
+                    this.product = resp.products;
+                } else if (resp.status === 400) {
+                    // this.noRecords1 = true;
+                }
+
+                // this.paginationValues = resp.json().data.pagination;
+                // this.totalCount = resp.json().data.pagination.totalCount;
+                // this.pages = Math.ceil(this.totalCount / 10);
+                // console.log(this.pages);
+                // for (var i = 0; i < this.pages; i++) {
+                //     this.pagination.push(i);
+                // }
+            })
+
+        error => {
+            console.log(error, "error");
+        }
+    }
+    getGroceryProds() {
+        // this.spinnerService.show();
+        this.showGroceryProds = true;
+        this.showEcomProds = false;
+        // let goodResponse = [];
+        // this.pagination = [];
+        this.product = [];
+        this.appService.getWholesellerProdsByGro(this.salerId)
+            .subscribe((resp: any) => {
+                // this.spinnerService.hide();
+                if (resp.status === 200) {
+                    this.product = resp.products;
+                } else if (resp.status === 400) {
+                    // this.noRecords = true;
+                }
+
+                // this.paginationValues = resp.json().data.pagination;
+                // this.totalCount = resp.json().data.pagination.totalCount;
+                // this.pages = Math.ceil(this.totalCount / 10);
+                // console.log(this.pages);
+                // for (var i = 0; i < this.pages; i++) {
+                //     this.pagination.push(i);
+                // }
+            })
+
+        error => {
+            console.log(error, "error");
+        }
+    }
+    showStatus;
     Status;
     key;
     status(btn, prodId, Appr) {
@@ -122,7 +126,7 @@ showStatus;
         } else {
             btn.value = Appr
         }
-        this.appService.updateWholesellerProds(inData, prodId).subscribe((res:any) => {
+        this.appService.updateWholesellerProds(inData, prodId).subscribe((res: any) => {
             if (res.status === 200) {
                 // swal(res.message, "", "success");
                 // this.getProduct();
@@ -135,7 +139,7 @@ showStatus;
         var inData = {
             "Dealsoftheday": e.target.checked
         }
-        this.appService.updateWholesellerProds(inData, prodId).subscribe((res:any) => {
+        this.appService.updateWholesellerProds(inData, prodId).subscribe((res: any) => {
             if (res.status === 200) {
                 // swal(res.message, "", "success");
                 // this.getProduct();
@@ -148,7 +152,7 @@ showStatus;
         var inData = {
             "Topoffers": e.target.checked
         }
-        this.appService.updateWholesellerProds(inData, prodId).subscribe((res:any) => {
+        this.appService.updateWholesellerProds(inData, prodId).subscribe((res: any) => {
             if (res.status === 200) {
                 // swal(res.message, "", "success");
                 // this.getProduct();
@@ -164,27 +168,43 @@ showStatus;
 
         //     if (value === true) {
         //         // var data = {
-                //     'id': id
-                // }
-                this.appService.deleteProduct(id)
-                    .subscribe((resp:any) => {
-                        if (resp.message === 'Success') {
-                            // swal('product delete successfully', '', 'success')
-                            // this.getProduct();
-                            this.showGroceryProds = true?this.getGroceryProds():this.getEcomProds();
-                        }
-                        else {
+        //     'id': id
+        // }
+        this.appService.deleteProduct(id)
+            .subscribe((resp: any) => {
+                if (resp.message === 'Success') {
+                    // swal('product delete successfully', '', 'success')
+                    // this.getProduct();
+                    this.showGroceryProds == true ? this.getGroceryProds() : this.getEcomProds();
+                }
+                else {
 
-                        }
-                    },
-                        error => {
-                            console.log(error, "error");
-                        })
-            // } else {
-            //     return;
-            // }
+                }
+            },
+                error => {
+                    console.log(error, "error");
+                })
+        // } else {
+        //     return;
+        // }
         // });
 
 
     }
+    showProdDetails(prodId) {
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                prodId: prodId,
+            }
+        }
+        this.router.navigate(['wholeseller/imageapproval'], navigationExtras);
+      }
+    // showProdDetails(prodId) {
+    //     let navigationExtras: NavigationExtras = {
+    //         queryParams: {
+    //             prodId: prodId,
+    //         }
+    //     }
+    //     this.router.navigate(['/wholeseller/imageapproval'], navigationExtras);
+    // }
 }

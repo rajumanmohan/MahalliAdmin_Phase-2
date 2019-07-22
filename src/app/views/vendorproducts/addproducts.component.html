@@ -494,7 +494,7 @@
                                     <div class="cust-adprod">
                                     </div>
                                     <ul class="fruits-list" *ngFor="let item of category">
-                                        <li (click)="showSubcats(item.id)" (mouseenter)="showSubcats(item.id)">
+                                        <li (click)="showSubcats(item.id)" (mouseenter)="showSubcats(item.id,item.category_name)">
                                             <p class="cat-hover">{{item.category_name}} <i _ngcontent-c1=""
                                                     _ngcontent-c4="" class="fa
                                                     fa-angle-right sub-cat"></i> </p>
@@ -515,7 +515,7 @@
                                         <!-- <h6>Fresh Vegatables &nbsp;&nbsp;&nbsp;&nbsp; ></h6> -->
                                     </div>
                                     <ul class="fruits-list" *ngFor="let sub of subArr">
-                                        <li (click)="getsubProd(sub.id)"
+                                        <li (click)="getsubProd(sub.id,sub.sub_category_name)"
                                             (mouseenter)="changeSub1(sub.sub_category_name)">
                                             <p class="cat-hover">{{sub.sub_category_name}}<i _ngcontent-c1=""
                                                     _ngcontent-c4="" class="fa

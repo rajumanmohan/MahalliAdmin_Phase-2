@@ -26,9 +26,9 @@ export class WholesellerproductsComponent implements OnInit {
         this.getGroceryProds();
     }
 
-    showProdDetails() {
-        this.router.navigate(['/wholesellerproducts/productsapproval']);
-    }
+    // showProdDetails() {
+    //     this.router.navigate(['/wholesellerproducts/productsapproval']);
+    // }
     getGroceryProds() {
         // this.spinnerService.show();
         this.showGroceryProds = true;

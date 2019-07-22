@@ -16,10 +16,22 @@ export class VendorordersComponent implements OnInit {
   orders = [];
   type;
   ngOnInit() {
-    this.getAllVendorOrders();
+    if(sessionStorage.vemdorId){
+      this.getAllVendorOrders1();
+    }else {
+      this.getAllVendorOrders();
+
+    }
   }
   getAllVendorOrders() {
     this.appService.getAllVendorOrds().subscribe((res: any) => {
+      this.orders = res.Orders;
+    }, error => {
+
+    })
+  }
+  getAllVendorOrders1() {
+    this.appService.getPlaceOrder().subscribe((res: any) => {
       this.orders = res.Orders;
     }, error => {
 

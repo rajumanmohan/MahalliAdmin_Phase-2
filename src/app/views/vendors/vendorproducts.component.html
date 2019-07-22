@@ -54,16 +54,17 @@
                                     {{data.discount || "-"}}
                                 </td>
                                 <td>
-                                        <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <select id="company" class="form-control order-status"
-                                                        (change)="statusChange($event.target.value,data.vendor_product_id)" [(ngModel)]="data.product_status">
-                                                        <option disabled>Select status</option>
-                                                        <option *ngFor="let item of Status">{{item}}</option>
-                                                        <!-- <option value="Disapprove">Disapprove</option> -->
-                                                    </select>
-                                                </div>
-                                            </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <select id="company" class="form-control order-status"
+                                                (change)="statusChange($event.target.value,data.vendor_product_id)"
+                                                [(ngModel)]="data.product_status">
+                                                <option disabled>Select status</option>
+                                                <option *ngFor="let item of Status">{{item}}</option>
+                                                <!-- <option value="Disapprove">Disapprove</option> -->
+                                            </select>
+                                        </div>
+                                    </div>
                             </tr>
                             <!-- <tr>
                                 <td>2</td>

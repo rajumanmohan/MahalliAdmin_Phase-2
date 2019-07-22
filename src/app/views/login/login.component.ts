@@ -38,6 +38,9 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
           sessionStorage.setItem("wholesalerId", resp.id);
+        }else if(resp.role == "vendor"){
+          sessionStorage.setItem("vemdorId", resp.id);
+
         }
 
         // this.redirectTo('dashboard');

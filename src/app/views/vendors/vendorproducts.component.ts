@@ -22,7 +22,7 @@ export class VendorproductsComponent implements OnInit {
     this.getVendorProducts();
   }
   getVendorProducts() {
-    this.appService.getVendorProds(this.prodId).subscribe((res: any) => {
+    this.appService.getAllVendorProds(this.prodId).subscribe((res: any) => {
       this.vendorProds = res.products;
       // for (var i = 0; i < this.vendorProds.length; i++) {
       //     // this.skuArr = 

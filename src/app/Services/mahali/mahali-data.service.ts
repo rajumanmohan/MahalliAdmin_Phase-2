@@ -255,11 +255,19 @@ export class AppService {
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(AppSettings.getStaff, { headers: headers })
   }
-  getVendorProds(vendorId) {
+  getVendorProds() {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.get(AppSettings.getVendorProds + "/" + vendorId + "/" + 0, { headers: headers })
+    this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.get(AppSettings.getVendorProds + "/" + this.vendor_id + "/" + 0, { headers: headers })
+  }
+  getVendorProdsEcom(){
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.get(AppSettings.getVendorProdsEcom + "/" + this.vendor_id + "/" + 1, { headers: headers })
   }
 
   getWholesellerProds() {
@@ -640,7 +648,9 @@ export class AppService {
     return this.http.get(AppSettings.prodSub + "/" + subsub, { headers: headers })
   }
   reqAdmin(params) {
-    const headers = new Headers({ 'Content-Type': "application/JSON" });
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post(AppSettings.requestAdmin, params, { headers: headers });
   }
   prodSubAdmin(subId) {
@@ -655,6 +665,28 @@ export class AppService {
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(AppSettings.getAdminSubSub + "/" + subsub, { headers: headers })
   }
+  ImgApprovalForVendor(skid, params) {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    // this.vendor_id = sessionStorage.userId;
+    return this.http.put(AppSettings.vendorImgagesAppr + "/" + skid, params, { headers: headers });
+  }
+  getAllVendorProds(vendorId) {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.get(AppSettings.getAllVendorData + "/" + vendorId + "/" + 2, { headers: headers })
+  }
+  vendor_id;
+  getPlaceOrder() {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.get(AppSettings.getPlaceOrd + "/" + this.vendor_id, { headers: headers });
+}
+
   // deleteVendorbyId(id) {
   //     const headers = new Headers({ 'Content-Type': "application/JSON" });
   //     return this.http.delete(AppSettings.deleteVendorById + id, { headers: headers })

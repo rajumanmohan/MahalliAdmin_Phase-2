@@ -26,25 +26,30 @@
                             <tr>
                                 <th>S No</th>
                                 <th>Category Name</th>
+                                <th>Subcategory Name</th>
+                                <th>Subsubcategory Name</th>
                                 <th>Product Name</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <!-- <th>Status</th>
+                                <th>Action</th> -->
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of suggetedData;let i=index">
                                     <td>{{i+1}}</td>
-                                    <td>{{item.main_cat_name || "-"}} </td>
-                                    <!-- <td>{{item.sub_cat_name || "-"}}</td> -->
-                                    <td>{{item.product_name}} </td>
-                                    <td>
+                                    <td>{{item.category_name}} </td>
+                                    <td>{{item.subcategory_name || "-"}}</td>
+                                    <td>{{item.subcategory_name || "-"}}</td>
+                                    <td>{{item.product_name||"-"}} </td>
+                                <!-- <th>{{item.product_name}}</th> -->
+
+                                    <!-- <td>
                                         <button class="btn remove btn-outline-primary " [value]="item.status
                 " #btn (click)="status(btn,item.id,item.status) ">{{btn.value}}</button>
                                     </td>
                                     <td>
-                                        <!-- <a routerLink="/editSuggested " class="btn btn-outline-primary
-                " (click)="editProd(item.id) ">Edit</a> -->
-                <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                                        <a routerLink="/editSuggested " class="btn btn-outline-primary
+                " (click)="editProd(item.id) ">Edit</a>
+                <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a></td> -->
                             </tr>
                             <!-- <tr>
                                 <td>2</td>

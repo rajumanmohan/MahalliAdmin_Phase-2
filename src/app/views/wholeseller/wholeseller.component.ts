@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
-import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-wholeseller',
@@ -19,7 +19,7 @@ export class WholesellerComponent implements OnInit {
   wholesellerproducts() {
     this.router.navigate(['/wholeseller/wholesellerproducts']);
   }
-
+ 
   getWholeSeller() {
     this.appService.getWholeSeller().subscribe((resp: any) => {
       this.wholeSellers = resp.data;
@@ -32,11 +32,11 @@ export class WholesellerComponent implements OnInit {
   }
   product(Id) {
     let navigationExtras: NavigationExtras = {
-        queryParams: {
-            'salerproductId': Id
-        }
+      queryParams: {
+        'salerproductId': Id
+      }
     }
     this.router.navigate(['wholeseller/wholesellerproducts'], navigationExtras);
-}
+  }
 
 }

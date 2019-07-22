@@ -30,7 +30,7 @@ export class MyproductsComponent implements OnInit {
     let goodResponse = [];
     // this.pagination = [];
     this.product = [];
-    this.appService.getWholesellerProdsByGro(this.sellerProId)
+    this.appService.getVendorProds()
       .subscribe((resp: any) => {
         // this.spinnerService.hide();
         if (resp.status === 200) {
@@ -59,7 +59,7 @@ export class MyproductsComponent implements OnInit {
     let goodResponse = [];
     // this.pagination = [];
     this.product = [];
-    this.appService.getWholesellerProdsByEcom(this.sellerProId)
+    this.appService.getVendorProdsEcom()
       .subscribe((resp: any) => {
         // this.spinnerService.hide();
         if (resp.status === 200) {

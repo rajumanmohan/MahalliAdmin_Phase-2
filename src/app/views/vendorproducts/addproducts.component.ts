@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { Router } from '@angular/router';
-
+declare var $: any;
+declare var jsPDF: any;
 @Component({
   selector: 'app-addproducts',
   templateUrl: './addproducts.component.html',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   
  
   export class AddproductsComponent implements OnInit {
-  
+    reqProduct;
       constructor(private appService: AppService, public router: Router) { }
       showSkuDetails: boolean;
       CatDetails = true;
@@ -108,9 +109,11 @@ import { Router } from '@angular/router';
                       console.log(error, "error");
                   })
       }
+      cat_name;
       showSubcats(catId) {
           for (var i = 0; i < this.category.length; i++) {
               if (catId == this.category[i].id) {
+                  this.cat_name = this.category[i].category_name;
                   this.subArr = this.category[i].subcategory;
                   console.log(this.subArr);
                   this.formdata.categoryName = this.category[i].category_name;
@@ -194,12 +197,14 @@ import { Router } from '@angular/router';
           }
       }
       reqProds = [];
-      getsubProd(id) {
+      subcat_name;
+      getsubProd(id,subname) {
           // this.showAddProducts = false;
           // this.showAddProducts5 = true;
           // this.showAddProductsFields = false;
           this.tableData = true;
           this.CatDetails = false;
+          this.subcat_name = subname;
           this.appService.prodSub(id).subscribe((res: any) => {
               if (res.status == 200) {
                   this.reqProds = res.products;
@@ -598,16 +603,21 @@ import { Router } from '@angular/router';
       }
       reqAdmin() {
           var inData = {
+            // category_id,subcategory_id,subsubcat_id,category_name,sub_category_name,subsubcat_name
               "category_id": this.cat_id,
               "subcategory_id": this.subCat_id,
-              "product_name": this.reqProduct
+              "product_name": this.reqProduct,
+              "subsubcat_id":this.sub_sub_id||'',
+              "category_name":this.cat_name,
+              "sub_category_name":this.formdata.subcategoryName,
+              "subsubcat_name  ":this.formdata.subsubcategoryName,
           }
-          this.appService.reqAdmin(inData).subscribe(res => {
-              if (res.json().status == 200) {
-                  swal(res.json().message, "", "success");
+          this.appService.reqAdmin(inData).subscribe((res:any) => {
+              if (res.status == 200) {
+                //   swal(res.json().message, "", "success");
                   $('#product-name').modal('hide');
               } else {
-                  swal(res.json().message, "", "error");
+                //   swal(res.json().message, "", "error");
               }
           })
       }

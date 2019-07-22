@@ -20,10 +20,10 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ DashboardComponent ]
+  declarations: [DashboardComponent]
 })
-export class DashboardModule implements OnInit { 
-  constructor(private appService:AppService){
+export class DashboardModule implements OnInit {
+  constructor(private appService: AppService) {
 
   }
   role;
@@ -35,6 +35,6 @@ export class DashboardModule implements OnInit {
     // if(this.role=='wholesaler'){
     //     this.getAdminCount();
     // }
-}
+  }
 
 }

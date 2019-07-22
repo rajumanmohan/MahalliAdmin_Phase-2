@@ -592,18 +592,23 @@ export class AddwholesellerproductsComponent implements OnInit {
             }
         }
     }
+    reqProduct;
     reqAdmin() {
         var inData = {
             "category_id": this.cat_id,
             "subcategory_id": this.subCat_id,
-            "product_name": this.reqProduct
+            "product_name": this.reqProduct,
+            "subsubcat_id":this.sub_sub_id||'',
+            "category_name":this.formdata.categoryName,
+            "sub_category_name":this.formdata.subcategoryName,
+            "subsubcat_name  ":this.formdata.subsubcategoryName,
         }
         this.appService.reqAdmin(inData).subscribe((res:any) => {
             if (res.status == 200) {
                 // swal(res.message, "", "success");
                 $('#product-name').modal('hide');
             } else {
-                swal(res.message, "", "error");
+                // swal(res.message, "", "error");
             }
         })
     }

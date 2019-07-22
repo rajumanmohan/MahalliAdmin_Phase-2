@@ -31,7 +31,7 @@ const routes: Routes = [
         path: 'imageapproval',
         component: ImageapprovalComponent,
         data: {
-            title: 'Whole seller'
+            title: 'Wholeseller'
         }
     }
 ];
