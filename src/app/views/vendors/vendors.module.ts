@@ -6,13 +6,14 @@ import { VendorproductsComponent } from './vendorproducts.component';
 import { VendorordersComponent } from './vendororders.component';
 import { VendororderdetailsComponent } from './vendororderdetails.component';
 import { FormsModule } from '@angular/forms';
+import { EditvendorComponent } from './editvendor.component';
 
 
 
 @NgModule({
-  declarations: [VendorsComponent, VendorproductsComponent, VendorordersComponent, VendororderdetailsComponent],
+  declarations: [VendorsComponent, VendorproductsComponent, VendorordersComponent, VendororderdetailsComponent, EditvendorComponent],
   imports: [
-    CommonModule,VendorsRoutingModule,FormsModule
+    CommonModule, VendorsRoutingModule, FormsModule
   ]
 })
 export class VendorsModule { }

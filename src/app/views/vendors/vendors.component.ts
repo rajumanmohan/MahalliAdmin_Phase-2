@@ -19,8 +19,8 @@ export class VendorsComponent implements OnInit {
     this.getVendors();
   }
   getVendors() {
-    this.appService.getVendorsList().subscribe((resp:any) => {
-        this.vendors = resp.data;
+    this.appService.getVendorsList().subscribe((resp: any) => {
+      this.vendors = resp.data;
     })
 }
 vendorproducts(Id) {
