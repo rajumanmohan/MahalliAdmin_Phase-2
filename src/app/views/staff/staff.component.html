@@ -36,60 +36,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            No Data
-                            <!-- <tr>
-                                <td>1</td>
-                                <td>text </td>
-                                <td>text@gmail.com</td>
-                                <td>74562146632</td>
-                                <td>text role</td>
-                                <td>Hyderabad</td>
-
+                            <tr *ngFor="let cat of staffData ; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{cat.name}}</td>
+                                <td>{{cat.email}}</td>
+                                <td>{{cat.mobile_number}}</td>
+                                <td>{{cat.role_name || "-"}}</td>
+                                <td>
+                                    {{cat.area}}
+                                </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>text </td>
-                                <td>text@gmail.com</td>
-                                <td>74562146632</td>
-                                <td>text role</td>
-                                <td>Hyderabad</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>text </td>
-                                <td>text@gmail.com</td>
-                                <td>74562146632</td>
-                                <td>text role</td>
-                                <td>Hyderabad</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>text </td>
-                                <td>text@gmail.com</td>
-                                <td>74562146632</td>
-                                <td>text role</td>
-                                <td>Hyderabad</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>text </td>
-                                <td>text@gmail.com</td>
-                                <td>74562146632</td>
-                                <td>text role</td>
-                                <td>Hyderabad</td>
-                            </tr> -->
                         </tbody>
                     </table>
-                    <!-- <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul> -->
+
                 </div>
             </div>
         </div>

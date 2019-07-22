@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addstaff',
@@ -29,10 +30,13 @@ export class AddstaffComponent implements OnInit {
   email;
   password;
   commision;
-  constructor(private appService: AppService, ) { }
+  constructor(private appService: AppService,public router: Router ) { }
 
   ngOnInit() {
     // console.log(this.marked);
+  }
+  backtostaff(){
+    this.router.navigate(['/staff'])
   }
   name;
   toggleVisibility(e) {
