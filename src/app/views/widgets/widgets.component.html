@@ -17,6 +17,15 @@
             </div>
             <div class="col-lg-6 text-right">
               <button type="button" class="btn  btn-primary" (click)="addproduct()">Add Product</button>
+              <!-- <div class="form-group"> -->
+                <!-- <label for="file">Import Excel</label> -->
+                <button class="file-upload-button">
+                  <input type="file"
+                    #fileInput
+                    (change)="onFileSelect(fileInput)"
+                    />
+                Import</button>
+            <!-- </div> -->
             </div>
           </div>
           <div class="row">

@@ -10,8 +10,7 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 })
 export class DashboardComponent implements OnInit {
   constructor(private appService: AppService, public router: Router) {
-
-
+this.router.navigate(['/dashboard']);
   }
   radioModel: string = 'Month';
   wholeCount = []

@@ -32,4 +32,13 @@ vendorproducts(Id) {
   }
   this.router.navigate(['/vendorslist/vendorproducts'], navigationExtras);
 }
+EditVendor(Id){
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+        'vendorId': Id,
+        
+    }
+}
+this.router.navigate(['/vendorslist/editvendors'], navigationExtras);
+}
 }

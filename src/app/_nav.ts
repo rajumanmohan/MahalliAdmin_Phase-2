@@ -28,15 +28,43 @@ export interface NavData {
   label?: NavLabel;
   wrapper?: NavWrapper;
 }
-if(sessionStorage.role=='Admin'){
+export interface NavData1 {
+  name?: string;
+  url?: string;
+  icon?: string;
+  badge?: NavBadge;
+  title?: boolean;
+  children?: NavData[];
+  variant?: string;
+  attributes?: NavAttributes;
+  divider?: boolean;
+  class?: string;
+  label?: NavLabel;
+  wrapper?: NavWrapper;
+}
+export interface NavData {
+  name?: string;
+  url?: string;
+  icon?: string;
+  badge?: NavBadge;
+  title?: boolean;
+  children?: NavData[];
+  variant?: string;
+  attributes?: NavAttributes;
+  divider?: boolean;
+  class?: string;
+  label?: NavLabel;
+  wrapper?: NavWrapper;
+}
+if (sessionStorage.role == 'Admin') {
   var newArr = [
     {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-  
+
     },
-  
+
     {
       name: 'Main Categories',
       url: '/Category',
@@ -57,7 +85,7 @@ if(sessionStorage.role=='Admin'){
           url: '/Category/subsubcategories',
           icon: 'icon-puzzle'
         },
-  
+
       ]
     },
     {
@@ -102,7 +130,7 @@ if(sessionStorage.role=='Admin'){
         }
       ]
     },
-  
+
     {
       name: 'User Management',
       url: '/userslist',
@@ -120,7 +148,7 @@ if(sessionStorage.role=='Admin'){
         }
       ]
     },
-  
+
     {
       name: 'Wholeseller ',
       url: '/wholeseller',
@@ -148,7 +176,7 @@ if(sessionStorage.role=='Admin'){
         },
       ]
     },
-  
+
     {
       name: 'Requested Products',
       url: '/suggestedproducts',
@@ -214,22 +242,23 @@ if(sessionStorage.role=='Admin'){
       icon: 'icon-user',
     }
     ,
-  
+
   ];
-}else if(sessionStorage.role=='wholesaler'){
+} 
+else if (sessionStorage.role == 'wholesaler') {
   var newArr = [
     {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-  
+
     },
     {
       name: 'Vendor Orders',
       url: '/vendorslist/vendororders',
       icon: 'fa fa-cart-plus ',
     },
-  
+
     {
       name: 'Wholeseller Products',
       url: '/wholesellerproducts',
@@ -245,26 +274,26 @@ if(sessionStorage.role=='Admin'){
           url: '/wholesellerproducts',
           icon: 'icon-calculator '
         },
-  
+
       ]
     },
-    
-  
+
+
   ];
-}else {  
-   newArr = [
+} else {
+ var newArr = [
     {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-  
+
     },
     {
       name: 'Vendor Orders',
       url: '/vendorslist/vendororders',
       icon: 'fa fa-cart-plus ',
     },
-  
+
     {
       name: 'Vendor Products',
       url: '/vendorproducts',
@@ -280,16 +309,20 @@ if(sessionStorage.role=='Admin'){
           url: '/vendorproducts',
           icon: 'icon-calculator '
         },
-  
+
       ]
     }
   ]
 }
+export const navItems: NavData[] = newArr;
+// export const navItems1: NavData[] = newArr1;
+// export const navItems2: NavData[] = newArr2;
+
+
+
 
 
 
 // var ShowArr = sessionStorage.role == 'wholesaler' ? newArr1 : newArr;
 
 
-
-export const navItems: NavData[] = newArr;

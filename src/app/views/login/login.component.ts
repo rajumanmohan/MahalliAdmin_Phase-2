@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("vemdorId", resp.id);
 
         }
-
+// alert("success");
         // this.redirectTo('dashboard');
         // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
         // this.router.navigate(["dashboard"])); 
