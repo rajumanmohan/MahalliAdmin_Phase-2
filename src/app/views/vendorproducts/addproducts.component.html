@@ -1,0 +1,240 @@
+<div class="animated fadeIn">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="card" *ngIf="showAddproduct">
+                <div class="card-header"><strong>Vendor Products
+
+                        <button (click)="backtolist()" class="btn  btn-primary text-right float-right ">Back</button>
+                    </strong>
+
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="company">Category</label>
+                                <select class="form-control">
+                                    <option>Select Category</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="company">Sub Category</label>
+                                <select class="form-control">
+                                    <option>Select Sub Category</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="company">Sub Sub Category</label>
+                                <select class="form-control">
+                                    <option>Select Sub Sub Category</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="company">Product Name</label>
+                                <input class="form-control" id="company" placeholder="Enter Product name" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="company">Brand</label>
+                                <input class="form-control" id="company" placeholder="Enter your Brand name"
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="company">Description</label>
+                            <textarea class="form-control" rows="9" placeholder="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group" style="margin-top:20px;margin-bottom:25px;">
+                                <label for="firstname">Add sku:
+                                    <button class="btn btn-primary">+</button>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sku-details">
+                        <div class="col-md-3">
+                            <label for="company">Size</label>
+                            <input class="form-control" id="company" placeholder="Size" type="text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="company">Units</label>
+                            <input class="form-control" id="company" placeholder="Size" type="text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="company">Quantity</label>
+                            <input class="form-control" id="company" placeholder="Size" type="text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="company">Actual Price</label>
+                            <input class="form-control" id="company" placeholder="Size" type="text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="company">Selling Price</label>
+                            <input class="form-control" id="company" placeholder="Selling Price" type="text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="company">Discount</label>
+                            <input class="form-control" id="company" placeholder="Discount Price" type="text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="company">Stock</label>
+                            <input class="form-control" id="company" placeholder="Stock" type="text">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="company">Sku Images</label>
+                            <input class="form-control" id="company" type="file">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Delete Sku
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card" *ngIf="showcatList">
+                <div class="card-header"><strong>Vendor Products</strong>
+
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row align-items-center mt-3 module-buttons">
+                            <div class=" col-md-3 mb-3 mb-xl-0">
+                                <button type="button" class="btn btn-block btn-primary" (click)="getGroceryProds()">
+                                    Grocery</button>
+                            </div>
+                            <div class=" col-md-3   mb-3 mb-xl-0">
+                                <button type="button" class="btn btn-block btn-secondary" (click)="getEcomProds()">
+                                    Ecommerce</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 list-icons">
+                                <ul>
+                                    <li><span (click)="showproductlist()">test 1</span> <i
+                                            class="fa fa-chevron-right fa-lg mt-4"></i></li>
+                                    <li><span (click)="showproductlist()">test 2</span><i
+                                            class="fa fa-chevron-right fa-lg mt-4"></i>
+                                    </li>
+                                    <li><span (click)="showproductlist()">test 3</span><i
+                                            class="fa fa-chevron-right fa-lg mt-4"></i>
+                                    </li>
+                                    <li><span (click)="showproductlist()">test 4</span> <i
+                                            class="fa fa-chevron-right fa-lg mt-4"></i>
+                                    </li>
+                                    <li><span (click)="showproductlist()">test 5</span><i
+                                            class="fa fa-chevron-right fa-lg mt-4"></i>
+                                    </li>
+                                    <li><span (click)="showproductlist()">test 6</span><i
+                                            class="fa fa-chevron-right fa-lg mt-4"></i>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" *ngIf="showProductsList">
+                <div class="card-header"><strong>Vendor Products</strong>
+                    <button (click)="backtCatList()" class="btn  btn-primary text-right float-right ">Back</button>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S No</th>
+                                <th>Item</th>
+                                <th>Item Name</th>
+                                <th>Brand</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+                                        src="assets/img/avatars/6.jpg">
+                                </td>
+                                <td>test name</td>
+                                <td>test brand</td>
+                                <td> <button type="button" class="btn  btn-primary" (click)="addproduct()">Add
+                                        Product</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+                                        src="assets/img/avatars/6.jpg">
+                                </td>
+                                <td>test name</td>
+                                <td>test brand</td>
+                                <td> <button type="button" class="btn  btn-primary" (click)="addproduct()">Add
+                                        Product</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+                                        src="assets/img/avatars/6.jpg">
+                                </td>
+                                <td>test name</td>
+                                <td>test brand</td>
+                                <td> <button type="button" class="btn  btn-primary" (click)="addproduct()">Add
+                                        Product</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
+                                        src="assets/img/avatars/6.jpg">
+                                </td>
+                                <td>test name</td>
+                                <td>test brand</td>
+                                <td> <button type="button" class="btn  btn-primary" (click)="addproduct()">Add
+                                        Product</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<style>
+    .sku-details {
+        margin-bottom: 30px;
+        border: solid 2px #eb9809;
+        padding: 25px;
+
+    }
+</style>

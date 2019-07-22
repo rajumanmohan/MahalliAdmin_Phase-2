@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { WholesellerComponent } from './wholeseller.component';
 import { AddwholesellerComponent } from './addwholeseller.component';
 import { WholesellerproductsComponent } from './wholesellerproducts.component';
+import { ImageapprovalComponent } from './imageapproval.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,13 @@ const routes: Routes = [
     {
         path: 'wholesellerproducts',
         component: WholesellerproductsComponent,
+        data: {
+            title: 'Whole seller'
+        }
+    },
+    {
+        path: 'imageapproval',
+        component: ImageapprovalComponent,
         data: {
             title: 'Whole seller'
         }
