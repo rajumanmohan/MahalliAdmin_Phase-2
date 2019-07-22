@@ -9,8 +9,8 @@ import { AppService } from './../../services/mahali/mahali-data.service';
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  constructor(private appService: AppService,public router: Router) {
-   
+  constructor(private appService: AppService, public router: Router) {
+
 
   }
   radioModel: string = 'Month';
@@ -384,14 +384,14 @@ export class DashboardComponent implements OnInit {
   }
   role;
   ngOnInit(): void {
-    this.role = localStorage.role;
+    this.role = sessionStorage.role;
     this.getAdminCount();
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
-      if (localStorage.role == 'wholesaler') {
+      if (sessionStorage.role == 'wholesaler') {
         this.getWholeProddsCunt();
       }
     }

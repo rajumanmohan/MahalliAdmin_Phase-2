@@ -263,7 +263,7 @@ export class AppService {
   }
 
   getWholesellerProds() {
-    this.whole_id = (localStorage.wholesalerId)
+    this.whole_id = (sessionStorage.wholesalerId)
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
@@ -391,28 +391,28 @@ export class AppService {
     return this.http.get(AppSettings.getEcomCats, { headers: headers });
   }
   getWholesellerProdsByGro(wholeId) {
-    this.whole_id = (localStorage.wholesalerId != undefined || '' ? localStorage.wholesalerId : wholeId)
+    this.whole_id = (sessionStorage.wholesalerId != undefined || '' ? sessionStorage.wholesalerId : wholeId)
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(AppSettings.getWholeProdsGro + "/" + this.whole_id + "/" + 0, { headers: headers })
   }
   getWholesellerProdsByEcom(wholeId) {
-    this.whole_id = (localStorage.wholesalerId != undefined || '' ? localStorage.wholesalerId : wholeId)
+    this.whole_id = (sessionStorage.wholesalerId != undefined || '' ? sessionStorage.wholesalerId : wholeId)
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(AppSettings.getWholeProdEcom + "/" + this.whole_id + "/" + 1, { headers: headers })
   }
   getVendorOrdInWhole(wholeId) {
-    this.whole_id = (localStorage.wholesalerId) || wholeId
+    this.whole_id = (sessionStorage.wholesalerId) || wholeId
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(AppSettings.getVendorOrdInWhole + "/" + this.whole_id, { headers: headers })
   }
   orderDetailsByOrdId(orderId, wholeId) {
-    this.whole_id = (localStorage.wholesalerId) || wholeId
+    this.whole_id = (sessionStorage.wholesalerId) || wholeId
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
@@ -485,28 +485,28 @@ export class AppService {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.vendor_id = localStorage.userId;
+    // this.vendor_id = sessionStorage.userId;
     return this.http.get(AppSettings.getUserOrdByVenId + "/" + venId, { headers: headers });
   }
   orderDetByVenId(ordId) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.vendor_id = localStorage.userId;
+    // this.vendor_id = sessionStorage.userId;
     return this.http.get(AppSettings.orderDetByVenId + "/" + ordId, { headers: headers });
   }
   getbannerById(banId, imgId) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.vendor_id = localStorage.userId;
+    // this.vendor_id = sessionStorage.userId;
     return this.http.get(AppSettings.getbannerById + "/" + banId + "/" + imgId, { headers: headers });
   }
   updateBanner(params) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.vendor_id = localStorage.userId;
+    // this.vendor_id = sessionStorage.userId;
     return this.http.put(AppSettings.updateBanner, params, { headers: headers });
   }
   insertAdminProd(params) {
@@ -549,7 +549,7 @@ export class AppService {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    this.whole_id = (localStorage.wholesalerId)
+    this.whole_id = (sessionStorage.wholesalerId)
     return this.http.get(AppSettings.getWholeProddsCunt + "/" + this.whole_id, { headers: headers });
   }
   // new admin modifications
@@ -564,28 +564,28 @@ export class AppService {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.whole_id = (localStorage.wholesalerId)
+    // this.whole_id = (sessionStorage.wholesalerId)
     return this.http.get(AppSettings.getAdminProdData + "/" + catId + "/" + subId, { headers: headers });
   }
   getAdminProdById() {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.whole_id = (localStorage.wholesalerId)
+    // this.whole_id = (sessionStorage.wholesalerId)
     return this.http.get(AppSettings.getAdminProdById, { headers: headers });
   }
   wholesalerById(prodId) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.whole_id = (localStorage.wholesalerId)
+    // this.whole_id = (sessionStorage.wholesalerId)
     return this.http.get(AppSettings.wholesalerProdById + "/" + prodId, { headers: headers });
   }
   ImgApproval(skid, params) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.vendor_id = localStorage.userId;
+    // this.vendor_id = sessionStorage.userId;
     return this.http.put(AppSettings.ImgApproval + "/" + skid, params, { headers: headers });
   }
   addSubsub(params) {
@@ -598,14 +598,14 @@ export class AppService {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.whole_id = (localStorage.wholesalerId)
+    // this.whole_id = (sessionStorage.wholesalerId)
     return this.http.get(AppSettings.getSubsub + "/" + 0, { headers: headers });
   }
   getSubsubEcom() {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.whole_id = (localStorage.wholesalerId)
+    // this.whole_id = (sessionStorage.wholesalerId)
     return this.http.get(AppSettings.getSubsubEcom + "/" + 1, { headers: headers });
   }
   delSubsub(prodId) {
@@ -618,7 +618,7 @@ export class AppService {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    // this.vendor_id = localStorage.userId;
+    // this.vendor_id = sessionStorage.userId;
     return this.http.put(AppSettings.updateSubsub, params, { headers: headers });
   }
   prodCat(catId) {
@@ -638,6 +638,22 @@ export class AppService {
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.get(AppSettings.prodSub + "/" + subsub, { headers: headers })
+  }
+  reqAdmin(params) {
+    const headers = new Headers({ 'Content-Type': "application/JSON" });
+    return this.http.post(AppSettings.requestAdmin, params, { headers: headers });
+  }
+  prodSubAdmin(subId) {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.get(AppSettings.getAdminSub + "/" + subId, { headers: headers })
+  }
+  prodSubsubAdmin(subsub) {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.get(AppSettings.getAdminSubSub + "/" + subsub, { headers: headers })
   }
   // deleteVendorbyId(id) {
   //     const headers = new Headers({ 'Content-Type': "application/JSON" });

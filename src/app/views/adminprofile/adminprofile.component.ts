@@ -10,7 +10,7 @@ export class AdminprofileComponent implements OnInit {
   constructor() { }
   profile;
   ngOnInit() {
-    this.profile = JSON.parse(localStorage.getItem("profile"));
+    this.profile = JSON.parse(sessionStorage.getItem("profile"));
   }
 
 }

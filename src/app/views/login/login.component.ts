@@ -34,18 +34,18 @@ export class LoginComponent implements OnInit {
       // swal("test","","success")
       if (resp.status == 200) {
         //     swal(resp.json().message, '', 'success');
-        localStorage.setItem("role", resp.role);
-        localStorage.setItem("profile", JSON.stringify(resp.row));
+        sessionStorage.setItem("role", resp.role);
+        sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
-          localStorage.setItem("wholesalerId", resp.id);
+          sessionStorage.setItem("wholesalerId", resp.id);
         }
-       
-// this.redirectTo('dashboard');
+
+        // this.redirectTo('dashboard');
         // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
         // this.router.navigate(["dashboard"])); 
         this.router.navigate(['/dashboard']);
         //     // if (resp.json().role === "wholesaler") {
-        //     //     localStorage.setItem("wholesalerId", resp.json().id);
+        //     //     sessionStorage.setItem("wholesalerId", resp.json().id);
         //     // }
       }
       // else if (resp.status == 400) {

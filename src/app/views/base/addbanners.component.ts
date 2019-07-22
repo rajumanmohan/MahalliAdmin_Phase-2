@@ -42,7 +42,7 @@ export class AddbannersComponent implements OnInit {
       'description': this.textarea,
       'type': this.typeVal,
       "show_in_user": this.showCat
-      // "wholesaler_id": localStorage.wholesalerId
+      // "wholesaler_id": sessionStorage.wholesalerId
     }
     this.appService.addCat(data)
       .subscribe((resp: any) => {

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AddwholesellerproductsComponent implements OnInit {
 
-    constructor(private appService: AppService,public router: Router) { }
+    constructor(private appService: AppService, public router: Router) { }
     showSkuDetails: boolean;
     CatDetails = true;
     subSubdata = [];
@@ -38,15 +38,15 @@ export class AddwholesellerproductsComponent implements OnInit {
         country: '',
         subsubcategoryName: ''
     }
-    getGroceryProds(){
+    getGroceryProds() {
         this.subArr = [];
         this.showGro = true;
-        this.showecom=false;
+        this.showecom = false;
         this.getCat();
     }
-    getEcomProds(){
+    getEcomProds() {
         this.showGro = false;
-        this.showecom=true;
+        this.showecom = true;
         this.subArr = [];
         this.getEcomCat();
     }
@@ -196,7 +196,7 @@ export class AddwholesellerproductsComponent implements OnInit {
         // this.showAddProductsFields = false;
         this.tableData = true;
         this.CatDetails = false;
-        this.appService.prodSub(id).subscribe((res: any) => {
+        this.appService.prodSubAdmin(id).subscribe((res: any) => {
             if (res.status == 200) {
                 this.reqProds = res.products;
                 // this.noProd = false;
@@ -217,7 +217,7 @@ export class AddwholesellerproductsComponent implements OnInit {
     getsubsubProd(id, subsub) {
         this.tableData = true;
         this.CatDetails = false;
-        this.appService.prodSubsub(id).subscribe((res: any) => {
+        this.appService.prodSubsubAdmin(id).subscribe((res: any) => {
             if (res.status == 200) {
                 this.reqProds = res.products;
                 // this.noProd = false;
@@ -379,7 +379,7 @@ export class AddwholesellerproductsComponent implements OnInit {
             "country": this.country,
             "adminproduct_id": this.AdminProdId || 0,
             "organic": this.organic,
-            "vendor_id": localStorage.userId,
+            "vendor_id": sessionStorage.userId,
             "description": this.textarea,
 
             // 'warehouse': this.dataWare,
@@ -591,5 +591,20 @@ export class AddwholesellerproductsComponent implements OnInit {
                 reader.readAsDataURL(file);
             }
         }
+    }
+    reqAdmin() {
+        var inData = {
+            "category_id": this.cat_id,
+            "subcategory_id": this.subCat_id,
+            "product_name": this.reqProduct
+        }
+        this.appService.reqAdmin(inData).subscribe((res:any) => {
+            if (res.status == 200) {
+                // swal(res.message, "", "success");
+                $('#product-name').modal('hide');
+            } else {
+                swal(res.message, "", "error");
+            }
+        })
     }
 }

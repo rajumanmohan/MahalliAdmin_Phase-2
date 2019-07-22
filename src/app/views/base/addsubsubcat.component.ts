@@ -137,7 +137,7 @@ export class AddsubsubcatComponent implements OnInit {
       "type": this.action == 'grocery' ? 0 : 1,
       "subsubcat_name": this.subsubCa,
 
-      // "wholesaler_id": localStorage.wholesalerId
+      // "wholesaler_id": sessionStorage.wholesalerId
     }
     this.appService.addSubsub(data).subscribe(resp => {
       // this.spinnerService.hide();

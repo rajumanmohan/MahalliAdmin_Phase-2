@@ -149,7 +149,7 @@ var newArr = [
   },
 
   {
-    name: 'Suggested Products',
+    name: 'Requested Products',
     url: '/suggestedproducts',
     icon: 'fa fa-cart-plus ',
   },
@@ -267,7 +267,7 @@ var newArr1 = [
   }
 
 ];
-var ShowArr = localStorage.role == 'wholesaler' ? newArr1 : newArr;
+var ShowArr = sessionStorage.role == 'wholesaler' ? newArr1 : newArr;
 
 
 

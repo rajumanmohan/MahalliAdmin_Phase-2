@@ -29,7 +29,7 @@ export class DefaultLayoutComponent implements OnDestroy {
     this.changes.disconnect();
   }
   logOut() {
-    localStorage.clear();
+    sessionStorage.clear();
     // window.location('/')
     this.router.navigate(['/']);
     // if(this.router.navigate(['/'])){

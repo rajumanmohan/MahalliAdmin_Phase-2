@@ -98,7 +98,7 @@ export class AddsubbannerComponent implements OnInit {
             'category_id': this.mainCat,
             'image': this.strImage,
             'description': this.textarea,
-            // "wholesaler_id": localStorage.wholesalerId
+            // "wholesaler_id": sessionStorage.wholesalerId
         }
         this.appService.insertSubCat(data).subscribe(resp => {
             // this.spinnerService.hide();
