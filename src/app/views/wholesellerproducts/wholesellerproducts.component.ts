@@ -25,6 +25,10 @@ export class WholesellerproductsComponent implements OnInit {
     ngOnInit() {
         this.getGroceryProds();
     }
+
+    showProdDetails() {
+        this.router.navigate(['/wholesellerproducts/productsapproval']);
+    }
     getGroceryProds() {
         // this.spinnerService.show();
         this.showGroceryProds = true;
@@ -87,27 +91,27 @@ export class WholesellerproductsComponent implements OnInit {
         // swal("Do you want to delete?", "", "warning", {
         //     buttons: ["Cancel!", "Okay!"],
         // }).then((value) => {
-            // if (value === true) {
-                // var data = {
-                //     'id': id
-                // }
-                this.appService.deleteProduct(id)
-                    .subscribe((resp:any) => {
-                        if (resp.status === 200) {
-                            // swal('product delete successfully', '', 'success');
-                            // this.wholeType == "ecommerce" ? this.getEcomProds() : this.getGroceryProds()
-                            this.getGroceryProds();
-                        }
-                        else {
-                            // swal(resp.json().message, '', 'error');
-                        }
-                    },
-                        error => {
-                            console.log(error, "error");
-                        })
-            // } else {
-            //     return;
-            // }
+        // if (value === true) {
+        // var data = {
+        //     'id': id
+        // }
+        this.appService.deleteProduct(id)
+            .subscribe((resp: any) => {
+                if (resp.status === 200) {
+                    // swal('product delete successfully', '', 'success');
+                    // this.wholeType == "ecommerce" ? this.getEcomProds() : this.getGroceryProds()
+                    this.getGroceryProds();
+                }
+                else {
+                    // swal(resp.json().message, '', 'error');
+                }
+            },
+                error => {
+                    console.log(error, "error");
+                })
+        // } else {
+        //     return;
+        // }
         // });
 
 

@@ -48,6 +48,7 @@ export class ContentComponent implements OnInit {
 
     this.appService.getFooter(inData).subscribe((resp: any) => {
       this.aboutusData = resp.data[0].description;
+      this.decodeData = atob(this.aboutusData);
       this.title = resp.data[0].type;
       this.aboutusId = resp.data[0].id;
     })
