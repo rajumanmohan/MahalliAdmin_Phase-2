@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { Router } from '@angular/router';
-
+declare var $: any;
+declare var jsPDF: any; 
 @Component({
     selector: 'app-addwholesellerproducts',
     templateUrl: './addwholesellerproducts.component.html',

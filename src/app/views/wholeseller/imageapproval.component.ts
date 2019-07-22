@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { ActivatedRoute } from '@angular/router';
-
+declare var $: any;
+declare var jsPDF: any; 
 @Component({
   selector: 'app-imageapproval',
   templateUrl: './imageapproval.component.html',
