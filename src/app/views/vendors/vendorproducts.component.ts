@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './../../services/mahali/mahali-data.service';
+// import { ActivatedRoute } from '@angular/router';
+import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vendorproducts',
@@ -6,10 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vendorproducts.component.scss']
 })
 export class VendorproductsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  prodId;
+  constructor(private appService: AppService,  public router: Router,private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.prodId = params.vendorId
+    });
   }
-
+  vendorProds = [];
+  Status=[];
+  ngOnInit() {
+    this.Status = ["Approve", "Disapprove"];
+    this.getVendorProducts();
+  }
+  getVendorProducts() {
+    this.appService.getVendorProds(this.prodId).subscribe((res: any) => {
+      this.vendorProds = res.products;
+      // for (var i = 0; i < this.vendorProds.length; i++) {
+      //     // this.skuArr = 
+      // }
+    })
+  }
+  statusChange(status, venId) {
+    var inData = {
+      "product_status": status
+    }
+    this.appService.acceptProduct(venId, inData).subscribe((res:any) => {
+      if (res.status === "200") {
+        // swal(res.message, "", "success");
+        this.getVendorProducts();
+      }
+    })
+  }
 }

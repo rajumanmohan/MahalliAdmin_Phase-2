@@ -593,10 +593,10 @@
                                                     <div class="cust-calflow">
                                                         <!-- <p>{{filter}} is not found</p> -->
                                                         <!-- No Data Found -->
-                                                        <!-- <button type="submit" class="btn request-admin" data-dismiss="modal"
+                                                        <button type="submit" class="btn request-admin" data-dismiss="modal"
                                                             data-toggle="modal" data-target="#product-name">Request
                                                             Admin
-                                                        </button> -->
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </td>
@@ -615,6 +615,30 @@
         </div>
     </div>
 </div>
+<div class="modal" id="product-name" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header c-modalheader">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="cust-close">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="quantity" class="col-sm-4 col-form-label">Product Name</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="quantity" placeholder="Product name"
+                                    [(ngModel)]="reqProduct" name="reqProduct">
+                                <button type=" submit " class="btn btn-success " data-dismiss="modal
+                                    " (click)="reqAdmin() ">SUBMIT</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 <style>
     .sku-details {
         border: 2px solid #f8a94a;

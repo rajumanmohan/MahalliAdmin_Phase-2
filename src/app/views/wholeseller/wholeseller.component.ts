@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
+import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-wholeseller',
@@ -29,5 +30,13 @@ export class WholesellerComponent implements OnInit {
   ngOnInit() {
     this.getWholeSeller();
   }
+  product(Id) {
+    let navigationExtras: NavigationExtras = {
+        queryParams: {
+            'salerproductId': Id
+        }
+    }
+    this.router.navigate(['wholeseller/wholesellerproducts'], navigationExtras);
+}
 
 }

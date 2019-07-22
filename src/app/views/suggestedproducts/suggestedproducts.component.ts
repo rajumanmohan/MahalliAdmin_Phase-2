@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from './../../services/mahali/mahali-data.service';
 
 @Component({
   selector: 'app-suggestedproducts',
@@ -7,13 +8,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./suggestedproducts.component.scss']
 })
 export class SuggestedproductsComponent implements OnInit {
-
-  constructor(public router: Router) { }
-
+  showStatus;
+  Status;
+  constructor(public router: Router,private appService: AppService) { }
+  suggetedData=[];
+  Key;
   editorder() {
     this.router.navigate(['/suggestedproducts/editsuggestedproducts']);
   }
   ngOnInit() {
+    this.getSuggestedProds();
   }
-
+  getSuggestedProds() {
+    this.appService.getsuggestedProds().subscribe((res:any) => {
+        this.suggetedData = res.data;
+    })
+}
+status(btn, prodId, Appr) {
+  // btn.value = Appr;
+  this.showStatus = !this.showStatus;
+  if (this.showStatus) {
+      btn.value = Appr === "active" ? "inactive" : "active"
+  } else {
+      btn.value = Appr
+  }
+  this.Status = Appr;
+  this.Key = btn.value;
+  var inData = {
+      "status": this.Key
+  }
+  this.appService.changeStatusOfSuggested(inData, prodId).subscribe((res:any) => {
+      if (res.status === 200) {
+          // swal(res.json().message, "", "success");
+      } else {
+          // swal(res.json().message, "", "error");
+      }
+  })
+}
 }

@@ -39,13 +39,13 @@
                                 <td>{{item.last_name}}</td>
                                 <td>{{item.mobile_number}} </td>
                                 <td>{{item.email}}</td>
-                                <td><a (click)="vendorproducts()"> <button type="button"
+                                <td><a (click)="vendorproducts(item.id)"> <button type="button"
                                             class="btn btn-block btn-outline-success active"
-                                            aria-pressed="true">View</button></a></td>
+                                            aria-pressed="true" >View</button></a></td>
                                 <td class="edit-buttons">
-                                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                            aria-hidden="true"></i></a>
+                                    <a> <i class="fa fa-pencil-square-o fa-lg "></i></a>
+                                    <!-- <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
+                                            aria-hidden="true"></i></a> -->
                                 </td>
                             </tr>
                             <!-- <tr>

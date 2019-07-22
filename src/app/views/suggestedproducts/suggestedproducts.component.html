@@ -32,20 +32,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            No data
-                            <!-- <tr>
-                                <td>1</td>
-                                <td>text Category</td>
-                                <td>text name</td>
-                                <td><a (click)="active()"> <button type="button"
-                                            class="btn btn-block btn-outline-success active "
-                                            aria-pressed="true">Active</button></a></td>
-                                <td class="edit-buttons">
-                                    <a (click)="editorder()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-
-                                </td>
+                            <tr *ngFor="let item of suggetedData;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{item.main_cat_name || "-"}} </td>
+                                    <!-- <td>{{item.sub_cat_name || "-"}}</td> -->
+                                    <td>{{item.product_name}} </td>
+                                    <td>
+                                        <button class="btn remove btn-outline-primary " [value]="item.status
+                " #btn (click)="status(btn,item.id,item.status) ">{{btn.value}}</button>
+                                    </td>
+                                    <td>
+                                        <!-- <a routerLink="/editSuggested " class="btn btn-outline-primary
+                " (click)="editProd(item.id) ">Edit</a> -->
+                <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>2</td>
                                 <td>text Category</td>
                                 <td>text name</td>
