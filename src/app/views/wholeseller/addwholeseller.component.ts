@@ -83,12 +83,12 @@ export class AddwholesellerComponent implements OnInit {
             "bussiness_country": _self.bussiness_country,
             "bussiness_area": _self.bussiness_area,
             "bussiness_city": _self.bussiness_city,
-            "bussiness_pincode": _self.bussiness_pincode ? JSON.parse(_self.bussiness_pincode) : '',
-            "commission_to_admin": _self.commission_to_admin ? JSON.parse(_self.commission_to_admin) : '',
+            "bussiness_pincode": _self.bussiness_pincode ? (_self.bussiness_pincode) : '',
+            "commission_to_admin": _self.commission_to_admin ? (_self.commission_to_admin) : '',
             "bussiness_latitude": this.currLat,
             "bussiness_longitude": this.currLng,
-            "bussiness_from_time": _self.from_date.toLocaleTimeString(),
-            "bussiness_end_time": _self.to_date.toLocaleTimeString(),
+            "bussiness_from_time": _self.from_date,
+            "bussiness_end_time": _self.to_date,
             "account_holder_name": _self.account_holder_name,
             "account_number": _self.account_number,
             "bank_name": _self.bank_name,
@@ -131,5 +131,8 @@ export class AddwholesellerComponent implements OnInit {
                 reader.readAsDataURL(file);
             }
         }
+    }
+    valuechange(t){
+alert(t.taget.value);
     }
 }

@@ -483,11 +483,11 @@ export class AppService {
   // headers = headers.append('Content-Type', 'application/json; charset=utf-8');
   //     return this.http.get(AppSettings.getVendorById + id, { headers: headers })
   // }
-  updateVendorbyId(params) {
+  updateVendorbyId(params,venId) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post(AppSettings.updateVendorById, params, { headers: headers })
+    return this.http.put(AppSettings.updateVendorById+"/"+venId, params, { headers: headers })
   }
   getUserOrdByVenId(venId) {
     var headers: HttpHeaders = new HttpHeaders;
@@ -685,6 +685,20 @@ export class AppService {
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     this.vendor_id = sessionStorage.getItem('vemdorId');
     return this.http.get(AppSettings.getPlaceOrd + "/" + this.vendor_id, { headers: headers });
+}
+getGraph(body){
+  var headers: HttpHeaders = new HttpHeaders;
+  headers = headers.append('Accept', 'application/json, text/plain, */*');
+  headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+  this.vendor_id = sessionStorage.getItem('vemdorId');
+  return this.http.post(AppSettings.getGraph ,body, { headers: headers });
+}
+getvendorCount(){
+  var headers: HttpHeaders = new HttpHeaders;
+  headers = headers.append('Accept', 'application/json, text/plain, */*');
+  headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+  this.vendor_id = sessionStorage.getItem('vemdorId');
+  return this.http.get(AppSettings.getvendorCount +"/"+this.vendor_id , { headers: headers });
 }
 
   // deleteVendorbyId(id) {

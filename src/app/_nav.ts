@@ -28,6 +28,37 @@ export interface NavData {
   label?: NavLabel;
   wrapper?: NavWrapper;
 }
+<<<<<<< HEAD
+=======
+export interface NavData1 {
+  name?: string;
+  url?: string;
+  icon?: string;
+  badge?: NavBadge;
+  title?: boolean;
+  children?: NavData[];
+  variant?: string;
+  attributes?: NavAttributes;
+  divider?: boolean;
+  class?: string;
+  label?: NavLabel;
+  wrapper?: NavWrapper;
+}
+export interface NavData {
+  name?: string;
+  url?: string;
+  icon?: string;
+  badge?: NavBadge;
+  title?: boolean;
+  children?: NavData[];
+  variant?: string;
+  attributes?: NavAttributes;
+  divider?: boolean;
+  class?: string;
+  label?: NavLabel;
+  wrapper?: NavWrapper;
+}
+>>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
 if (sessionStorage.role == 'Admin') {
   var newArr = [
     {
@@ -216,7 +247,12 @@ if (sessionStorage.role == 'Admin') {
     ,
 
   ];
+<<<<<<< HEAD
 } else if (sessionStorage.role == 'wholesaler') {
+=======
+} 
+else if (sessionStorage.role == 'wholesaler') {
+>>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
   var newArr = [
     {
       name: 'Dashboard',
@@ -252,7 +288,11 @@ if (sessionStorage.role == 'Admin') {
 
   ];
 } else {
+<<<<<<< HEAD
   newArr = [
+=======
+ var newArr = [
+>>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
     {
       name: 'Dashboard',
       url: '/dashboard',
@@ -285,11 +325,15 @@ if (sessionStorage.role == 'Admin') {
     }
   ]
 }
+export const navItems: NavData[] = newArr;
+// export const navItems1: NavData[] = newArr1;
+// export const navItems2: NavData[] = newArr2;
+
+
+
 
 
 
 // var ShowArr = sessionStorage.role == 'wholesaler' ? newArr1 : newArr;
 
 
-
-export const navItems: NavData[] = newArr;

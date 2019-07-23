@@ -42,4 +42,18 @@ export class VendorsComponent implements OnInit {
     }
     this.router.navigate(['/vendorslist/vendorproducts'], navigationExtras);
   }
+<<<<<<< HEAD
+=======
+  this.router.navigate(['/vendorslist/vendorproducts'], navigationExtras);
+}
+EditVendor(Id){
+  let navigationExtras: NavigationExtras = {
+    queryParams: {
+        'vendorId': Id,
+        
+    }
+}
+this.router.navigate(['/vendorslist/editvendors'], navigationExtras);
+}
+>>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
 }

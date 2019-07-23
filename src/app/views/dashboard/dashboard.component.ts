@@ -10,11 +10,13 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 })
 export class DashboardComponent implements OnInit {
   constructor(private appService: AppService, public router: Router) {
-
-
+    this.router.navigate(['/dashboard']);
   }
   radioModel: string = 'Month';
-  wholeCount = []
+  wholeCount = [];
+  venCount: [];
+  user_orders = [];
+  vendor_orders = [];
   // lineChart1
   public lineChart1Data: Array<any> = [
     {
@@ -218,26 +220,28 @@ export class DashboardComponent implements OnInit {
   // mainChart
 
   public mainChartElements = 27;
+
   public mainChartData1: Array<number> = [];
   public mainChartData2: Array<number> = [];
-  public mainChartData3: Array<number> = [];
+  // public mainChartData3: Array<number> = [];
 
   public mainChartData: Array<any> = [
     {
-      data: this.mainChartData1,
+      data: [0, 1, 2, 0, 0, 0, 0],
       label: 'Current'
     },
     {
-      data: this.mainChartData2,
+      data: [0, 1, 3, 0, 0, 0, 0],
       label: 'Previous'
     },
-    {
-      data: this.mainChartData3,
-      label: 'BEP'
-    }
+    // {
+    //   data: this.mainChartData3,
+    //   label: 'BEP'
+    // }
   ];
   /* tslint:disable:max-line-length */
-  public mainChartLabels: Array<any> = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  public mainChartLabels: Array<any> = ['21/07/2019', '22/07/2019', '23/07/2019', '24/07/2019', '25/07/2019', '26/07/2019', '27/07/2019'];
+  // public mainChartLabels: Array<any> = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   /* tslint:enable:max-line-length */
   public mainChartOptions: any = {
     tooltips: {
@@ -261,16 +265,16 @@ export class DashboardComponent implements OnInit {
         },
         ticks: {
           callback: function (value: any) {
-            return value.charAt(0);
+            return value;
           }
         }
       }],
       yAxes: [{
         ticks: {
           beginAtZero: true,
-          maxTicksLimit: 5,
-          stepSize: Math.ceil(250 / 5),
-          max: 250
+          maxTicksLimit: 15,
+          stepSize: Math.ceil(10 / 10),
+          max: 10
         }
       }]
     },
@@ -383,19 +387,44 @@ export class DashboardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
   role;
+  graphData = [];
   ngOnInit(): void {
+    this.getGraph();
     this.role = sessionStorage.role;
     this.getAdminCount();
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
-      this.mainChartData3.push(65);
+      // this.mainChartData3.push(65);
       if (sessionStorage.role == 'wholesaler') {
         this.getWholeProddsCunt();
+      } else {
+        this.getvendorCount();
       }
     }
   }
+  getGraph() {
+    var data =
+    {
+      "array": [{ "startdate": "2019/07/21", "enddate": "2019/07/22" }, { "startdate": "2019/07/22", "enddate": "2019/07/23" }, { "startdate": "2019/07/23", "enddate": "2019/07/24" }, { "startdate": "2019/07/24", "enddate": "2019/07/25" }, { "startdate": "2019/07/25", "enddate": "2019/07/26" }, { "startdate": "2019/07/26", "enddate": "2019/07/27" }, { "startdate": "2019/07/27", "enddate": "2019/07/28" }],
+
+
+
+      "type": 0
+    }
+
+    this.appService.getGraph(data).subscribe((res: any) => {
+      this.graphData = res;
+      this.user_orders = res.user_orders;
+      // console.log(this.user_orders);
+      // debugger;
+      this.vendor_orders = res.vendor_orders;
+      // this.userCount = res.json().data.users;
+    })
+  }
+
+  // }
   Count;
   userCount;
   //   userorders: 16
@@ -412,6 +441,12 @@ export class DashboardComponent implements OnInit {
   getWholeProddsCunt() {
     this.appService.getWholeProddsCunt().subscribe((res: any) => {
       this.wholeCount = res.data;
+      // this.userCount = res.json().data.users;
+    })
+  }
+  getvendorCount() {
+    this.appService.getvendorCount().subscribe((res: any) => {
+      this.venCount = res;
       // this.userCount = res.json().data.users;
     })
   }

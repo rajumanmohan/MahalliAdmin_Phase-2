@@ -211,7 +211,7 @@ backtofeature() {
     console.log(this.website_banner);
     // this.spinnerService.show();
     var data = {
-        'title': this.title,
+        'title': 'Featured banners',
         'banners': this.skusData
         // "type": this.banType
     }

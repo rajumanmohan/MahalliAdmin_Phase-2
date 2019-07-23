@@ -84,7 +84,7 @@ export const AppSettings = {
     // deleteProImgUrl: base_url + 'products/deleteproductimage',
     // getVendorUrl: 'http://192.168.0.116:9000/vendors',
     // getVendorById: base_url + 'vendors/',
-    updateVendorById: base_url + 'wholesalers/updatewholeseller',
+    updateVendorById: base_url + 'vendors/update_profile',
     getUserOrdByVenId: base_url + "place_order/getvendoruserorders",
     orderDetByVenId: base_url + "place_order/userorder_products",
     getbannerById: base_url + "banners/getbanner",
@@ -115,7 +115,8 @@ export const AppSettings = {
     vendorImgagesAppr: base_url + "vendor/products/updatevendorproductimagestatus",
     getAllVendorData: base_url + "vendor/products/getvendorproducts",
     getPlaceOrd: base_url + "place_order/vendor_orders/vendor_id",
-
+getGraph:base_url+"place_order/getvendorordersforgraph",
+getvendorCount:base_url+"vendor/products/getvendorcount/vendordata"
     // deleteVendorById: 'http://192.168.0.116:9000/vendors/',
     // getOrdersUrl: base_url + 'oders',
     // getOffersUrl: base_url + 'voucher',
