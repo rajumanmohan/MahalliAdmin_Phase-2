@@ -33,12 +33,7 @@ export class LoginComponent implements OnInit {
     this.appService.adminlogin(this.loginForm.value).subscribe((resp: any) => {
       // swal("test","","success")
       if (resp.status == 200) {
-<<<<<<< HEAD
-        //     swal(resp.json().message, '', 'success');
-        // window.location.reload();
-=======
             // swal(resp.json().message, '', 'success');
->>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
         sessionStorage.setItem("role", resp.role);
         sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
@@ -46,10 +41,7 @@ export class LoginComponent implements OnInit {
         } else if (resp.role == "vendor") {
           sessionStorage.setItem("vemdorId", resp.id);
         }
-<<<<<<< HEAD
-=======
 // alert("success");
->>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
         // this.redirectTo('dashboard');
         // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
         // this.router.navigate(["dashboard"])); 

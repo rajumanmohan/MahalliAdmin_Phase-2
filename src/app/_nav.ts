@@ -28,8 +28,6 @@ export interface NavData {
   label?: NavLabel;
   wrapper?: NavWrapper;
 }
-<<<<<<< HEAD
-=======
 export interface NavData1 {
   name?: string;
   url?: string;
@@ -58,7 +56,6 @@ export interface NavData {
   label?: NavLabel;
   wrapper?: NavWrapper;
 }
->>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
 if (sessionStorage.role == 'Admin') {
   var newArr = [
     {
@@ -247,12 +244,8 @@ if (sessionStorage.role == 'Admin') {
     ,
 
   ];
-<<<<<<< HEAD
-} else if (sessionStorage.role == 'wholesaler') {
-=======
 } 
 else if (sessionStorage.role == 'wholesaler') {
->>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
   var newArr = [
     {
       name: 'Dashboard',
@@ -288,11 +281,7 @@ else if (sessionStorage.role == 'wholesaler') {
 
   ];
 } else {
-<<<<<<< HEAD
-  newArr = [
-=======
  var newArr = [
->>>>>>> bfaee8d36d1d0fca6bf2b92cb7d2b88de5a848e6
     {
       name: 'Dashboard',
       url: '/dashboard',
