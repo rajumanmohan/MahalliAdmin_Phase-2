@@ -69,6 +69,19 @@
         </div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-body"  *ngIf="role=='vendor'">
+        <div class="h1 text-muted text-right mb-4">
+          <i class="icon-basket-loaded"></i>
+        </div>
+        <div class="h4 mb-0">{{venCount?.approvedproductcount}}</div>
+        <small class="text-muted text-uppercase font-weight-bold">Vendor Products</small>
+        <div class="progress progress-xs mt-3 mb-0">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
 
@@ -81,7 +94,7 @@
           <div class="small text-muted">July 2019</div>
         </div>
         <!--/.col-->
-        <div class="col-sm-7 d-none d-md-block">
+        <!-- <div class="col-sm-7 d-none d-md-block">
           <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
           <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
             <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Day" id="option1">Day</label>
@@ -89,7 +102,7 @@
               id="option2">Month</label>
             <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Year" id="option3">Year</label>
           </div>
-        </div>
+        </div> -->
         <!--/.col-->
       </div>
       <!--/.row-->

@@ -98,13 +98,13 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="firstname">Open Time :</label>
-                                <input type="time" class="form-control" name="Enter open Time">
+                                <input type="time" class="form-control" name="Enter open Time" [(ngModel)]="mymodel" (change)="valuechange($event)">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="firstname">&nbsp;&nbsp;Close Time :</label>
-                                <input type="time" class="form-control" name="Enter Close Time">
+                                <input type="time" class="form-control" name="Enter Close Time" (change)="close()">
                             </div>
                         </div>
                     </div>

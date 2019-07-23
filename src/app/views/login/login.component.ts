@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.appService.adminlogin(this.loginForm.value).subscribe((resp: any) => {
       // swal("test","","success")
       if (resp.status == 200) {
-        //     swal(resp.json().message, '', 'success');
+            // swal(resp.json().message, '', 'success');
         sessionStorage.setItem("role", resp.role);
         sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
