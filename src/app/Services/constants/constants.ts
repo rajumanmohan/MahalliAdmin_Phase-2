@@ -114,9 +114,13 @@ export const AppSettings = {
     getAdminSubSub: base_url + "products/getadminproductsbysubsubcat",
     vendorImgagesAppr: base_url + "vendor/products/updatevendorproductimagestatus",
     getAllVendorData: base_url + "vendor/products/getvendorproducts",
-    getPlaceOrd: base_url + "place_order/vendor_orders/vendor_id",
+    getPlaceOrd: base_url + "vendors/getorders/vendororders",
 getGraph:base_url+"place_order/getvendorordersforgraph",
-getvendorCount:base_url+"vendor/products/getvendorcount/vendordata"
+getvendorCount:base_url+"vendor/products/getvendorcount/vendordata",
+wholeOrders:base_url+"vendors/getorders/wholeorders",
+vendorOrders:base_url+"vendors/getorders/vendororders",
+filterUserOrders:base_url+"place_order/filter_orders/date",
+filterVendorOrders:base_url+"place_order/filter_orders/date"
     // deleteVendorById: 'http://192.168.0.116:9000/vendors/',
     // getOrdersUrl: base_url + 'oders',
     // getOffersUrl: base_url + 'voucher',

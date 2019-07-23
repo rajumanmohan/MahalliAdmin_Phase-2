@@ -10,6 +10,7 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 })
 export class DashboardComponent implements OnInit {
   constructor(private appService: AppService, public router: Router) {
+    this.test();
     this.router.navigate(['/dashboard']);
   }
   radioModel: string = 'Month';
@@ -389,6 +390,7 @@ export class DashboardComponent implements OnInit {
   role;
   graphData = [];
   ngOnInit(): void {
+    // this.reload();
     this.getGraph();
     this.role = sessionStorage.role;
     this.getAdminCount();
@@ -440,7 +442,7 @@ export class DashboardComponent implements OnInit {
   }
   getWholeProddsCunt() {
     this.appService.getWholeProddsCunt().subscribe((res: any) => {
-      this.wholeCount = res.data;
+      this.wholeCount = res;
       // this.userCount = res.json().data.users;
     })
   }
@@ -449,6 +451,15 @@ export class DashboardComponent implements OnInit {
       this.venCount = res;
       // this.userCount = res.json().data.users;
     })
+  }
+  test(){
+    
+    // this.ngOnInit();
+    // this.router.navigate(['/test']);
+    // setTimeout(()=>{
+    //   this.router.navigate(['/dashboard']);
+    //   // return;
+    // },2000)
   }
   // getWholeProddsCunt(){
   //     this.appService.getWholeProddsCunt().subscribe(res => {

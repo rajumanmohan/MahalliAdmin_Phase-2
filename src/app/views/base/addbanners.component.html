@@ -68,7 +68,9 @@
                     </div> -->
                     <div class="row">
                         <div class="col-md-12">
-                            <button class="btn btn-success" (click)="addCat(name)">Add Category</button>
+                            <button class="btn btn-success" *ngIf="!id" (click)="addCat(name)">Add Category</button>
+                            <button class="btn btn-success" *ngIf="id" (click)="Update()">Update</button>
+
                         </div>
                     </div>
                 </div>

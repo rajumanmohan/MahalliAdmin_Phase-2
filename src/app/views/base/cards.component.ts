@@ -21,19 +21,28 @@ export class CardsComponent implements OnInit {
     ngOnInit() {
         this.getGroceryCats();
     }
-    addbanner() {
+    addbanner(name, id, pic, des) {
         let navigationExtras: NavigationExtras = {
             queryParams: {
-                // 'name': name,
-                // 'id': id,
-                // 'pic': pic,
-                // 'des': des,
-                // 'type': this.type,
+                'id': id,
                 'typeVal': this.typeVal
             }
         }
         this.router.navigate(['/Category/addbanners'], navigationExtras);
     }
+    // addbanner() {
+    //     let navigationExtras: NavigationExtras = {
+    //         queryParams: {
+    //             // 'name': name,
+    //             // 'id': id,
+    //             // 'pic': pic,
+    //             // 'des': des,
+    //             // 'type': this.type,
+    //             'typeVal': this.typeVal
+    //         }
+    //     }
+    //     this.router.navigate(['/Category/addbanners'], navigationExtras);
+    // }
     getGroceryCats() {
         let Data = {
             "country": "",
@@ -106,7 +115,7 @@ export class CardsComponent implements OnInit {
         this.appService.deleteCat(data)
             .subscribe(resp => {
                 // this.spinnerService.hide();
-                // swal("Deleted successfully", '', 'success');
+                swal("Deleted successfully", '', 'success');
                 this.getGroceryCats();
             }),
             error => {

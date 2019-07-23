@@ -20,7 +20,7 @@
                             <h1>Category</h1>
                         </div>
                         <div class="col-lg-6 text-right">
-                            <button type="button" class="btn  btn-primary" (click)="addbanner()">Add Category</button>
+                            <button type="button" class="btn  btn-primary" (click)="addbanner('','')">Add Category</button>
                         </div>
                     </div>
                     <div class="row">
@@ -50,7 +50,8 @@
                                 <td><img alt="cat.image_url" class="img-avatar" [src]="cat.image_url"></td>
 
                                 <td class="edit-buttons">
-                                    <a><i (click)="orderdetails()" class="fa fa-pencil-square-o fa-lg "></i></a>
+                                    <a><i (click)="
+                                        addbanner(cat.category_name,cat.id,cat.image_url,cat.description) " class="fa fa-pencil-square-o fa-lg "></i></a>
                                     <a><i class="fa fa-trash fa-lg" aria-hidden="true"
                                             (click)="deleteCat(cat.id) "></i></a>
                                 </td>

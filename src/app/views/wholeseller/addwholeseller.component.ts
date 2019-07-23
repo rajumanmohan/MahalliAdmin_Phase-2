@@ -40,17 +40,17 @@ export class AddwholesellerComponent implements OnInit {
     bank_branch;
     ifsc_code;
     getLocation(getCallFun) {
-        // let _self = this;
-        // var geocoder = new google.maps.Geocoder();
-        // var address = this.bussiness_area;
-        // geocoder.geocode({ 'address': address }, function (results, status) {
-        //     if (status == google.maps.GeocoderStatus.OK) {
-        //         this.currLat = results[0].geometry.location.lat();
-        //         // this.latitude = currLat;
-        //         this.currLng = results[0].geometry.location.lng();
-        //         getCallFun(this.currLat, this.currLng)
-        //     }
-        // })
+        let _self = this;
+        var geocoder = new google.maps.Geocoder();
+        var address = this.bussiness_area;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                this.currLat = results[0].geometry.location.lat();
+                // this.latitude = currLat;
+                this.currLng = results[0].geometry.location.lng();
+                getCallFun(this.currLat, this.currLng)
+            }
+        })
     }
     addWholeSeller() {
         let _self = this;
@@ -64,6 +64,7 @@ export class AddwholesellerComponent implements OnInit {
         //         if (this.currLat && this.currLng) {
         _self.getLocation(function getCallFun(lat, lan) {
             this.currLat = lat;
+            alert(this.currLat)
             this.currLng = lan;
         })
         var data = {
@@ -95,13 +96,15 @@ export class AddwholesellerComponent implements OnInit {
             "bank_branch": _self.bank_branch,
             "ifsc_code": _self.ifsc_code
         }
+        // console.log(data);
+        // debugger
         _self.appService.addWholeseller(data).subscribe((resp: any) => {
             if (resp.status === 200) {
                 // this.data = {};
-                _self.router.navigate(['/wholesellers']);
+                _self.router.navigate(['/wholeseller']);
                 // swal(resp.json().message, '', 'success');
             } else if (resp.json().status == 400) {
-                // swal(resp.json().message, '', 'error');
+                swal(resp.json().message, '', 'error');
             }
         })
     }
@@ -132,7 +135,7 @@ export class AddwholesellerComponent implements OnInit {
             }
         }
     }
-    valuechange(t){
-alert(t.taget.value);
+    valuechange(t) {
+        alert(t.taget.value);
     }
 }

@@ -1,4 +1,4 @@
-import { DashboardComponent } from './views/dashboard/dashboard.component';
+// import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -20,6 +20,13 @@ export const routes: Routes = [
       title: 'Login Page'
     }
   },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   data: {
+  //     title: 'Dashboard'
+  //   }
+  // },
   // {
   //   path: 'dashboard',
   //   component: DashboardComponent,

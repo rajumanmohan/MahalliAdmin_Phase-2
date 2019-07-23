@@ -13,12 +13,15 @@ export class AddbannersComponent implements OnInit {
   constructor(public router: Router, private appService: AppService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       // this.catname = params.name
-      // this.id = params.id
+      this.id = params.id
       // this.pic = params.pic
       // this.des = params.des
       // this.type = params.type,
       this.typeVal = params.typeVal
     });
+    if(this.typeVal==0){
+this.getGroceryCats();
+    }
   }
   image;
   strImage;
@@ -26,6 +29,8 @@ export class AddbannersComponent implements OnInit {
   typeVal;
   showCat;
   data = [];
+  id;
+  category=[];
   ngOnInit() {
   }
   backtobanner() {
@@ -74,4 +79,61 @@ export class AddbannersComponent implements OnInit {
     }
     myReader.readAsDataURL(file);
   }
+  getGroceryCats() {
+    let Data = {
+        "country": "",
+        "pin_code": "",
+        "area": ""
+    }
+    // this.groceryCats = true;
+    // this.title = "Grocery Categories";
+    // this.EcomCats = false;
+    // this.type = "grocery";
+    // this.typeVal = 0;
+    // this.spinnerService.show();
+    this.appService.getGroceryCat(Data)
+        .subscribe((resp: any) => {
+
+            if (resp.status == 200) {
+                // this.name = ""
+                this.category = resp.categories;
+                // this.spinnerService.hide();
+            }
+            else {
+
+            }
+        },
+            error => {
+
+                console.log(error, "error");
+            })
+}
+getEcomCats() {
+    let Data = {
+        "country": "",
+        "pin_code": "",
+        "area": ""
+    }
+    // this.groceryCats = false;
+    // this.title = "Ecommerce Categories"
+    // this.EcomCats = true;
+    // this.type = "ecommers";
+    // this.typeVal = 1;
+    // this.spinnerService.show();
+    this.appService.getEcomCat(Data)
+        .subscribe((resp: any) => {
+            if (resp.status === 200) {
+                // this.name = ""
+                this.category = resp.categories;
+                // this.spinnerService.hide();
+            }
+            else {
+
+            }
+        },
+            error => {
+
+                console.log(error, "error");
+            })
+}
 }

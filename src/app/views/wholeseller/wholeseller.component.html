@@ -48,8 +48,8 @@
                                             aria-pressed="true">View</button></a></td>
                                 <td class="edit-buttons">
                                     <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                            aria-hidden="true"></i></a>
+                                    <a > <i class="fa fa-trash fa-lg"
+                                            aria-hidden="true" (click)="delete(item.id)"></i></a>
                                 </td>
                             </tr>
                             <!-- <tr>

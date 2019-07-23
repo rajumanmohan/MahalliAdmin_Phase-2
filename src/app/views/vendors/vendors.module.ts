@@ -7,13 +7,14 @@ import { VendorordersComponent } from './vendororders.component';
 import { VendororderdetailsComponent } from './vendororderdetails.component';
 import { FormsModule } from '@angular/forms';
 import { EditvendorComponent } from './editvendor.component';
+import { MyDatePickerModule } from 'mydatepicker';
 
 
 
 @NgModule({
   declarations: [VendorsComponent, VendorproductsComponent, VendorordersComponent, VendororderdetailsComponent, EditvendorComponent],
   imports: [
-    CommonModule, VendorsRoutingModule, FormsModule
+    CommonModule, VendorsRoutingModule, FormsModule,MyDatePickerModule
   ]
 })
 export class VendorsModule { }

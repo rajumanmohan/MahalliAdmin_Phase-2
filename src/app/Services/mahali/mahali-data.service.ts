@@ -262,7 +262,7 @@ export class AppService {
     this.vendor_id = sessionStorage.getItem('vemdorId');
     return this.http.get(AppSettings.getVendorProds + "/" + this.vendor_id + "/" + 0, { headers: headers })
   }
-  getVendorProdsEcom(){
+  getVendorProdsEcom() {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
@@ -483,11 +483,11 @@ export class AppService {
   // headers = headers.append('Content-Type', 'application/json; charset=utf-8');
   //     return this.http.get(AppSettings.getVendorById + id, { headers: headers })
   // }
-  updateVendorbyId(params,venId) {
+  updateVendorbyId(params, venId) {
     var headers: HttpHeaders = new HttpHeaders;
     headers = headers.append('Accept', 'application/json, text/plain, */*');
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put(AppSettings.updateVendorById+"/"+venId, params, { headers: headers })
+    return this.http.put(AppSettings.updateVendorById + "/" + venId, params, { headers: headers })
   }
   getUserOrdByVenId(venId) {
     var headers: HttpHeaders = new HttpHeaders;
@@ -685,22 +685,49 @@ export class AppService {
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     this.vendor_id = sessionStorage.getItem('vemdorId');
     return this.http.get(AppSettings.getPlaceOrd + "/" + this.vendor_id, { headers: headers });
-}
-getGraph(body){
-  var headers: HttpHeaders = new HttpHeaders;
-  headers = headers.append('Accept', 'application/json, text/plain, */*');
-  headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-  this.vendor_id = sessionStorage.getItem('vemdorId');
-  return this.http.post(AppSettings.getGraph ,body, { headers: headers });
-}
-getvendorCount(){
-  var headers: HttpHeaders = new HttpHeaders;
-  headers = headers.append('Accept', 'application/json, text/plain, */*');
-  headers = headers.append('Content-Type', 'application/json; charset=utf-8');
-  this.vendor_id = sessionStorage.getItem('vemdorId');
-  return this.http.get(AppSettings.getvendorCount +"/"+this.vendor_id , { headers: headers });
-}
-
+  }
+  getGraph(body) {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.post(AppSettings.getGraph, body, { headers: headers });
+  }
+  getvendorCount() {
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.get(AppSettings.getvendorCount + "/" + this.vendor_id, { headers: headers });
+  }
+  getWholeOrders(){
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    this.whole_id = sessionStorage.getItem('wholesalerId');
+    return this.http.get(AppSettings.wholeOrders + "/" + this.whole_id, { headers: headers });
+  }
+  vendorOrders(){
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.get(AppSettings.vendorOrders + "/" + this.vendor_id, { headers: headers });
+  }
+  filterUserOrders(params){
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    // this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.post(AppSettings.filterUserOrders + "/" +2+"/"+0,params, { headers: headers });
+  }
+  filterVendorOrders(params){
+    var headers: HttpHeaders = new HttpHeaders;
+    headers = headers.append('Accept', 'application/json, text/plain, */*');
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    // this.vendor_id = sessionStorage.getItem('vemdorId');
+    return this.http.post(AppSettings.filterVendorOrders + "/" +2+"/"+1,params, { headers: headers });
+  }
   // deleteVendorbyId(id) {
   //     const headers = new Headers({ 'Content-Type': "application/JSON" });
   //     return this.http.delete(AppSettings.deleteVendorById + id, { headers: headers })

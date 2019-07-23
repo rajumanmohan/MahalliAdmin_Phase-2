@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
-
+import { ExcelService } from './../../services/excel.service';
+import swal from 'sweetalert';
+// import { $ } from 'protractor';
+declare var $: any;
+declare var jsPDF: any; 
 @Component({
   selector: 'app-userorders',
   templateUrl: './userorders.component.html',
@@ -9,15 +13,22 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 })
 export class UserordersComponent implements OnInit {
 
-  constructor(public router: Router, private appService: AppService) { }
+  constructor(public router: Router, private appService: AppService,private excelService: ExcelService) { }
   userOrds = [];
   type;
   wholeId;
+  fromDate;
+  toDate;
+  myDatePickerOptions;
   // orderdetails() {
   //   this.router.navigate(['/userslist/orderdetails']);
   // }
   ngOnInit() {
     this.getUserOrds();
+    this.myDatePickerOptions = {
+      dateFormat: 'yyyy-mm-dd',
+      // disableUntil: { year: this.currentYear, month: this.currentMonth, day: this.currentDate },
+      }
   }
   getUserOrds() {
     this.appService.getUserOrders().subscribe((res: any) => {
@@ -39,4 +50,28 @@ export class UserordersComponent implements OnInit {
 
     // this.router.navigate(['/orderDetails'], navigationExtras)
   }
+  exportAsXLSX(): void {
+    this.excelService.exportAsExcelFile(this.userOrds, 'Mahalli');
+}
+onDateChanged(date){
+this.fromDate = date.formatted;
+// console.log(date)
+}
+onDateChanged1(date){
+this.toDate= date.formatted;
+}
+Filter(){
+  var indata ={
+    "startdate" : this.fromDate,
+    "enddate" : this.toDate
+    }
+  
+  this.appService.filterUserOrders(indata).subscribe((res: any) => {
+    // this.userOrds = res.order;
+    swal(res.message,"","success");
+    $('#filter2').modal('hide');
+    // this.fromDate="";this.toDate='';
+    this.userOrds = res.orders;
+  })
+}
 }

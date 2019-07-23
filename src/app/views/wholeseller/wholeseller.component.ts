@@ -38,5 +38,17 @@ export class WholesellerComponent implements OnInit {
     }
     this.router.navigate(['wholeseller/wholesellerproducts'], navigationExtras);
   }
-
+  delete(id) {
+    var data = {
+        "id": id
+    }
+    this.appService.deleteWholeSeller(data).subscribe((resp:any) => {
+        if (resp.status === 200) {
+            swal(resp.message, '', 'success');
+            this.getWholeSeller();
+        } else if (resp.status === 400) {
+            swal(resp.message, '', 'error');
+        }
+    })
+}
 }

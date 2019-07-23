@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
-
+import { ExcelService } from './../../services/excel.service';
+declare var $: any;
+declare var jsPDF: any; 
 @Component({
   selector: 'app-vendororders',
   templateUrl: './vendororders.component.html',
   styleUrls: ['./vendororders.component.scss']
 })
 export class VendorordersComponent implements OnInit {
-  constructor(public router: Router, private appService: AppService,) { }
+  constructor(public router: Router, private appService: AppService,private excelService: ExcelService) { }
 
   orderdetails() {
     this.router.navigate(['/vendorslist/vendorordersdetails']);
@@ -18,7 +20,10 @@ export class VendorordersComponent implements OnInit {
   ngOnInit() {
     if(sessionStorage.vemdorId){
       this.getAllVendorOrders1();
-    }else {
+    }else if(sessionStorage.wholesalerId){
+this.wholeOrders();
+    }
+    else {
       this.getAllVendorOrders();
 
     }
@@ -30,9 +35,16 @@ export class VendorordersComponent implements OnInit {
 
     })
   }
+  wholeOrders() {
+    this.appService.getWholeOrders().subscribe((res: any) => {
+      this.orders = res.finalarray;
+    }, error => {
+
+    })
+  }
   getAllVendorOrders1() {
     this.appService.getPlaceOrder().subscribe((res: any) => {
-      this.orders = res.Orders;
+      this.orders = res.finalarray;
     }, error => {
 
     })
@@ -48,5 +60,31 @@ export class VendorordersComponent implements OnInit {
     }
     this.router.navigate(['vendorslist/vendorordersdetails'], navigationExtras)
 }
+exportAsXLSX(): void {
+  this.excelService.exportAsExcelFile(this.orders, 'Mahalli');
+}
+fromDate;
+toDate;
+onDateChanged(date){
+  this.fromDate = date.formatted;
+  // console.log(date)
+  }
+  onDateChanged1(date){
+  this.toDate= date.formatted;
+  }
+  Filter(){
+    var indata ={
+      "startdate" : this.fromDate,
+      "enddate" : this.toDate
+      }
+    
+    this.appService.filterVendorOrders(indata).subscribe((res: any) => {
+      // this.userOrds = res.order;
+      swal(res.message,"","success");
+      $('#filter2').modal('hide');
+      // this.fromDate="";this.toDate='';
+      this.orders = res.orders;
+    })
+  }
 
 }

@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -12,6 +15,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import { AppComponent } from './app.component';
+import { ExcelService } from './services/excel.service';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
@@ -29,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CKEditorModule } from 'ng2-ckeditor';
 
 // import swal from 'sweetalert';
+import swal from 'sweetalert';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -55,7 +60,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 @NgModule({
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -68,9 +73,12 @@ import { ProfileComponent } from './views/profile/profile.component';
     HttpClientModule,
     CKEditorModule,
     MyDatePickerModule,
+    BrowserAnimationsModule,
+	ToastrModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    // ExcelService
   ],
   declarations: [
     AppComponent,
@@ -80,12 +88,13 @@ import { ProfileComponent } from './views/profile/profile.component';
     LoginComponent,
     RegisterComponent,
     AllusersComponent,
-    ProfileComponent
+    ProfileComponent,
+    DashboardComponent
   ],
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }, AppService],
+  }, AppService,ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

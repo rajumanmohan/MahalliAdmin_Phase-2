@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'login.component.html'
 })
 export class LoginComponent implements OnInit {
-  constructor(private appService: AppService, private formBuilder: FormBuilder, public router: Router) { }
+  constructor(private appService: AppService, private formBuilder: FormBuilder, public router: Router,private toastr: ToastrService) { }
   loginForm: FormGroup;
   submitted = false;
   ngOnInit() {
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
     this.appService.adminlogin(this.loginForm.value).subscribe((resp: any) => {
       // swal("test","","success")
       if (resp.status == 200) {
-            // swal(resp.json().message, '', 'success');
+        // this.toastr.success("Hello, I'm the toastr message.");
+            swal(resp.message, '', 'success');
         sessionStorage.setItem("role", resp.role);
         sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
@@ -51,10 +53,10 @@ export class LoginComponent implements OnInit {
         //     //     sessionStorage.setItem("wholesalerId", resp.json().id);
         //     // }
       }
-      // else if (resp.status == 400) {
-      // swal(resp.json().message, '', 'error');
-      //     this.router.navigate(['/'])
-      // }
+      else if (resp.status == 400) {
+      swal(resp.message, '', 'error');
+          this.router.navigate(['/'])
+      }
     })
     // location.reload();
   }
