@@ -222,59 +222,7 @@
                                                             </div>
                                                             <!-- <div class="col-sm-3"></div> -->
                                                         </div>
-                                                        <!-- <div class="row">
-                                                            <div class="col-sm-3">
-                                                                <div class="form-group">
-                                                                    <label for="firstname">Country :</label>
-                                                                    <div class="form-group">
-                                                                        <select required class="form-control border-primary" id="exampleSelectPrimary" [(ngModel)]="skuValues.country" name="country"
-                                                                            (change)="getStates($event.target.value)">
-                                                                            <option value="" disabled selected hidden>Select Country
-                                                                            </option>
-                                                                            <option *ngFor="let country of countrys" value="{{country}}">{{country}}</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="form-group">
-                                                                    <label for="firstname">State :</label>
-                                                                    <div class="form-group">
-        
-                                                                        <select required class="form-control border-primary" id="exampleSelectPrimary" [(ngModel)]="skuValues.state" name="state"
-                                                                            (change)="getCitys($event.target.value)">
-                                                                            <option value="" disabled selected hidden>Select state
-                                                                            </option>
-                                                                            <option *ngFor="let state of states" value="{{state}}">{{state}}</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="form-group">
-                                                                    <label for="firstname">City :</label>
-                                                                    <div class="form-group">
-                                                                        <select required class="form-control border-primary" id="exampleSelectPrimary" [(ngModel)]="skuValues.city" name="city" (change)="getArea($event.target.value)">
-                                                                            <option value="" disabled selected hidden>Select City
-                                                                            </option>
-                                                                            <option *ngFor="let city of citys" value="{{city}}">{{city}}</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3">
-                                                                <div class="form-group">
-                                                                    <label for="firstname">Area :</label>
-                                                                    <div class="form-group">
-                                                                        <select required class="form-control border-primary" id="exampleSelectPrimary" [(ngModel)]="skuValues.area" name="area" (change)="changeArea($event.target.value)">
-                                                                            <option value="" disabled selected hidden>Select Area
-                                                                            </option>
-                                                                            <option *ngFor="let area of areas" value="{{area}}">{{area}}</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> -->
+                                                      
                                                         <div class="row">
                                                             <div class="col-sm-3">
                                                                 <div class="form-group">
@@ -566,15 +514,17 @@
                                     <table class="table cust-table">
                                         <thead class="thead-color">
                                             <tr>
-                                                <th scope="col">S.No</th>
-                                                <th scope="col">Item</th>
-                                                <th scope="col">Item Name</th>
-                                                <th scope="col">Brand</th>
+                                                <th scope="col" >S.No</th>
+                                                <th scope="col" >Item </th>
+                                                <th scope="col" (click)="sort('product_name')">Item Name <span><i class="fa fa-sort"
+                                                    aria-hidden="true"></i></span></th>
+                                                <th scope="col" (click)="sort('brand')">Brand <span><i class="fa fa-sort"
+                                                    aria-hidden="true"></i></span></th>
                                                 <th scope="col" class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody class="cust-tbody">
-                                            <tr *ngFor="let reqProds of reqProds;let i=index">
+                                            <tr *ngFor="let reqProds of reqProds|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
                                                 <th scope="row" class="cust-1">{{i+1}}</th>
                                                 <td class="add-img">
                                                     <img [src]="reqProds.sku_image[0].sku_image" alt="Potatoes">

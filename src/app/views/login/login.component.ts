@@ -34,15 +34,14 @@ export class LoginComponent implements OnInit {
       // swal("test","","success")
       if (resp.status == 200) {
         //     swal(resp.json().message, '', 'success');
+        // window.location.reload();
         sessionStorage.setItem("role", resp.role);
         sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
           sessionStorage.setItem("wholesalerId", resp.id);
-        }else if(resp.role == "vendor"){
+        } else if (resp.role == "vendor") {
           sessionStorage.setItem("vemdorId", resp.id);
-
         }
-
         // this.redirectTo('dashboard');
         // this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
         // this.router.navigate(["dashboard"])); 
@@ -56,13 +55,6 @@ export class LoginComponent implements OnInit {
       //     this.router.navigate(['/'])
       // }
     })
-    // location.reload();
   }
-  // redirectTo(uri:string){
-  //   this.router.navigateByUrl('/DummyComponent', {skipLocationChange: true}).then(()=>
-  //   this.router.navigate([uri]));}
-
-
-
 }
 

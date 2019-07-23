@@ -13,6 +13,13 @@ export class CollapsesComponent implements OnInit {
   grocerySubCats;
   ecomSubcats;
   SubsubCategory = [];
+
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   ngOnInit() {
     this.getSubsub();
   }
@@ -22,8 +29,8 @@ export class CollapsesComponent implements OnInit {
 
         'actionType': this.actionType
       }
-      }
-    this.router.navigate(['/Category/addsubsubcategories'],navigationExtras);
+    }
+    this.router.navigate(['/Category/addsubsubcategories'], navigationExtras);
   }
   newsubsubCat(id, maincat, subcat, maincatId, action, img, des, sscID) {
     let navigationExtras: NavigationExtras = {
@@ -47,7 +54,11 @@ export class CollapsesComponent implements OnInit {
     // this.spinnerService.show();
     this.appService.getSubsub().subscribe((resp: any) => {
       // this.spinnerService.hide();
-      this.SubsubCategory = resp.result;
+      // this.SubsubCategory = resp.result;
+      this.SubsubCategory = resp.result.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
       console.log(this.SubsubCategory);
       if (resp.result.length === 0) {
         // swal("No data found, please add new one", '', 'error');
@@ -65,7 +76,11 @@ export class CollapsesComponent implements OnInit {
     // this.spinnerService.show();
     this.appService.getSubsubEcom().subscribe((resp: any) => {
       // this.spinnerService.hide();
-      this.SubsubCategory = resp.result;
+      // this.SubsubCategory = resp.result;
+      this.SubsubCategory = resp.result.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
       if (resp.result.length === 0) {
         // swal("No data found, please add new one", '', 'error');
       }

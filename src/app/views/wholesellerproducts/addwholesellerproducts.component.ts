@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { Router } from '@angular/router';
 declare var $: any;
-declare var jsPDF: any; 
+declare var jsPDF: any;
 @Component({
     selector: 'app-addwholesellerproducts',
     templateUrl: './addwholesellerproducts.component.html',
@@ -16,6 +16,12 @@ export class AddwholesellerproductsComponent implements OnInit {
     subSubdata = [];
     showAddProductsForm1 = false;
     tableData = false;
+    key: string = 'name';
+    reverse: boolean = true;
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
     ngOnInit() {
         this.getCat()
     }
@@ -599,12 +605,12 @@ export class AddwholesellerproductsComponent implements OnInit {
             "category_id": this.cat_id,
             "subcategory_id": this.subCat_id,
             "product_name": this.reqProduct,
-            "subsubcat_id":this.sub_sub_id||'',
-            "category_name":this.formdata.categoryName,
-            "sub_category_name":this.formdata.subcategoryName,
-            "subsubcat_name  ":this.formdata.subsubcategoryName,
+            "subsubcat_id": this.sub_sub_id || '',
+            "category_name": this.formdata.categoryName,
+            "sub_category_name": this.formdata.subcategoryName,
+            "subsubcat_name  ": this.formdata.subsubcategoryName,
         }
-        this.appService.reqAdmin(inData).subscribe((res:any) => {
+        this.appService.reqAdmin(inData).subscribe((res: any) => {
             if (res.status == 200) {
                 // swal(res.message, "", "success");
                 $('#product-name').modal('hide');

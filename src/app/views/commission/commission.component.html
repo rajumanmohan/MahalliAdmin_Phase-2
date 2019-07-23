@@ -1,34 +1,4 @@
 <div class="animated fadeIn">
-    <!-- <div class="row">
-            <div class="col-lg-4 col-sm-5">
-                <div class="well"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                    velit esse cillum dolore eu fugiat nulla pariatur. </div>
-            </div>
-            <div class="col-lg-4 offset-lg-4 col-sm-5 offset-sm-2">
-                <table class="table table-clear">
-                    <tbody>
-                        <tr>
-                            <td class="left"><strong>Subtotal</strong></td>
-                            <td class="right">$8.497,00</td>
-                        </tr>
-                        <tr>
-                            <td class="left"><strong>Discount (20%)</strong></td>
-                            <td class="right">$1,699,40</td>
-                        </tr>
-                        <tr>
-                            <td class="left"><strong>VAT (10%)</strong></td>
-                            <td class="right">$679,76</td>
-                        </tr>
-                        <tr>
-                            <td class="left"><strong>Total</strong></td>
-                            <td class="right"><strong>$7.477,36</strong></td>
-                        </tr>
-                    </tbody>
-                </table><a class="btn btn-success" href="#"><i class="fa fa-usd"></i> Proceed to Payment</a>
-            </div>
-        </div> -->
     <div class="row">
         <div class="col-lg-12">
             <div class="card pt-5">
@@ -41,7 +11,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                                <input type="text" class="form-control" id="ccnumber" placeholder="Search"
+                                    [(ngModel)]="filter">
                             </div>
                         </div>
                     </div>
@@ -53,15 +24,20 @@
                         <thead>
                             <tr>
                                 <th>S No</th>
-                                <th>Name</th>
-                                <th>Final Amount</th>
-                                <th>Commission To Admin</th>
-                                <th>Amount To Client</th>
+                                <th (click)="sort(first_name)">Name <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(final_amount)">Final Amount <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(commission_to_admin)">Commission To Admin <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(amount_to_clint)">Amount To Client <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let data of commisionData ;let i=index">
-                                <td>{{i+1}}</td>
+                            <tr
+                                *ngFor="let data of commisionData|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
+                                <td>{{data.indexValue+1}}</td>
                                 <td>{{data.first_name}}</td>
                                 <td>{{data.final_amount}}
                                 </td>
@@ -71,16 +47,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <!-- <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul> -->
+                    <pagination-controls (pageChange)="p = $event" style="float:right; margin-top:15px;">
+                    </pagination-controls>
                 </div>
             </div>
         </div>

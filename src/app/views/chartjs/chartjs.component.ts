@@ -1,16 +1,22 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 // import { Router } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
-import { Router, NavigationExtras,ActivatedRoute } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: 'chartjs.component.html'
 })
 export class ChartJSComponent implements OnInit {
-  constructor(public router: Router,private appService: AppService,private route: ActivatedRoute) { }
-  coupons=[];
-  ngOnInit(){
+  constructor(public router: Router, private appService: AppService, private route: ActivatedRoute) { }
+  coupons = [];
+  ngOnInit() {
     this.getCoupons();
+  }
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
   addcoupon() {
     this.router.navigate(['/charts/addcoupon']);
@@ -106,30 +112,33 @@ export class ChartJSComponent implements OnInit {
   }
   getCoupons() {
     // this.spinnerService.show();
-    this.appService.getVouchers().subscribe((resp:any) => {
-        // this.spinnerService.hide();
-        this.coupons = resp.data;
-        console.log(this.coupons);
+    this.appService.getVouchers().subscribe((resp: any) => {
+      // this.spinnerService.hide();
+      // this.coupons = resp.data;
+      this.coupons = resp.data.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
 
     })
-}
-deleteVoucher(id) {
-  // this.spinnerService.show();
-  // swal("Do you want to delete?", "", "warning", {
-  //     buttons: ["Cancel!", "Okay!"],
-  // }).then((value) => {
+  }
+  deleteVoucher(id) {
+    // this.spinnerService.show();
+    // swal("Do you want to delete?", "", "warning", {
+    //     buttons: ["Cancel!", "Okay!"],
+    // }).then((value) => {
 
-  //     if (value === true) {
-          this.appService.deleteVoucher(id).subscribe(response => {
-              // this.spinnerService.hide();
-              // swal("Deleted successfully", '', 'success');
-              this.getCoupons();
-          }, error => {
+    //     if (value === true) {
+    this.appService.deleteVoucher(id).subscribe(response => {
+      // this.spinnerService.hide();
+      // swal("Deleted successfully", '', 'success');
+      this.getCoupons();
+    }, error => {
 
-          })
-      // } else {
-      //     return;
-      // }
-  // });
-}
+    })
+    // } else {
+    //     return;
+    // }
+    // });
+  }
 }

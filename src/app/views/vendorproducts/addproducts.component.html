@@ -568,13 +568,15 @@
                                                 <tr>
                                                     <th scope="col">S.No</th>
                                                     <th scope="col">Item</th>
-                                                    <th scope="col">Item Name</th>
-                                                    <th scope="col">Brand</th>
+                                                    <th scope="col" (click)="sort('product_name')">Item Name <span><i class="fa fa-sort"
+                                                        aria-hidden="true"></i></span></th>
+                                                    <th scope="col" (click)="sort('brand')">Brand <span><i class="fa fa-sort"
+                                                        aria-hidden="true"></i></span></th>
                                                     <th scope="col" class="text-center">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="cust-tbody">
-                                                <tr *ngFor="let reqProds of reqProds;let i=index">
+                                                <tr *ngFor="let reqProds of reqProds|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
                                                     <th scope="row" class="cust-1">{{i+1}}</th>
                                                     <td class="add-img">
                                                         <img [src]="reqProds.sku_image[0].sku_image" alt="Potatoes">

@@ -13,16 +13,26 @@ export class WholesellerComponent implements OnInit {
 
   constructor(public router: Router, private appService: AppService) { }
   wholeSellers = []
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   addwholeseller() {
     this.router.navigate(['/wholeseller/addwholeseller']);
   }
   wholesellerproducts() {
     this.router.navigate(['/wholeseller/wholesellerproducts']);
   }
- 
+
   getWholeSeller() {
     this.appService.getWholeSeller().subscribe((resp: any) => {
       this.wholeSellers = resp.data;
+      this.wholeSellers = resp.data.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
     })
   }
 

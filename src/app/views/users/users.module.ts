@@ -5,12 +5,16 @@ import { UsersRoutingModule } from './users-routing.module';
 import { AddusersComponent } from './addusers.component';
 import { UserordersComponent } from './userorders.component';
 import { OrderdetailsComponent } from './orderdetails.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SafePipeModule } from 'safe-pipe';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UsersComponent, AddusersComponent, UserordersComponent, OrderdetailsComponent],
   imports: [
-    CommonModule, UsersRoutingModule
+    CommonModule, UsersRoutingModule, NgxPaginationModule, SafePipeModule, Ng2OrderModule, Ng2SearchPipeModule, FormsModule
   ]
 })
 export class UsersModule { }

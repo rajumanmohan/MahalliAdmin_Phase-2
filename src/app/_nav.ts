@@ -28,15 +28,15 @@ export interface NavData {
   label?: NavLabel;
   wrapper?: NavWrapper;
 }
-if(sessionStorage.role=='Admin'){
+if (sessionStorage.role == 'Admin') {
   var newArr = [
     {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-  
+
     },
-  
+
     {
       name: 'Main Categories',
       url: '/Category',
@@ -57,12 +57,12 @@ if(sessionStorage.role=='Admin'){
           url: '/Category/subsubcategories',
           icon: 'icon-puzzle'
         },
-  
+
       ]
     },
     {
       name: 'Coupon Management',
-      url: '/charts',
+      url: '/coupons',
       icon: 'icon-pie-chart'
     },
     {
@@ -102,7 +102,7 @@ if(sessionStorage.role=='Admin'){
         }
       ]
     },
-  
+
     {
       name: 'User Management',
       url: '/userslist',
@@ -120,7 +120,7 @@ if(sessionStorage.role=='Admin'){
         }
       ]
     },
-  
+
     {
       name: 'Wholeseller ',
       url: '/wholeseller',
@@ -148,7 +148,7 @@ if(sessionStorage.role=='Admin'){
         },
       ]
     },
-  
+
     {
       name: 'Requested Products',
       url: '/suggestedproducts',
@@ -214,22 +214,22 @@ if(sessionStorage.role=='Admin'){
       icon: 'icon-user',
     }
     ,
-  
+
   ];
-}else if(sessionStorage.role=='wholesaler'){
+} else if (sessionStorage.role == 'wholesaler') {
   var newArr = [
     {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-  
+
     },
     {
       name: 'Vendor Orders',
       url: '/vendorslist/vendororders',
       icon: 'fa fa-cart-plus ',
     },
-  
+
     {
       name: 'Wholeseller Products',
       url: '/wholesellerproducts',
@@ -245,26 +245,26 @@ if(sessionStorage.role=='Admin'){
           url: '/wholesellerproducts',
           icon: 'icon-calculator '
         },
-  
+
       ]
     },
-    
-  
+
+
   ];
-}else {  
-   newArr = [
+} else {
+  newArr = [
     {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-  
+
     },
     {
       name: 'Vendor Orders',
       url: '/vendorslist/vendororders',
       icon: 'fa fa-cart-plus ',
     },
-  
+
     {
       name: 'Vendor Products',
       url: '/vendorproducts',
@@ -280,7 +280,7 @@ if(sessionStorage.role=='Admin'){
           url: '/vendorproducts',
           icon: 'icon-calculator '
         },
-  
+
       ]
     }
   ]

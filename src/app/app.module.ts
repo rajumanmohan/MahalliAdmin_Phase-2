@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -16,13 +17,16 @@ import { AppComponent } from './app.component';
 // Import containers
 import { DefaultLayoutComponent } from './containers';
 import { MyDatePickerModule } from 'mydatepicker';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { SafePipeModule } from 'safe-pipe';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+
 // services
 import { AppService } from './services/mahali/mahali-data.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -65,8 +69,12 @@ import { ProfileComponent } from './views/profile/profile.component';
     PerfectScrollbarModule,
     ReactiveFormsModule,
     FormsModule,
+    Ng2SearchPipeModule,
     HttpClientModule,
     CKEditorModule,
+    SafePipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
     MyDatePickerModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
