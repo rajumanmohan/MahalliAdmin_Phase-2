@@ -11,10 +11,16 @@ export class WholesellerproductsComponent implements OnInit {
     salerId;
     showGroceryProds;
     showEcomProds;
-    constructor(private appService: AppService, private route: ActivatedRoute,public router: Router) {
+    constructor(private appService: AppService, private route: ActivatedRoute, public router: Router) {
         this.route.queryParams.subscribe(params => {
             this.salerId = params.salerproductId
         });
+    }
+    key: string = 'name';
+    reverse: boolean = true;
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
     }
     product;
     sellerProId;
@@ -65,6 +71,10 @@ export class WholesellerproductsComponent implements OnInit {
                 // this.spinnerService.hide();
                 if (resp.status === 200) {
                     this.product = resp.products;
+                    this.product = resp.products.map(function (value, index) {
+                        value.indexValue = index;
+                        return value;
+                    })
                 } else if (resp.status === 400) {
                     // this.noRecords1 = true;
                 }
@@ -94,6 +104,10 @@ export class WholesellerproductsComponent implements OnInit {
                 // this.spinnerService.hide();
                 if (resp.status === 200) {
                     this.product = resp.products;
+                    this.product = resp.products.map(function (value, index) {
+                        value.indexValue = index;
+                        return value;
+                    })
                 } else if (resp.status === 400) {
                     // this.noRecords = true;
                 }
@@ -113,7 +127,7 @@ export class WholesellerproductsComponent implements OnInit {
     }
     showStatus;
     Status;
-    key;
+
     status(btn, prodId, Appr) {
         this.Status = btn.value;
         this.key = btn.value === "Active" ? "Inactive" : "Active"
@@ -198,7 +212,7 @@ export class WholesellerproductsComponent implements OnInit {
             }
         }
         this.router.navigate(['wholeseller/imageapproval'], navigationExtras);
-      }
+    }
     // showProdDetails(prodId) {
     //     let navigationExtras: NavigationExtras = {
     //         queryParams: {

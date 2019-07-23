@@ -29,7 +29,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                                <input type="text" class="form-control" id="ccnumber" placeholder="Search"
+                                    [(ngModel)]="filter">
                             </div>
                         </div>
                     </div>
@@ -41,16 +42,22 @@
                         <thead>
                             <tr>
                                 <th>S No</th>
-                                <th>Category Name</th>
-                                <th>Sub Category Name</th>
-                                <th>Product Name</th>
-                                <th>Sku Imgae</th>
-                                <th>Product Status</th>
+                                <th (click)="sort(category_name)">Category Name <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(sub_category_name)">Sub Category Name <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(product_name)">Product Name <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(sku_row)">Sku Imgae <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(value)">Product Status <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let prod of product;let i=index;">
+                            <tr
+                                *ngFor="let prod of product|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
                                 <!-- | paginate: { itemsPerPage: 10, currentPage: p } -->
                                 <td>{{i+1}}</td>
                                 <td>{{prod.category_name}}</td>
@@ -62,91 +69,20 @@
                                 </td>
                                 <td>
                                     <button class="btn remove btn-outline-primary" [value]="prod.approval" #btn
-                                    (click)="status(btn,prod.product_id,prod.approval)">{{btn.value}}</button>
+                                        (click)="status(btn,prod.product_id,prod.approval)">{{btn.value}}</button>
                                 </td>
-                              
+
                                 <td class="edit-buttons">
                                     <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
                                     <a (click)="deleteProduct(prod.product_id)"> <i class="fa fa-trash fa-lg"
                                             aria-hidden="true"></i></a>
                                 </td>
                             </tr>
-                            <!-- <tr>
-                                <td>2</td>
-                                <td>textname</td>
-                                <td>text sub name</td>
-                                <td>text name</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><a (click)="active()"> <button type="button"
-                                            class="btn btn-block btn-outline-success active"
-                                            aria-pressed="true">Active</button></a></td>
-                                <td class="edit-buttons">
-                                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                            aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>textname</td>
-                                <td>text sub name</td>
-                                <td>text name</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><a (click)="active()"> <button type="button"
-                                            class="btn btn-block btn-outline-success active"
-                                            aria-pressed="true">Active</button></a></td>
-                                <td class="edit-buttons">
-                                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                            aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>textname</td>
-                                <td>text sub name</td>
-                                <td>text name</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><a (click)="active()"> <button type="button"
-                                            class="btn btn-block btn-outline-success active"
-                                            aria-pressed="true">Active</button></a></td>
-                                <td class="edit-buttons">
-                                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                            aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>textname</td>
-                                <td>text sub name</td>
-                                <td>text name</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td><a (click)="active()"> <button type="button"
-                                            class="btn btn-block btn-outline-success active"
-                                            aria-pressed="true">Active</button></a></td>
-                                <td class="edit-buttons">
-                                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                            aria-hidden="true"></i></a>
-                                </td>
-                            </tr> -->
+
                         </tbody>
                     </table>
-                    <!-- <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul> -->
+                    <pagination-controls (pageChange)="p = $event" style="float:right; margin-top:15px;">
+                    </pagination-controls>
                 </div>
                 <div class="card-body" *ngIf="showEcomProds">
                     <table id="order-listing" class="table " style="text-align: center">
@@ -169,7 +105,8 @@
                                 <td>{{i+1}}</td>
                                 <td>{{prod.category_name}}</td>
                                 <td>{{prod.sub_category_name}} </td>
-                                <td><a  (click)="showProdDetails(prod.product_id)" class="prod-name">{{prod.product_name}}</a>
+                                <td><a (click)="showProdDetails(prod.product_id)"
+                                        class="prod-name">{{prod.product_name}}</a>
                                 </td>
                                 <td>
                                     <img [src]="prod.sku_row[0]?.sku_images[0]?.sku_image" />

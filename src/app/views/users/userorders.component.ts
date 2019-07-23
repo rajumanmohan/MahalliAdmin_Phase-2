@@ -23,6 +23,12 @@ export class UserordersComponent implements OnInit {
   // orderdetails() {
   //   this.router.navigate(['/userslist/orderdetails']);
   // }
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   ngOnInit() {
     this.getUserOrds();
     this.myDatePickerOptions = {
@@ -32,7 +38,11 @@ export class UserordersComponent implements OnInit {
   }
   getUserOrds() {
     this.appService.getUserOrders().subscribe((res: any) => {
-      this.userOrds = res.order;
+      // this.userOrds = res.order;
+      this.userOrds = res.order.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
     })
   }
   orderDetails(orderId, type) {

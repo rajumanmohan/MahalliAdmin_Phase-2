@@ -26,7 +26,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                                <input type="text" class="form-control" id="ccnumber" placeholder="Search"
+                                    [(ngModel)]="filter">
                             </div>
                         </div>
                     </div>
@@ -38,14 +39,16 @@
                         <thead>
                             <tr>
                                 <th>S No</th>
-                                <th>Category Name</th>
+                                <th (click)="sort('category_name')"> Category Name <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
                                 <th>Category Image</th>
-                                <th>Action</th>
+                                <th> Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let cat of category;let i=index;">
-                                <td>{{i+1}}</td>
+                            <tr
+                                *ngFor="let cat of category|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
+                                <td>{{cat.indexValue +1}}</td>
                                 <td>{{cat.category_name}}</td>
                                 <td><img alt="cat.image_url" class="img-avatar" [src]="cat.image_url"></td>
 
@@ -56,61 +59,11 @@
                                             (click)="deleteCat(cat.id) "></i></a>
                                 </td>
                             </tr>
-                            <!-- <tr>
-                                <td>2</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td class="edit-buttons">
-                                        <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                                        <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                                                aria-hidden="true"></i></a>
-                                    </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><img alt="admin@bootstrapmaster.com" class="img-avatar"
-                                        src="assets/img/avatars/6.jpg"></td>
-                                <td>text Category</td>
-                                <td>
-                                    <a><img src="assets/img/edit.png" class="edit"></a>
-                                    <a><img src="assets/img/delete.png" class="delete"></a>
-                                </td>
-                            </tr> -->
+
                         </tbody>
                     </table>
-                    <!-- <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul> -->
+                    <pagination-controls (pageChange)="p = $event" style="float:right; margin-top:15px;">
+                    </pagination-controls>
                 </div>
             </div>
         </div>

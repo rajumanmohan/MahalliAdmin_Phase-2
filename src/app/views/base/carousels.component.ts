@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
-import { Router ,NavigationExtras} from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
 // import { Router, NavigationExtras } from '@angular/router';
 
@@ -26,20 +26,26 @@ export class CarouselsComponent implements OnInit {
   ecomSubcats;
   actionType;
   subCategory = [];
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   addbanner() {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-          // 'subCat': subcat,
-          // 'mainCat': maincat,
-          // 'id': id,
-          // 'mainCatId': maincatId,
-          // 'action': action,
-          // 'img': img,
-          // 'des': des,
-          'actionType': this.actionType
+        // 'subCat': subcat,
+        // 'mainCat': maincat,
+        // 'id': id,
+        // 'mainCatId': maincatId,
+        // 'action': action,
+        // 'img': img,
+        // 'des': des,
+        'actionType': this.actionType
       }
-  }
-    this.router.navigate(['/Category/addsubcatbanners'],navigationExtras);
+    }
+    this.router.navigate(['/Category/addsubcatbanners'], navigationExtras);
   }
 
   // ngOnDestroy(): void {
@@ -55,7 +61,11 @@ export class CarouselsComponent implements OnInit {
     // this.spinnerService.show();
     this.appService.getSubCategery().subscribe((resp: any) => {
       // this.spinnerService.hide();
-      this.subCategory = resp.result;
+      // this.subCategory = resp.result;
+      this.subCategory = resp.result.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
       // if (resp.result.length === 0) {
       //   swal("No data found, please add new one", '', 'error');
     })
@@ -72,7 +82,12 @@ export class CarouselsComponent implements OnInit {
     // this.spinnerService.show();
     this.appService.getEcomSubcats().subscribe((resp: any) => {
       // this.spinnerService.hide();
-      this.subCategory = resp.result;
+      // this.subCategory = resp.result;
+      this.subCategory = resp.result.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
+
       if (resp.result.length === 0) {
         // swal("No data found, please add new one", '', 'error');
       }

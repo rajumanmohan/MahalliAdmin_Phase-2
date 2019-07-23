@@ -15,10 +15,16 @@ export class VendorordersComponent implements OnInit {
   orderdetails() {
     this.router.navigate(['/vendorslist/vendorordersdetails']);
   }
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   orders = [];
   type;
   ngOnInit() {
-    if(sessionStorage.vemdorId){
+    if (sessionStorage.vemdorId) {
       this.getAllVendorOrders1();
     }else if(sessionStorage.wholesalerId){
 this.wholeOrders();
@@ -30,7 +36,11 @@ this.wholeOrders();
   }
   getAllVendorOrders() {
     this.appService.getAllVendorOrds().subscribe((res: any) => {
-      this.orders = res.Orders;
+      // this.orders = res.Orders;
+      this.orders = res.Orders.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
     }, error => {
 
     })
@@ -44,7 +54,11 @@ this.wholeOrders();
   }
   getAllVendorOrders1() {
     this.appService.getPlaceOrder().subscribe((res: any) => {
-      this.orders = res.finalarray;
+      // this.orders = res.Orders;
+      this.orders = res.Orders.map(function (value, index) {
+        value.indexValue = index;
+        return value;
+      })
     }, error => {
 
     })
@@ -52,11 +66,11 @@ this.wholeOrders();
   orderDetails(orderId) {
     // this.type = type;
     let navigationExtras: NavigationExtras = {
-        queryParams: {
-            orderId: orderId,
-            // type: this.type,
-            // wholeId: this.wholeId
-        }
+      queryParams: {
+        orderId: orderId,
+        // type: this.type,
+        // wholeId: this.wholeId
+      }
     }
     this.router.navigate(['vendorslist/vendorordersdetails'], navigationExtras)
 }

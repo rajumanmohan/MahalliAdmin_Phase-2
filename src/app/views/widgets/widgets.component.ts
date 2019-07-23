@@ -11,6 +11,12 @@ import { NavigationEnd, NavigationExtras } from '@angular/router';
 export class WidgetsComponent implements OnInit {
   constructor(public router: Router, private appService: AppService) { }
   showGroceryProds;
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
   wholeType;
   ngOnInit() {
     this.getGroceryProds();
@@ -18,15 +24,15 @@ export class WidgetsComponent implements OnInit {
   addproduct() {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-          // 'name': name,
-          // 'id': id,
-          // 'pic': pic,
-          // 'des': des,
-          // 'type': this.type,
-          'wholeType': this.wholeType
+        // 'name': name,
+        // 'id': id,
+        // 'pic': pic,
+        // 'des': des,
+        // 'type': this.type,
+        'wholeType': this.wholeType
       }
-  }
-    this.router.navigate(['/widgets/addproduct'],navigationExtras);
+    }
+    this.router.navigate(['/widgets/addproduct'], navigationExtras);
   }
   // lineChart1
   public lineChart1Data: Array<any> = [
@@ -423,7 +429,11 @@ export class WidgetsComponent implements OnInit {
     this.appService.getGroceryProds()
       .subscribe((resp: any) => {
         // this.spinnerService.hide();
-        this.product = resp.products;
+        // this.product = resp.products;
+        this.product = resp.products.map(function (value, index) {
+          value.indexValue = index;
+          return value;
+        })
         // console.log()
         for (var i = 0; i < this.product.length; i++) {
           // for (var j = 0; j < this.product[i]..length; j++) {
@@ -454,7 +464,11 @@ export class WidgetsComponent implements OnInit {
     this.appService.getEcomProds()
       .subscribe((resp: any) => {
         // this.spinnerService.hide();
-        this.product = resp.products;
+        // this.product = resp.products;/
+        this.product = resp.products.map(function (value, index) {
+          value.indexValue = index;
+          return value;
+        })
         // console.log()
         for (var i = 0; i < this.product.length; i++) {
           // for (var j = 0; j < this.product[i].sku_row.length; j++) {
@@ -481,25 +495,25 @@ export class WidgetsComponent implements OnInit {
     //         // var data = {
     //         //     'id': id
     //         // }
-            this.appService.deleteAdminProdUrl(id)
-                .subscribe((resp:any) => {
-                    if (resp.status === 200) {
-                        // swal('product delete successfully', '', 'success');
-                        this.wholeType == "ecommerce" ? this.getEcomProds() : this.getGroceryProds();
-                        // this.getGroceryProds();
-                    }
-                    else {
-                        // swal(resp.json().message, '', 'error');
-                    }
-                },
-                    error => {
-                        console.log(error, "error");
-                    })
-        // } else {
-        //     return;
-        // }
+    this.appService.deleteAdminProdUrl(id)
+      .subscribe((resp: any) => {
+        if (resp.status === 200) {
+          // swal('product delete successfully', '', 'success');
+          this.wholeType == "ecommerce" ? this.getEcomProds() : this.getGroceryProds();
+          // this.getGroceryProds();
+        }
+        else {
+          // swal(resp.json().message, '', 'error');
+        }
+      },
+        error => {
+          console.log(error, "error");
+        })
+    // } else {
+    //     return;
+    // }
     // });
 
 
-}
+  }
 }

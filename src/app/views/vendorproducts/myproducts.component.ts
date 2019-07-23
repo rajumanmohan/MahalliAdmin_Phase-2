@@ -18,7 +18,12 @@ export class MyproductsComponent implements OnInit {
     this.router.navigate(['/wholesellerproducts/addwholesellerproducts']);
   }
 
-
+  key: string = 'name';
+  reverse: boolean = true;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   ngOnInit() {
     this.getGroceryProds();

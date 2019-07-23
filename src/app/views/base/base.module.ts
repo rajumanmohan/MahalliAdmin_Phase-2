@@ -43,6 +43,12 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { TooltipsComponent } from './tooltips.component';
 
 
+// import { NgxPaginationModule } from 'ngx-pagination';
+import { SafePipeModule } from 'safe-pipe';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 // Components Routing
 import { BaseRoutingModule } from './base-routing.module';
 import { AddbannersComponent } from './addbanners.component';
@@ -61,7 +67,11 @@ import { AddsubsubcatComponent } from './addsubsubcat.component';
     PaginationModule.forRoot(),
     PopoverModule.forRoot(),
     ProgressbarModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    SafePipeModule,
+    Ng2OrderModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   declarations: [
     CardsComponent,

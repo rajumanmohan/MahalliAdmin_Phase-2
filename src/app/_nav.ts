@@ -90,7 +90,7 @@ if (sessionStorage.role == 'Admin') {
     },
     {
       name: 'Coupon Management',
-      url: '/charts',
+      url: '/coupons',
       icon: 'icon-pie-chart'
     },
     {

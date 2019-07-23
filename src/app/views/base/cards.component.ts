@@ -12,6 +12,8 @@ import { AppService } from './../../services/mahali/mahali-data.service';
 export class CardsComponent implements OnInit {
 
     constructor(public router: Router, private appService: AppService) { }
+    key: string = 'name';
+    reverse: boolean = true;
     groceryCats;
     title;
     EcomCats;
@@ -21,7 +23,13 @@ export class CardsComponent implements OnInit {
     ngOnInit() {
         this.getGroceryCats();
     }
-    addbanner(name, id, pic, des) {
+   
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
+    // addbanner() {
+        addbanner(name, id, pic, des) {
         let navigationExtras: NavigationExtras = {
             queryParams: {
                 'id': id,
@@ -60,7 +68,10 @@ export class CardsComponent implements OnInit {
 
                 if (resp.status == 200) {
                     // this.name = ""
-                    this.category = resp.categories;
+                    this.category = resp.categories.map(function (value, index) {
+                        value.indexValue = index;
+                        return value;
+                    })
                     // this.spinnerService.hide();
                 }
                 else {
@@ -88,7 +99,11 @@ export class CardsComponent implements OnInit {
             .subscribe((resp: any) => {
                 if (resp.status === 200) {
                     // this.name = ""
-                    this.category = resp.categories;
+                    this.category = resp.categories.map(function (value, index) {
+                        debugger;
+                        value.indexValue = index;
+                        return value;
+                    })
                     // this.spinnerService.hide();
                 }
                 else {

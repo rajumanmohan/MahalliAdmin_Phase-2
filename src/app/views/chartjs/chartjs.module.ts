@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SafePipeModule } from 'safe-pipe';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ChartJSComponent } from './chartjs.component';
 import { ChartJSRoutingModule } from './chartjs-routing.module';
 import { CouponmanagementComponent } from './couponmanagement.component';
@@ -14,8 +17,9 @@ import { FormsModule } from '@angular/forms';
     ChartsModule,
     CommonModule,
     MyDatePickerModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule, SafePipeModule, Ng2OrderModule, Ng2SearchPipeModule
   ],
-  declarations: [ ChartJSComponent, CouponmanagementComponent ]
+  declarations: [ChartJSComponent, CouponmanagementComponent]
 })
 export class ChartJSModule { }

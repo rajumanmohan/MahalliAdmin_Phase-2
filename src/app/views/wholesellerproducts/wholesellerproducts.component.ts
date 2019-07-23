@@ -19,7 +19,12 @@ export class WholesellerproductsComponent implements OnInit {
     addproduct() {
         this.router.navigate(['/wholesellerproducts/addwholesellerproducts']);
     }
-
+    key: string = 'name';
+    reverse: boolean = true;
+    sort(key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    }
 
 
     ngOnInit() {
@@ -40,7 +45,12 @@ export class WholesellerproductsComponent implements OnInit {
             .subscribe((resp: any) => {
                 // this.spinnerService.hide();
                 if (resp.status === 200) {
-                    this.product = resp.products;
+                    // this.product = resp.products;
+                    this.product = resp.data.map(function (value, index) {
+
+                        value.indexValue = index;
+                        return value;
+                      })
                 } else if (resp.status === 400) {
                     // this.noRecords = true;
                 }

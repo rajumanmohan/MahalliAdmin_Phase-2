@@ -16,7 +16,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                <input type="text" class="form-control" id="ccnumber" placeholder="Search" [(ngModel)]="filter">
               </div>
             </div>
           </div>
@@ -28,18 +28,24 @@
             <thead>
               <tr>
                 <th>S No</th>
-                <th>Coupon Code</th>
-                <th>Discount Type</th>
-                <th>Amount</th>
-                <th>Percentage</th>
-                <th>Total Count</th>
-                <th>Up To</th>
+                <th (click)="sort(voucher_code)">Coupon Code <span><i class="fa fa-sort" aria-hidden="true"></i></span>
+                </th>
+                <th (click)="sort(discount_type)">Discount Type <span><i class="fa fa-sort"
+                      aria-hidden="true"></i></span></th>
+                <th (click)="sort(discount_amount)">Amount <span><i class="fa fa-sort" aria-hidden="true"></i></span>
+                </th>
+                <th (click)="sort(discount_percentage)">Percentage <span><i class="fa fa-sort"
+                      aria-hidden="true"></i></span></th>
+                <th (click)="sort(total_count)">Total Count <span><i class="fa fa-sort" aria-hidden="true"></i></span>
+                </th>
+                <th (click)="sort(minimum_value)">Up To <span><i class="fa fa-sort" aria-hidden="true"></i></span></th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let coupons of coupons;let i=index">
-                <td>{{i+1}}</td>
+              <tr
+                *ngFor="let coupons of coupons|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
+                <td>{{coupons.indexValue +1}}</td>
                 <td>{{coupons.voucher_code}}</td>
                 <td>{{coupons.discount_type===1?'Percentage':'Flat' }}</td>
                 <td>{{coupons.discount_amount}}</td>
@@ -48,78 +54,14 @@
                 <td>{{coupons.minimum_value}}</td>
                 <td class="edit-buttons">
                   <a><i class="fa fa-pencil-square-o fa-lg "></i></a>
-                  <a><i class="fa fa-trash fa-lg"
-                    aria-hidden="true" (click)="deleteVoucher(coupons.id)"></i></a>
+                  <a><i class="fa fa-trash fa-lg" aria-hidden="true" (click)="deleteVoucher(coupons.id)"></i></a>
                 </td>
               </tr>
-              <!-- <tr>
-                <td>2</td>
-                <td>text </td>
-                <td>texty</td>
-                <td>2</td>
-                <td>12</td>
-                <td>145</td>
-                <td>12</td>
-                <td class="edit-buttons">
-                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                            aria-hidden="true"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>text </td>
-                <td>texty</td>
-                <td>2</td>
-                <td>12</td>
-                <td>145</td>
-                <td>12</td>
-                <td class="edit-buttons">
-                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                            aria-hidden="true"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>text </td>
-                <td>texty</td>
-                <td>2</td>
-                <td>12</td>
-                <td>145</td>
-                <td>12</td>
-                <td class="edit-buttons">
-                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                            aria-hidden="true"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>text </td>
-                <td>texty</td>
-                <td>2</td>
-                <td>12</td>
-                <td>145</td>
-                <td>12</td>
-                <td class="edit-buttons">
-                    <a (click)="orderdetails()"> <i class="fa fa-pencil-square-o fa-lg "></i></a>
-                    <a (click)="orderdetails()"> <i class="fa fa-trash fa-lg"
-                            aria-hidden="true"></i></a>
-                </td>
-              </tr> -->
+
             </tbody>
           </table>
-          <!-- <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul> -->
+          <pagination-controls (pageChange)="p = $event" style="float:right; margin-top:15px;">
+          </pagination-controls>
         </div>
       </div>
     </div>

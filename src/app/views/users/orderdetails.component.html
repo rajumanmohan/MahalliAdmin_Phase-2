@@ -39,7 +39,8 @@
                         </div>
                         <!-- <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="ccnumber" placeholder="Search">
+                                <input type="text" class="form-control" id="ccnumber" placeholder="Search"
+                                    [(ngModel)]="filter">
                             </div>
                         </div> -->
                     </div>
@@ -52,16 +53,23 @@
                             <tr>
                                 <th>S No</th>
                                 <th>Product</th>
-                                <th>Name</th>
-                                <th>Size</th>
-                                <th>Color</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>Total</th>
+                                <th (click)="sort(product_name)">Name <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(sku_row)">Size <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(sku_row)">Color <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(quantity)">Quantity <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(sku_row)">Price <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
+                                <th (click)="sort(sku_row)">Total <span><i class="fa fa-sort"
+                                            aria-hidden="true"></i></span></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let orddata of ordData;let i=index">
+                            <tr
+                                *ngFor="let orddata of ordData|orderBy: key : reverse| paginate: { itemsPerPage: 10, currentPage: p }|filter:filter;let i = index">
                                 <td>{{i+1}}</td>
                                 <td><img alt="cat.image_url" class="img-avatar"
                                         [src]="orddata.sku_row[0].sku_images[0].sku_image"></td>
@@ -72,16 +80,7 @@
                                 <td>BD {{orddata.sku_row[0]?.selling_price}}</td>
                                 <td>BD {{orddata.sku_row[0]?.selling_price * orddata?.quantity}}</td>
                             </tr>
-                            <!-- <tr>
-                                <td>2</td>
-                                <td>test product</td>
-                                <td>test name </td>
-                                <td>test Size</td>
-                                <td>test color</td>
-                                <td>test Quantity</td>
-                                <td>test Price</td>
-                                <td>test Total</td>
-                            </tr> -->
+
                         </tbody>
                     </table>
                     <div class="row mb-4">
@@ -96,23 +95,7 @@
                         <div class="col-lg-4 offset-lg-4 col-sm-5 offset-sm-2">
                             <table class="table table-clear">
                                 <tbody>
-                                        <!-- Coupon_Discount: 9
-                                        Delivery_charge: 0
-                                        Final_amount: 81
-                                        billing_amount: 90
-                                        delivery_address_id: 368
-                                        delivery_date_time: "18-07-2019 05:25 PM"
-                                        delivery_slot_id: 1
-                                        item_type: "grocery"
-                                        order_id: 516
-                                        order_status: "placed"
-                                        ordered_on: "2019-07-18T08:55:52.000Z"
-                                        payment_status: ""
-                                        payment_type: 3
-                                        status: ""
-                                        user_id: 77
-                                        vendor_id: 0
-                                        wholesaler_i -->
+
                                     <tr>
                                         <td class="left"><strong>
                                                 Payable Amount</strong></td>
