@@ -23,7 +23,6 @@ export class CardsComponent implements OnInit {
     ngOnInit() {
         this.getGroceryCats();
     }
-   
     sort(key) {
         this.key = key;
         this.reverse = !this.reverse;
@@ -130,7 +129,7 @@ export class CardsComponent implements OnInit {
         this.appService.deleteCat(data)
             .subscribe(resp => {
                 // this.spinnerService.hide();
-                swal("Deleted successfully", '', 'success');
+                // swal("Deleted successfully", '', 'success');
                 this.getGroceryCats();
             }),
             error => {

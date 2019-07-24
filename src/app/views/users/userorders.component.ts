@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { ExcelService } from './../../services/excel.service';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 // import { $ } from 'protractor';
 declare var $: any;
 declare var jsPDF: any; 
@@ -78,7 +78,7 @@ Filter(){
   
   this.appService.filterUserOrders(indata).subscribe((res: any) => {
     // this.userOrds = res.order;
-    swal(res.message,"","success");
+    // swal(res.message,"","success");
     $('#filter2').modal('hide');
     // this.fromDate="";this.toDate='';
     this.userOrds = res.orders;

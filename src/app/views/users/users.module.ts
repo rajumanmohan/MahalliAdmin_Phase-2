@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [UsersComponent, AddusersComponent, UserordersComponent, OrderdetailsComponent],
   imports: [
-    // CommonModule, UsersRoutingModule,MyDatePickerModule
     CommonModule, UsersRoutingModule, NgxPaginationModule, SafePipeModule, Ng2OrderModule, Ng2SearchPipeModule, FormsModule,MyDatePickerModule
   ]
 })

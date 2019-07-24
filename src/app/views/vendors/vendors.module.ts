@@ -18,7 +18,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [VendorsComponent, VendorproductsComponent, VendorordersComponent, VendororderdetailsComponent, EditvendorComponent],
   imports: [
-    CommonModule, VendorsRoutingModule, FormsModule, NgxPaginationModule, SafePipeModule, Ng2OrderModule, Ng2SearchPipeModule
+    CommonModule, VendorsRoutingModule, FormsModule, NgxPaginationModule, SafePipeModule, Ng2OrderModule, Ng2SearchPipeModule,MyDatePickerModule
   ]
 })
 export class VendorsModule { }

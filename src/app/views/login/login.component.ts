@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from './../../services/mahali/mahali-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'login.component.html'
 })
 export class LoginComponent implements OnInit {
-  constructor(private appService: AppService, private formBuilder: FormBuilder, public router: Router,private toastr: ToastrService) { }
+  constructor(private appService: AppService, private formBuilder: FormBuilder, public router: Router) { }
   loginForm: FormGroup;
   submitted = false;
   ngOnInit() {
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       // swal("test","","success")
       if (resp.status == 200) {
         // this.toastr.success("Hello, I'm the toastr message.");
-            swal(resp.message, '', 'success');
+            // swal(resp.message, '', 'success');
         sessionStorage.setItem("role", resp.role);
         sessionStorage.setItem("profile", JSON.stringify(resp.row));
         if (resp.role == "wholesaler") {
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         //     // }
       }
       else if (resp.status == 400) {
-      swal(resp.message, '', 'error');
+      // swal(resp.message, '', 'error');
           this.router.navigate(['/'])
       }
     })
